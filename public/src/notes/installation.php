@@ -11,3 +11,4 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //    https://github.com/yespickmeup/spudaa.git
 //    git clone
 //    git pull https://github.com/yespickmeup/spudaa.git
+//    
