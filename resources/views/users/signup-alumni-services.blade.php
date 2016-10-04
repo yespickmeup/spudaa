@@ -45,8 +45,8 @@
     <div class="row text-center" >
     <div class="btn-group">
         <a href="" class="btn btn-default pull-left" ng-click="doBack()">Previous</a>
-        <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
-           >Next</a>
+        <a href="" class="btn btn-success pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+           >Save</a>
         <!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
                    >Next</a>-->
     </div>
