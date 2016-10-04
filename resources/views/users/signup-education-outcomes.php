@@ -255,5 +255,15 @@
             <td style="width: 20px;text-align: center;"><input type="radio" name="communication_impact" value="4" ></td>
         </tr>
     </table>
-      <a class="btn btn-default" ng-click="checkOutcome2()">check</a>
+<!--      <a class="btn btn-default" ng-click="checkOutcome2()">check</a>-->
+<div class="row text-center" >
+    <div class="btn-group">
+        <a href="" class="btn btn-default pull-left" ng-click="doBack()">Previous</a>
+        <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+           >Next</a>
+        <!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+                   >Next</a>-->
+    </div>
+</div>
+<br>
 </div>
