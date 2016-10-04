@@ -84,6 +84,7 @@ Route::get('/api/user/exists/{email}', [
     'as' => 'user.exists',
     'uses' => 'UserController@getCheckEmailIfExists'
 ]);
+
 // End of User
 // End of Api's
 
