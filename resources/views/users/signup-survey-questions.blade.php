@@ -123,5 +123,16 @@
             <input type="radio"  name="seeking_employment" value="6"> over 12 months<br>
         </div>
     </div>
-    <a class="btn btn-default" ng-click="checkSurvey()">Check</a>
+    <!--    <a class="btn btn-default" ng-click="checkSurvey()">Check</a>-->
+
 </div>
+<div class="row text-center" >
+    <div class="btn-group">
+        <a href="" class="btn btn-default pull-left" ng-click="doBack()">Previous</a>
+        <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+           >Next</a>
+        <!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+                   >Next</a>-->
+    </div>
+</div>
+<br>

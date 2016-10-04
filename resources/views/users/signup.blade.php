@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AlumniREGISTRY | Signup Page</title>
+        <title>Alumni Association | Signup</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="{{ URL::to('src/bootstrap/css/bootstrap.min.css') }}"/>
@@ -42,10 +42,10 @@
                             <!-- Custom Tabs -->
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs">
-                                    <li ><a href="#tab_1" data-toggle="tab">Background Information</a></li>
+                                    <li class="active"><a href="#tab_1" data-toggle="tab">Background Information</a></li>
                                     <li ><a href="#tab_2" data-toggle="tab">Employment Survey</a></li>
                                     <li ><a href="#tab_3" data-toggle="tab">Education Outcomes</a></li>
-                                    <li class="active"><a href="#tab_5" data-toggle="tab">School Activities Involvements</a></li>
+                                    <li ><a href="#tab_5" data-toggle="tab">School Activities Involvements</a></li>
                                     <li><a href="#tab_6" data-toggle="tab">Alumni Family Members</a></li>
                                     <li><a href="#tab_4" data-toggle="tab">Alumni Services</a></li>
 
@@ -54,8 +54,8 @@
                                       style="" ng-model="userForm" enctype="multipart/form-data" novalidate data-toggle="validator"
 
                                       >
-                                    <div class="tab-content"  >
-                                        <div class="tab-pane " id="tab_1" ng-controller="backgroundInfoController">
+                                    <div class="tab-content "  >
+                                        <div class="tab-pane active" id="tab_1" ng-controller="backgroundInfoController">
                                             @include('users.signup-background-info')
                                         </div>
                                         <div class="tab-pane " id="tab_2" ng-controller="employmentSurveyController">
@@ -64,7 +64,7 @@
                                         <div class="tab-pane " id="tab_3" ng-controller="educactionOutcomesController">
                                             @include('users.signup-education-outcomes')
                                         </div>
-                                        <div class="tab-pane active" id="tab_5" ng-controller="schoolActivitiesInvolvementsController">
+                                        <div class="tab-pane " id="tab_5" ng-controller="schoolActivitiesInvolvementsController">
                                             @include('users.signup-school-activities-involvements')
                                         </div>
                                         <div class="tab-pane" id="tab_6">
