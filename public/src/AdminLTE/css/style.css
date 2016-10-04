@@ -66,13 +66,13 @@ body {
     margin-bottom:0;
 }
 .navbar-inverse .navbar-nav>li>a {
-    color:#fff;
-    font-size:18px;
+    color: darkgreen;
+    font-size:22px;
 }
 .navbar>.container .navbar-header a.navbar-brand h1{
     font-size: 31px;
     font-family: 'Nunito', sans-serif;
-    color: #fff;
+    color: darkgreen;
     text-transform: uppercase;
     font-weight: 300;
 }
