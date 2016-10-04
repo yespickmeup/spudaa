@@ -385,10 +385,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="links">
                             <a href="index.html">Home</a>
                             <a href="#about">About</a>
+                            <a href="#news">News and Events</a>
                             <a href="#service">Services</a>
                             <a href="#gallery">Gallery</a>
-                            <a href="#team">Team</a>
-                            <a href="#contact">Contact</a>
+                            <a href="{{route('signin')}}">Signin</a>
                         </div>
                     </div>
                     <div class="col-md-6">
