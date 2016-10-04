@@ -13,3 +13,6 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //    git pull https://github.com/yespickmeup/spudaa.git
 //    git push https://github.com/yespickmeup/spudaa.git
 //    rpascua.synsoftech@gmail.com
+//    ssh root@162.243.44.240
+//    sudo shutdown -r now
+//    
