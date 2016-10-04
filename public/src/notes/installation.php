@@ -15,4 +15,9 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //    rpascua.synsoftech@gmail.com
 //    ssh root@162.243.44.240
 //    sudo shutdown -r now
-//    
+//    git config --global user.name "maytopacka"
+//    git config --global user.email rpascua.synsoftech@gmail.com
+    
+//     git add .
+//     git commit -m "aw"
+//     git push
