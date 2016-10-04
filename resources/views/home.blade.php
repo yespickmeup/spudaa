@@ -327,7 +327,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 slideanim">
-                        <iframe class="googlemaps" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d380510.6741687111!2d-88.01234121699822!3d41.83390417061058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1455598377120" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <iframe class="googlemaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.0721769061033!2d123.29599791540937!3d9.326872593314642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33ab6f300771c587%3A0x2e0a3d3ded6fb861!2sSt.+Paul+University+Dumaguete!5e0!3m2!1sen!2sph!4v1475557826279" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    
                     </div>	
                 </div>
             </div>
