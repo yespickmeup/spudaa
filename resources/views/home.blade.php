@@ -39,7 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <span class="icon-bar"></span>
                             </button>
                             <a class="navbar-brand" href="#"><h1>Alumni Association</h1>
-                                <h4>St. Paul University Dumaguete Campus</h4>
+                                <h4 style="color:darkolivegreen;">St. Paul University Dumaguete Campus</h4>
                             </a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
@@ -88,13 +88,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <p>
                                 Created in 1961 and established in 1964 under the Office of the President, the Office of Alumni Relations (OAR) serves as the link between the alumni and the rest of the academic community. The OAR seeks to encourage the maximum participation, involvement, support and commitment of the alumni to the University of the Philippines’ social mission. It assists the UP and its Alumni Association (UPAA) in identifying, cultivating, and involving the alumni in institutional and alumni programs, events and activities. It also represents the UP and the UPAA at institutional and alumni programs, events and activities both locally, on-and off-campus, and foreign venues whenever possible.
                                 <br>
-                                Its objectives include:
-                                <br>
-                                to ensure quality service for the UP and its Alumni
-                                to actively promote a positive image of the UP to its Alumni
-                                to maintain the loyalty, goodwill, and support of the Alumni to the University’s programs and projects
-                                to encourage, facilitate, and enhance professional and social networking between UP, UPAA and Friends
-                                UP Assistant Vice President for Public Affairs, Professor Jose Wendell P. Capili, PhD, is the Director of the Office of Alumni Relations.
+                                Its objectives include.... <a href="#">Learn more</a>
+                               
                         </div>	
                     </div>
                 </div>
