@@ -30,7 +30,22 @@ signupApp.controller('employmentSurveyController', ['$scope', '$http', function 
             var seek_relavant_job = $('input[name="seek_relavant_job"]:checked').val() ? $('input[name="seek_relavant_job"]:checked').val() : 'no';
             var unemployment_reason = $('input[name="unemployment_reason"]:checked').val() ? $('input[name="unemployment_reason"]:checked').val() : 0;
             var seeking_employment = $('input[name="seeking_employment"]:checked').val() ? $('input[name="seeking_employment"]:checked').val() : 0;
-
+            
+            var employment_survey = {
+                work_status: work_status,
+                work_status_others: work_status_others,
+                sat_challenge: sat_challenge,
+                sat_job_security: sat_job_security,
+                sat_salary: sat_salary,
+                sat_potential: sat_potential,
+                sat_support: sat_support,
+                sat_quality_of_service: sat_quality_of_service,
+                sat_org_ethics: sat_org_ethics,
+                job_course_relation: job_course_relation,
+                seek_relavant_job: seek_relavant_job,
+                unemployment_reason: unemployment_reason,
+                seeking_employment: seeking_employment
+            };
 //            console.log('----------------------------------');
 //            console.log('work_status: ' + work_status);
 //            console.log('work_status_others: ' + work_status_others);

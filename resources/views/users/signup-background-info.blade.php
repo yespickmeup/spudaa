@@ -280,7 +280,7 @@
         </div>
         <div class="col-md-2 ">
             <label>Is Paulinian?</label><br>
-            <input type="radio"  class="pull-right" ng-model="user.father_is_paulinian"  /> 
+            <input type="radio"  class="pull-right" ng-model="user.father_is_paulinian" name="father_is_paulinian" /> 
 
         </div>
     </div>
@@ -302,7 +302,7 @@
         </div>
         <div class="col-md-2 ">
             <label>Is Paulinian?</label><br>
-            <input type="radio" ng-model="user.mother_is_paulinian" class="pull-right"> 
+            <input type="radio" ng-model="user.mother_is_paulinian" class="pull-right" name="mother_is_paulinian"> 
         </div>
     </div>
     <div class="row">
@@ -325,10 +325,10 @@
 <div class="row text-center" >
     <div class="btn-group">
         <a href="" class="btn btn-default pull-left" ng-click="doBack()">Back to Login</a>
-        <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
-           >Next</a>
-<!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+<!--        <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
            >Next</a>-->
+        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+           >Next</a>
     </div>
 </div>
 <br>

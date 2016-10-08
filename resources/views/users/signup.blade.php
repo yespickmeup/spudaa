@@ -45,7 +45,8 @@
                                     <li class="active"><a href="#tab_1" data-toggle="tab">Background Information</a></li>
                                     <li ><a href="#tab_2" data-toggle="tab">Employment Survey</a></li>
                                     <li ><a href="#tab_3" data-toggle="tab">Education Outcomes</a></li>
-                                    <li ><a href="#tab_5" data-toggle="tab">School Activities Involvements</a></li>
+                                    <li ><a href="#tab_7" data-toggle="tab">Customer Satisfaction Survey</a></li>
+<!--                                    <li ><a href="#tab_5" data-toggle="tab">School Activities Involvements</a></li>-->
                                     <li><a href="#tab_6" data-toggle="tab">Alumni Family Members</a></li>
                                     <li><a href="#tab_4" data-toggle="tab">Alumni Services</a></li>
 
@@ -64,13 +65,14 @@
                                         <div class="tab-pane " id="tab_3" ng-controller="educactionOutcomesController">
                                             @include('users.signup-education-outcomes')
                                         </div>
-                                        <div class="tab-pane " id="tab_5" ng-controller="schoolActivitiesInvolvementsController">
-                                            @include('users.signup-school-activities-involvements')
+                                        <div class="tab-pane " id="tab_7" >
+                                            @include('users.signup-customer-satisfaction-survey')
                                         </div>
-                                        <div class="tab-pane" id="tab_6">
+                                       
+                                        <div class="tab-pane" id="tab_6" ng-controller="alumniFamilyMemberController">
                                             @include('users.signup-alumni-family-members')
                                         </div>
-                                        <div class="tab-pane" id="tab_4">
+                                        <div class="tab-pane" id="tab_4" >
                                             @include('users.signup-alumni-services')
                                         </div>
                                     </div>
@@ -84,7 +86,7 @@
 
         </div>
         <br> <br> <br>
-
+     
         <script src="{{ URL::to('src/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
         <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
@@ -103,6 +105,9 @@
         <script src="{{ URL::to('src/angular/js/signup/employment-survey.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('src/angular/js/signup/education-outcomes.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('src/angular/js/signup/school-activities-involvements.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::to('src/angular/js/signup/alumni-family-members.js') }}" type="text/javascript"></script>
+           <script src="{{ URL::to('src/angular/js/signup/alumni_professional_services.js') }}" type="text/javascript"></script>
+            <script src="{{ URL::to('src/angular/js/signup/alumni_personal_services.js') }}" type="text/javascript"></script>
 
         <script type="text/ng-template" id="spinjs.html">
             <div class="busy-overlay-container">
