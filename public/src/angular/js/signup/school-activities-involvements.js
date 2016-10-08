@@ -12,14 +12,15 @@ signupApp.controller('schoolActivitiesInvolvementsController', ['$scope', '$http
         $scope.showActivityAdd = true;
         $scope.showActivityUpdate = false;
 
-        $scope.activity_involvements = [];
+       
+        
         $scope.itemsByPage = 5;
         $scope.addActivity = function () {
             var data = {};
             data.id = activityId;
             data.activity = $scope.inputActivity;
             if (data.activity !== '') {
-                $scope.activity_involvements.push(data);
+                $scope.$parent.activity_involvements.push(data);
                 activityId++;
                 $scope.inputActivity = '';
             }
@@ -41,9 +42,11 @@ signupApp.controller('schoolActivitiesInvolvementsController', ['$scope', '$http
 
         };
         $scope.removeInvolvement = function (row) {
-            var index = $scope.activities.indexOf(row);
+            var index = $scope.$parent.activity_involvements.indexOf(row);
             if (index !== -1) {
-                $scope.activities.splice(index, 1);
+                $scope.$parent.activity_involvements.splice(index, 1);
             }
         };
+        
+        
     }]);

@@ -23,8 +23,12 @@ class UserController extends Controller {
         $token = $request->get('_token');
 
         $userInput = $request->get('user');
-
-
+        $employmentSurvey = $request->get('employment_survey');
+        $educationOutcomeExperiences = $request->get('education_outcome_experiences');
+        $educationOutcomeStandards =    $request->get('education_outcome_standards');
+        $activityInvolvements =    $request->get('activity_involvements');
+        
+        
         $user = new User();
         $user->name = $userInput['first_name'] . ' ' . $userInput['middle_name'] . ' ' . $userInput['last_name'];
         $user->email = $userInput['email'];
@@ -77,6 +81,10 @@ class UserController extends Controller {
                     'all' => $data,
                     'token' => $token,
                     'user' => $user,
+                    'employmentSurvey' => $employmentSurvey,
+                    'educationOutcomeExperiences' => $educationOutcomeExperiences,
+                    'educationOutcomeStandards' => $educationOutcomeStandards,
+                    'activityInvolvements' => $activityInvolvements,
                     'message' => 'successfully added!'
                         ], 200);
     }

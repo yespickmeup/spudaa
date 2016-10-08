@@ -114,7 +114,7 @@
             <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_impact" value="4" ></td>
         </tr>
     </table>
-     <a class="btn btn-default" ng-click="checkOutcome()">check</a>
+<!--     <a class="btn btn-default" ng-click="checkOutcome()">check</a>-->
     <table class="table table-bordered table-hover">
         <tr>
             <th colspan="4" style="width: 80px;text-align: center;"> IMPORTANCE</th>

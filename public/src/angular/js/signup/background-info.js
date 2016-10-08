@@ -249,5 +249,7 @@ signupApp.service('courseService', function ($http) {
                     console.log('getlevels() error');
                 });
     };
+    
+    
 });
     
