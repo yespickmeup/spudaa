@@ -280,10 +280,10 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                             var educationOutcomeStandards = data['educationOutcomeStandards'];
                             var activityInvolvements = data['activityInvolvements'];
 //                            console.log('user: ' + JSON.stringify(user));
-//                            console.log('employmentSurvey: ' + JSON.stringify(employmentSurvey));
+                            console.log('employmentSurvey: ' + JSON.stringify(employmentSurvey));
 //                            console.log('educationOutcomeExperiences: ' + JSON.stringify(educationOutcomeExperiences));
 //                            console.log('educationOutcomeStandards: ' + JSON.stringify(educationOutcomeStandards));
-                            console.log('activityInvolvements: ' + JSON.stringify(activityInvolvements));
+//                            console.log('activityInvolvements: ' + JSON.stringify(activityInvolvements));
 //                            window.location.href = loginUrl;
 //                            $window.location.href = '/registered';
 

@@ -65,7 +65,7 @@ class UserController extends Controller {
 
 
 
-//
+
 //        if ($user->save()) {
 //            $this->activationService->sendActivationMail($user);
 //            return response()->json([

@@ -37,8 +37,6 @@ Route::get('/registered', [
     }
 ]);
 
-
-
 Route::get('/signin', [
     'as' => 'signin',
     function () {
@@ -48,29 +46,107 @@ Route::get('/signin', [
 
 
 
+
+
 // Api's
 // Start of Level
+Route::get('/level', [
+    'as' => 'level',
+    function () {
+        return view('settings.level');
+    }
+]);
+
 Route::get('/api/levels', [
     'as' => 'levels',
     'uses' => 'LevelController@getLevels'
 ]);
+Route::post('api/level_add', [
+    'as' => 'level.add',
+    'uses' => 'LevelController@postAddLevel'
+]);
+Route::post('api/level_update', [
+    'as' => 'level.update',
+    'uses' => 'LevelController@postUpdateLevel'
+]);
+Route::post('api/level_delete', [
+    'as' => 'level.delete',
+    'uses' => 'LevelController@postDeleteLevel'
+]);
+
 // End of Level
 // Start of Year
+Route::get('/year', [
+    'as' => 'year',
+    function () {
+        return view('settings.year');
+    }
+]);
+
 Route::get('/api/years', [
     'as' => 'years',
     'uses' => 'YearController@getYears'
 ]);
+Route::post('api/year_add', [
+    'as' => 'year.add',
+    'uses' => 'YearController@postAddYear'
+]);
+Route::post('api/year_update', [
+    'as' => 'year.update',
+    'uses' => 'YearController@postUpdateYear'
+]);
+Route::post('api/year_delete', [
+    'as' => 'year.delete',
+    'uses' => 'YearController@postDeleteYear'
+]);
+
 // End of Year
 // Start of Course
+Route::get('/course', [
+    'as' => 'course',
+    function () {
+        return view('settings.courses');
+    }
+]);
 Route::get('/api/courses', [
     'as' => 'courses',
     'uses' => 'CourseController@getCourses'
 ]);
+Route::post('api/course_add', [
+    'as' => 'course.add',
+    'uses' => 'CourseController@postAddCourse'
+]);
+Route::post('api/course_update', [
+    'as' => 'course.update',
+    'uses' => 'CourseController@postUpdateCourse'
+]);
+Route::post('api/course_delete', [
+    'as' => 'course.delete',
+    'uses' => 'CourseController@postDeleteCourse'
+]);
 // End of Course
 // Start of Major
+Route::get('/major', [
+    'as' => 'major',
+    function () {
+        return view('settings.major');
+    }
+]);
 Route::get('/api/majors', [
     'as' => 'majors',
     'uses' => 'MajorController@getMajors'
+]);
+Route::post('api/major_add', [
+    'as' => 'major.add',
+    'uses' => 'MajorController@postAddMajor'
+]);
+Route::post('api/major_update', [
+    'as' => 'major.update',
+    'uses' => 'MajorController@postUpdateMajor'
+]);
+Route::post('api/major_delete', [
+    'as' => 'major.delete',
+    'uses' => 'MajorController@postDeleteMajor'
 ]);
 // End of Major
 // Start of User
@@ -84,7 +160,8 @@ Route::get('/api/user/exists/{email}', [
     'as' => 'user.exists',
     'uses' => 'UserController@getCheckEmailIfExists'
 ]);
-
 // End of User
+
+
 // End of Api's
 

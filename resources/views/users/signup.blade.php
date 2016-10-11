@@ -106,8 +106,8 @@
         <script src="{{ URL::to('src/angular/js/signup/education-outcomes.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('src/angular/js/signup/school-activities-involvements.js') }}" type="text/javascript"></script>
         <script src="{{ URL::to('src/angular/js/signup/alumni-family-members.js') }}" type="text/javascript"></script>
-           <script src="{{ URL::to('src/angular/js/signup/alumni_professional_services.js') }}" type="text/javascript"></script>
-            <script src="{{ URL::to('src/angular/js/signup/alumni_personal_services.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::to('src/angular/js/signup/alumni_professional_services.js') }}" type="text/javascript"></script>
+        <script src="{{ URL::to('src/angular/js/signup/alumni_personal_services.js') }}" type="text/javascript"></script>
 
         <script type="text/ng-template" id="spinjs.html">
             <div class="busy-overlay-container">
