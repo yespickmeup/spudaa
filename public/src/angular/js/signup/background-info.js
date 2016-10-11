@@ -12,8 +12,8 @@
 
 signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseService', function ($scope, $http, courseService) {
 
-       
-        
+
+
         $scope.$parent.startSpin();
 
         $http.get('../src/json/countries.json').success(function (data) {
@@ -249,7 +249,7 @@ signupApp.service('courseService', function ($http) {
                     console.log('getlevels() error');
                 });
     };
-    
-    
+
+
 });
     

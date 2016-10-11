@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | Blank Page</title>
+        <title>Alumni Association | Dashboard</title>
 
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="{{ URL::to('src/bootstrap/css/bootstrap.min.css') }}"/>
@@ -14,10 +14,8 @@
         <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/AdminLTE.min.css') }}"/>
         <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/skins/_all-skins.min.css') }}"/>
     </head>
-    <body class="hold-transition skin-blue sidebar-mini">
-        
+    <body class="hold-transition skin-blue sidebar-mini" ng-app="settingsApp">
         <div class="wrapper">
-
             <header class="main-header">
                 <a href="../../index2.html" class="logo">
                     <span class="logo-mini"><b>A</b>LT</span>
@@ -64,7 +62,7 @@
                                             <a href="#" class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="{{ url('/logout')}}" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -96,31 +94,28 @@
                         <li><a href="../../documentation/index.html"><i class="fa fa-photo"></i> <span>ID Card Releasing</span></a></li>
                         <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-dashboard"></i> <span>Setting</span>
+                                <i class="fa fa-dashboard"></i> <span>Settings</span>
                                 <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Levels</a></li>
-                                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Year</a></li>
-                                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Courses</a></li>
-                                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Majors</a></li>
-                                <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> School Activities</a></li>
+                                <li><a href="{{route('level')}}"><i class="fa fa-circle-o"></i> Level</a></li>
+                                <li><a href="{{route('year')}}"><i class="fa fa-circle-o"></i> Year</a></li>
+                                <li><a href="{{route('course')}}"><i class="fa fa-circle-o"></i> Courses</a></li>
+                                <li><a href="{{route('major')}}"><i class="fa fa-circle-o"></i> Majors</a></li>
+                                
                             </ul>
                         </li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>Programs & Events</span></a></li>
                     </ul>
                 </section>
-
             </aside>
-
             <div class="content-wrapper">
-
                 <section class="content-header">
                     <h1>
-                        Page Title
+                        @yield('title')
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -128,12 +123,10 @@
                         <li class="active">Blank page</li>
                     </ol>
                 </section>
-
                 <section class="content">
+                    @yield('content')
                 </section>
-
             </div>
-
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 2.3.6
@@ -142,12 +135,31 @@
                 reserved.
             </footer>
         </div>
-
+        <script>
+            var myToken = '{{Session::token()}}';
+            var baseURL = '{{url('/')}}';
+        </script>
         <script src="{{ URL::to('src/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
         <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
+
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.1.js"></script>
+        <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+        <script src="{{ URL::to('src/angular/js/angular-spinner.js') }}"></script>
+        <script src="{{ URL::to('src/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+        <script src="{{ URL::to('src/AdminLTE/js/smart-table.debug.js') }}"></script>
+        <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
+
         <script src="{{ URL::to('src/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ URL::to('src/plugins/fastclick/fastclick.js') }}"></script>
         <script src="{{ URL::to('src/AdminLTE/js/app.min.js') }}"></script>
         <script src="{{ URL::to('src/AdminLTE/js/demo.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/settings/settings.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/settings/level.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/settings/year.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/settings/courses.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/settings/major.js') }}"></script>
     </body>
 </html>
