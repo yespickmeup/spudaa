@@ -258,8 +258,8 @@
 <!--      <a class="btn btn-default" ng-click="checkOutcome2()">check</a>-->
 <div class="row text-center" >
     <div class="btn-group">
-        <a href="" class="btn btn-default pull-left" ng-click="doBack()">Previous</a>
-        <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+        <a href="" class="btn btn-default pull-left" ng-click="changeTab(2)">Previous</a>
+        <a href="" class="btn btn-primary pull-right"  ng-click="changeTab(4)" 
            >Next</a>
         <!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
                    >Next</a>-->

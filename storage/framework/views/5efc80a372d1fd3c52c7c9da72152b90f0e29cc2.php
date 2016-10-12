@@ -1,11 +1,11 @@
 
 <div class="box box-widget widget-user">
-    <div class="widget-user-header bg-black" style="background: url('{{ URL::to('src/images/users/photo1.png') }}') center center;">
+    <div class="widget-user-header bg-black" style="background: url('<?php echo e(URL::to('src/images/users/photo1.png')); ?>') center center;">
         <h3 class="widget-user-username"></h3>
         <h5 class="widget-user-desc"></h5>
     </div>
     <div class="widget-user-image">
-        <img class="img-circle" src="{{ URL::to('src/images/users/user1-128x128.jpg') }}" alt="User Avatar">
+        <img class="img-circle" src="<?php echo e(URL::to('src/images/users/user1-128x128.jpg')); ?>" alt="User Avatar">
     </div>
 
     <div class="box-footer">

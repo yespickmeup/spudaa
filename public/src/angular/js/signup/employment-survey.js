@@ -46,6 +46,7 @@ signupApp.controller('employmentSurveyController', ['$scope', '$http', function 
                 unemployment_reason: unemployment_reason,
                 seeking_employment: seeking_employment
             };
+         
 //            console.log('----------------------------------');
 //            console.log('work_status: ' + work_status);
 //            console.log('work_status_others: ' + work_status_others);
@@ -63,7 +64,7 @@ signupApp.controller('employmentSurveyController', ['$scope', '$http', function 
 //            console.log('unemployment_reason: ' + unemployment_reason);
 //            console.log('seeking_employment: ' + seeking_employment);
 
-
+          
         };
 
     }]);
