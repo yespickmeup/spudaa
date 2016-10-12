@@ -9,8 +9,8 @@
 
             <input type="text" class="form-control" name="personal_life" id="personal_life" ng-model="inputProfessionalService">
             <span class="input-group-btn">
-                <button type="button" class="btn btn-flat btn-primary " ng-click="addProfessionalService()" ng-show="showServicesAdd">Add</button>
-                <button type="button" class="btn btn-flat btn-primary " ng-click="updateProfessionalService()" ng-show="showServicesUpdate">Update</button>
+                <a href="" type="button" class="btn btn-flat btn-primary " ng-click="addProfessionalService()" ng-show="showServicesAdd">Add</a>
+                <a href="" type="button" class="btn btn-flat btn-primary " ng-click="updateProfessionalService()" ng-show="showServicesUpdate">Update</a>
             </span>
         </div>
         <br>
@@ -58,8 +58,8 @@
 
             <input type="text" class="form-control" name="personal_life" id="personal_life" ng-model="inputPersonalService">
             <span class="input-group-btn">
-                <button type="button" class="btn btn-flat btn-primary " ng-click="addPersonalService()" ng-show="showPersonalAdd">Add</button>
-                <button type="button" class="btn btn-flat btn-primary " ng-click="updatePersonalService()" ng-show="showPersonalUpdate">Update</button>
+                <a href="" type="button" class="btn btn-flat btn-primary " ng-click="addPersonalService()" ng-show="showPersonalAdd">Add</a>
+                <a href="" type="button" class="btn btn-flat btn-primary " ng-click="updatePersonalService()" ng-show="showPersonalUpdate">Update</a>
             </span>
         </div>
         <br>
