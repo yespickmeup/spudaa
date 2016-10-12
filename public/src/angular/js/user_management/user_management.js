@@ -62,7 +62,7 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
         $active = 0;
         $scope.changeActive = function (my_user) {
 
-            if(my_user.role_id === '1' || my_user.role_id === '2'){
+            if(my_user.role_id === '1' ){
                 return;
             }
             $active = (my_user.active === '1') ? 0 : 1;

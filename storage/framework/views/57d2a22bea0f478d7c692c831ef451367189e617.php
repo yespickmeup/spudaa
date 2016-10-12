@@ -7,6 +7,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Alumni Association | Dashboard</title>
 
+        <style>
+
+        </style>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="<?php echo e(URL::to('src/bootstrap/css/bootstrap.min.css')); ?>"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -89,6 +92,8 @@
 
                     <ul class="sidebar-menu" >
                         <li class="header">MAIN NAVIGATION</li>
+                        <li><a href="<?php echo e(route('user.management')); ?>"><i class="fa fa-user"></i> <span>My Account</span></a></li>
+                        <li><a href="<?php echo e(route('user.management')); ?>"><i class="fa fa-book"></i> <span>Surveys</span></a></li>
                         <li><a href="<?php echo e(route('user.management')); ?>"><i class="fa fa-users"></i> <span>User Management</span></a></li>
                         <li><a href="<?php echo e(route('account.approval')); ?>"><i class="fa fa-check-circle-o"></i> <span>Account Approval</span></a></li>
                         <li><a href="<?php echo e(route('card.releasing')); ?>"><i class="fa fa-photo"></i> <span>ID Card Releasing</span></a></li>
@@ -104,7 +109,7 @@
                                 <li><a href="<?php echo e(route('year')); ?>"><i class="fa fa-circle-o"></i> Year</a></li>
                                 <li><a href="<?php echo e(route('course')); ?>"><i class="fa fa-circle-o"></i> Courses</a></li>
                                 <li><a href="<?php echo e(route('major')); ?>"><i class="fa fa-circle-o"></i> Majors</a></li>
-                                
+
                             </ul>
                         </li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>
@@ -151,6 +156,7 @@
         <script src="<?php echo e(URL::to('src/plugins/datepicker/bootstrap-datepicker.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/smart-table.debug.js')); ?>"></script>
         <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
+      
 
         <script src="<?php echo e(URL::to('src/plugins/slimScroll/jquery.slimscroll.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/plugins/fastclick/fastclick.js')); ?>"></script>
@@ -163,5 +169,9 @@
         <script src="<?php echo e(URL::to('src/angular/js/settings/major.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/account_approval/account_approval.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/user_management/user_management.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/id_card_releasing/id_card_releasing.js')); ?>"></script>
+        
+          <script src="<?php echo e(URL::to('src/angular/css/angularPrint.css')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/angularPrint.js')); ?>"></script>
     </body>
 </html>
