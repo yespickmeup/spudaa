@@ -89,9 +89,9 @@
 
                     <ul class="sidebar-menu" >
                         <li class="header">MAIN NAVIGATION</li>
-                        <li><a href="../../documentation/index.html"><i class="fa fa-users"></i> <span>User Management</span></a></li>
-                        <li><a href="../../documentation/index.html"><i class="fa fa-check-circle-o"></i> <span>Account Approval</span></a></li>
-                        <li><a href="../../documentation/index.html"><i class="fa fa-photo"></i> <span>ID Card Releasing</span></a></li>
+                        <li><a href="<?php echo e(route('user.management')); ?>"><i class="fa fa-users"></i> <span>User Management</span></a></li>
+                        <li><a href="<?php echo e(route('account.approval')); ?>"><i class="fa fa-check-circle-o"></i> <span>Account Approval</span></a></li>
+                        <li><a href="<?php echo e(route('card.releasing')); ?>"><i class="fa fa-photo"></i> <span>ID Card Releasing</span></a></li>
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-dashboard"></i> <span>Settings</span>
@@ -161,5 +161,7 @@
         <script src="<?php echo e(URL::to('src/angular/js/settings/year.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/courses.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/major.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/account_approval/account_approval.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/user_management/user_management.js')); ?>"></script>
     </body>
 </html>

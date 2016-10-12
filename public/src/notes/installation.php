@@ -21,4 +21,6 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //     git add .
 //     git commit -m "aw"
 //     git push
-//      
+//      http://plnkr.co/edit/HkTTHfeLM8buwbWqHuOm?p=preview
+    
+    

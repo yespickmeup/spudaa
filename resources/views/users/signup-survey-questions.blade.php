@@ -99,7 +99,7 @@
             <input type="radio" name="job_course_relation" value="2"> moderately related <br>
             <input type="radio" name="job_course_relation" value="3"> slightly related <br>
             <input type="radio" name="job_course_relation" value="4"> not related <br>
-            <p><h4><b><i>If slightly or not related at all, do you desire to seek a more relavant job?    
+            <p><h4><b><i>If slightly or not related at all, do you desire to seek a more relevant job?    
                         <input type="radio"  name="seek_relavant_job" value="yes"> yes 
                         <input type="radio" name="seek_relavant_job" value="no"> no
                     </i></b></h4></p>

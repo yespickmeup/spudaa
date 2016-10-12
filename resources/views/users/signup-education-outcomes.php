@@ -2,7 +2,7 @@
     <h4><p><b>Please mark the numbers accourding to your level of satisfaction on the aspects of your current job:</b></p></h4>
 
     0 - No importance or impact <br>
-    1 - Minor importance of impact <br>
+    1 - Minor importance or impact <br>
     2 - Moderate importance or impact <br>
     3 - High importance or impact <br><br>
 

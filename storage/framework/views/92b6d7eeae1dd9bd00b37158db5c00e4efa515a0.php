@@ -1,10 +1,7 @@
-@extends('dashboard')
-
-
-@section('title')
+<?php $__env->startSection('title'); ?>
 Account Approval
-@endsection
-@section('content')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('content'); ?>
 <div class="row" ng-controller="accountApprovalController">
 
     <div class="col-md-12">
@@ -92,4 +89,5 @@ Account Approval
     </script>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('dashboard', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

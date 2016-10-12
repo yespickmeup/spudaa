@@ -13,8 +13,91 @@ use App\UserAlumniMember;
 use App\UserAlumniProfessionalService;
 use App\UserAlumniPersonalService;
 use App\UserSatisfactionSurvey;
+use App\Role;
+use DB;
 
 class UserController extends Controller {
+
+    public function getUsers() {
+        $users = User::All();
+        return response()->json(['users' => $users]);
+    }
+
+    public function getUsers2() {
+
+        $users = DB::table('users')
+                ->join('role_user', 'users.id', '=', 'role_user.user_id')
+                ->join('roles', 'role_user.role_id', '=', 'roles.id')
+                ->where('role_user.role_id', '=', '3')
+                ->orderBy('users.approved', 'asc')
+                ->select(
+                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active'
+                        , 'role_user.role_id'
+                        , 'roles.name as role'
+                )
+                ->get();
+
+        return response()->json(['users' => $users]);
+    }
+
+    public function getUsers3() {
+
+        $users = DB::table('users')
+                ->join('role_user', 'users.id', '=', 'role_user.user_id')
+                ->join('roles', 'role_user.role_id', '=', 'roles.id')
+                ->orderBy('users.last_name', 'asc')
+                ->select(
+                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active'
+                        , 'role_user.role_id'
+                        , 'roles.name as role'
+                )
+                ->get();
+
+        return response()->json(['users' => $users]);
+    }
+
+    public function accountApproval(Request $request) {
+        $user_id = $request->get('user_id');
+
+
+        $user = User::find($user_id);
+
+        $user->approved = 1;
+
+        $user->save();
+        return response()->json(['user' => $user]);
+    }
+
+    public function accountActive(Request $request) {
+        $user_id = $request->get('user_id');
+        $active = $request->get('active');
+
+        $user = User::find($user_id);
+
+        $user->active = $active;
+
+        $user->save();
+        return response()->json(['user' => $user]);
+    }
+
+    public function changeRole(Request $request) {
+        $user_id = $request->get('user_id');
+        $role_id = $request->get('role_id');
+        $old_role = $request->get('old_role');
+
+        $user = User::find($user_id);
+//        $role = Role::find($role_id);
+//        $role->delete();
+//        $role->users()->sync([]);
+
+
+        DB::table('role_user')->where('user_id', '=', $user_id)->where('role_id', '=', $old_role)->delete();
+        $user->roles()->attach($role_id);
+
+
+
+        return response()->json(['user' => $user]);
+    }
 
     protected $activationService;
 
@@ -81,6 +164,11 @@ class UserController extends Controller {
 
 
         if ($user->save()) {
+
+            $role = new Role();
+            $role->id = 3;
+            $user->roles()->attach($role->id);
+
             $this->activationService->sendActivationMail($user);
 
             $UserEmploymentSurvey = new UserEmploymentSurvey();
@@ -308,6 +396,8 @@ class UserController extends Controller {
             $satSurvey->h4 = $satisfaction_survey['h4'];
             $satSurvey->suggestion = $satisfaction_survey['suggestion'];
             $user->satSurvey()->save($satSurvey);
+
+
 
             return response()->json([
                         'all' => $data,

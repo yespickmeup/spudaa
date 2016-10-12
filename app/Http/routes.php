@@ -161,7 +161,56 @@ Route::get('/api/user/exists/{email}', [
     'uses' => 'UserController@getCheckEmailIfExists'
 ]);
 // End of User
+//Account Approval
+Route::get('/api/users', [
+    'as' => 'users',
+    'uses' => 'UserController@getUsers2'
+]);
+Route::get('/api/users_all', [
+    'as' => 'users.all',
+    'uses' => 'UserController@getUsers3'
+]);
 
 
+Route::get('/account_approval', [
+    'as' => 'account.approval',
+    function () {
+        return view('users.account_approval');
+    }
+]);
+Route::post('/api/approve_account', [
+    'as' => 'account.approve',
+    'uses' => 'UserController@accountApproval'
+]);
+//End of Account Approval
+//Start of User Management
+Route::get('/user_management', [
+    'as' => 'user.management',
+    function () {
+        return view('users.user_management');
+    }
+]);
+Route::get('/card_releasing', [
+    'as' => 'card.releasing',
+    function () {
+        return view('users.id-card-releasing');
+    }
+]);
+Route::post('/api/active_account', [
+    'as' => 'account.active',
+    'uses' => 'UserController@accountActive'
+]);
+//End of User Management
+
+//Start of Roles
+Route::get('/api/roles', [
+    'as' => 'roles',
+    'uses' => 'RoleController@getRoles'
+]);
+Route::post('/api/change_role', [
+    'as' => 'role.change',
+    'uses' => 'UserController@changeRole'
+]);
+//End of Roles
 // End of Api's
 
