@@ -37,11 +37,11 @@
                 <input type="text" class="form-control" placeholder="Name before married"  ng-model="member.name_before_married">
             </div>
         </div>
-        <div class="row">
+        <div class="row" ng-class="{ 'has-error' : userForm.member_email.$invalid }">
             <div class="col-md-12">
 
                 <label>Email Address</label>
-                <input type="email" class="form-control" placeholder="Email Address" ng-model="member.email">
+                <input type="email" class="form-control" placeholder="Email Address" ng-model="member.email" name="member_email" >
 
             </div>
         </div>
@@ -72,8 +72,8 @@
 
         <div class="form-group pull-right">
             <button class="btn btn-default " ng-click="clearMember()">New</button>
-            <button class="btn btn-primary " ng-click="addMember()" ng-show="showMemberAdd">Add</button>
-            <button class="btn btn-primary " ng-click="updateMember()" ng-show="showMemberUpdate">Update</button>
+            <button class="btn btn-primary " ng-click="addMember()" ng-show="showMemberAdd" ng-disabled="userForm.member_email.$invalid" >Add</button>
+            <button class="btn btn-primary " ng-click="updateMember()" ng-show="showMemberUpdate" ng-disabled="userForm.member_email.$error ">Update</button>
         </div>
         <br>
         <table st-table="displayedCollection2" st-safe-src="alumni_family_members"
@@ -117,8 +117,8 @@
 
         <div class="row text-center" >
             <div class="btn-group">
-                <a href="" class="btn btn-default pull-left" ng-click="doBack()">Previous</a>
-                <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+                <a href="" class="btn btn-default pull-left" ng-click="changeTab(4)">Previous</a>
+                <a href="" class="btn btn-primary pull-right"  ng-click="changeTab(6)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
                    >Next</a>
                 <!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
                            >Next</a>-->

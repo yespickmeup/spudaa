@@ -20,6 +20,63 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
 
 
 
+//        Tab
+        $scope.tab1 = 'active';
+        $scope.tab2 = '';
+        $scope.tab3 = '';
+        $scope.tab4 = '';
+        $scope.tab5 = '';
+        $scope.tab6 = '';
+        $scope.changeTab = function (tab) {
+            if (tab === 1) {
+                $scope.tab1 = 'active';
+                $scope.tab2 = '';
+                $scope.tab3 = '';
+                $scope.tab4 = '';
+                $scope.tab5 = '';
+                $scope.tab6 = '';
+            }
+            if (tab === 2) {
+                $scope.tab1 = '';
+                $scope.tab2 = 'active';
+                $scope.tab3 = '';
+                $scope.tab4 = '';
+                $scope.tab5 = '';
+                $scope.tab6 = '';
+            }
+            if (tab === 3) {
+                $scope.tab1 = '';
+                $scope.tab2 = '';
+                $scope.tab3 = 'active';
+                $scope.tab4 = '';
+                $scope.tab5 = '';
+                $scope.tab6 = '';
+            }
+            if (tab === 4) {
+                $scope.tab1 = '';
+                $scope.tab2 = '';
+                $scope.tab3 = '';
+                $scope.tab4 = 'active';
+                $scope.tab5 = '';
+                $scope.tab6 = '';
+            }
+            if (tab === 5) {
+                $scope.tab1 = '';
+                $scope.tab2 = '';
+                $scope.tab3 = '';
+                $scope.tab4 = '';
+                $scope.tab5 = 'active';
+                $scope.tab6 = '';
+            }
+            if (tab === 6) {
+                $scope.tab1 = '';
+                $scope.tab2 = '';
+                $scope.tab3 = '';
+                $scope.tab4 = '';
+                $scope.tab5 = '';
+                $scope.tab6 = 'active';
+            }
+        };
 //     Spinner
         $scope.startcounter = 0;
         $scope.startSpin = function () {
@@ -53,40 +110,40 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
 // End of Initializations
 // Start of User Background Information
         $scope.user = {
-            student_no: 'student_no',
-            first_name: 'first_name',
-            middle_name: 'middle_name',
-            last_name: 'last_name',
-            suffix_name: 'suffix_name',
-            civil_status: 'Single',
-            gender: 'Male',
-            date_of_birth: '02/08/1991',
-            blood_type: 'O+',
-            email: 'dodong.ronald@gmail.com',
-            password: 'password',
-            confirm_password: 'password',
-            country: 'Philippines',
-            province: 'Negros Oriental',
-            city: 'Dumaguete',
-            zip_code: '6200',
-            home_address: 'home_address',
-            present_address: 'present_address',
-            landline_no: 'landline_no',
-            cellphone_no: 'cellphone_no',
-            level: 'level',
-            year: 'year',
-            course: 'course',
-            major: 'major',
-            father: 'father',
+            student_no: '',
+            first_name: '',
+            middle_name: '',
+            last_name: '',
+            suffix_name: '',
+            civil_status: '',
+            gender: '',
+            date_of_birth: '',
+            blood_type: '',
+            email: '',
+            password: '',
+            confirm_password: '',
+            country: '',
+            province: ' ',
+            city: '',
+            zip_code: '',
+            home_address: '',
+            present_address: '',
+            landline_no: '',
+            cellphone_no: '',
+            level: '',
+            year: '',
+            course: '',
+            major: '',
+            father: '',
             father_is_paulinian: '',
-            father_occupation: 'father_occupation',
-            father_office_address: 'father_office_address',
-            mother: 'mother',
+            father_occupation: '',
+            father_office_address: '',
+            mother: '',
             mother_is_paulinian: '',
-            mother_occupation: 'mother_occupation',
-            mother_office_address: 'mother_office_address'
+            mother_occupation: '',
+            mother_office_address: ''
         };
-
+        $scope.suggestion = '';
         $scope.country = {};
         $scope.province = {};
         $scope.city = {};
@@ -94,9 +151,9 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
         $scope.year = {};
         $scope.course = {};
         $scope.major = {};
+        $scope.suggestion = '';
 // End of User Background Information
-        $scope.user.father_is_paulinian = false;
-        $scope.user.mother_is_paulinian = false;
+
 
 //      Start of School Activities
         $scope.activity_involvements = [];
@@ -108,12 +165,14 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
 //      End of Alumni Family Members
 
 
-        $scope.submitForm = function (isValid) {
+        $scope.submitForm = function () {
 
-
-
+            var isValid = true;
             if (isValid) {
+                var email = $('input[name="email"]').val();
+                var suggestion = angular.element('#suggestion').val();
 
+                $scope.user.email = email;
                 $scope.startSpin();
 //                $timeout(function () {              
 //                    console.log('update with timeout fired')
@@ -253,11 +312,226 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                     communication_impact: communication_impact
                 };
 //              End of Education Outcomes
+//              Start of Satisfaction Survey
 
+                var a1 = $('input[name="a1"]:checked').val() ? $('input[name="a1"]:checked').val() : 0;
+                var a2 = $('input[name="a2"]:checked').val() ? $('input[name="a2"]:checked').val() : 0;
+                var a3 = $('input[name="a3"]:checked').val() ? $('input[name="a3"]:checked').val() : 0;
+                var a4 = $('input[name="a4"]:checked').val() ? $('input[name="a4"]:checked').val() : 0;
+                var a5 = $('input[name="a5"]:checked').val() ? $('input[name="a5"]:checked').val() : 0;
+                var a6 = $('input[name="a6"]:checked').val() ? $('input[name="a6"]:checked').val() : 0;
+                var a7 = $('input[name="a7"]:checked').val() ? $('input[name="a7"]:checked').val() : 0;
+                var a8 = $('input[name="a8"]:checked').val() ? $('input[name="a8"]:checked').val() : 0;
+                var b1_1 = $('input[name="b1_1"]:checked').val() ? $('input[name="b1_1"]:checked').val() : 0;
+                var b1_2 = $('input[name="b1_2"]:checked').val() ? $('input[name="b1_2"]:checked').val() : 0;
+                var b1_3 = $('input[name="="]:checked').val() ? $('input[name="="]:checked').val() : 0;
+                var b1_4 = $('input[name="b1_4"]:checked').val() ? $('input[name="b1_4"]:checked').val() : 0;
+                var b1_5 = $('input[name="b1_5"]:checked').val() ? $('input[name="b1_5"]:checked').val() : 0;
+                var b1_6 = $('input[name="b1_6"]:checked').val() ? $('input[name="b1_6"]:checked').val() : 0;
+                var b2_1 = $('input[name="b2_1"]:checked').val() ? $('input[name="b2_1"]:checked').val() : 0;
+                var b2_2 = $('input[name="b2_2"]:checked').val() ? $('input[name="b2_2"]:checked').val() : 0;
+                var b2_3 = $('input[name="="]:checked').val() ? $('input[name="="]:checked').val() : 0;
+                var b2_4 = $('input[name="b2_4"]:checked').val() ? $('input[name="b2_4"]:checked').val() : 0;
+                var b2_5 = $('input[name="b2_5"]:checked').val() ? $('input[name="b2_5"]:checked').val() : 0;
+                var b2_6 = $('input[name="b2_6"]:checked').val() ? $('input[name="b2_6"]:checked').val() : 0;
+                var b3_1 = $('input[name="b3_1"]:checked').val() ? $('input[name="b3_1"]:checked').val() : 0;
+                var b3_2 = $('input[name="b3_2"]:checked').val() ? $('input[name="b3_2"]:checked').val() : 0;
+                var b3_3 = $('input[name="="]:checked').val() ? $('input[name="="]:checked').val() : 0;
+                var b3_4 = $('input[name="b3_4"]:checked').val() ? $('input[name="b3_4"]:checked').val() : 0;
+                var b3_5 = $('input[name="b3_5"]:checked').val() ? $('input[name="b3_5"]:checked').val() : 0;
+                var b3_6 = $('input[name="b3_6"]:checked').val() ? $('input[name="b3_6"]:checked').val() : 0;
+                var b4_1 = $('input[name="b4_1"]:checked').val() ? $('input[name="b4_1"]:checked').val() : 0;
+                var b4_2 = $('input[name="b4_2"]:checked').val() ? $('input[name="b4_2"]:checked').val() : 0;
+                var b5_1 = $('input[name="b5_1"]:checked').val() ? $('input[name="b5_1"]:checked').val() : 0;
+                var b5_2 = $('input[name="b5_2"]:checked').val() ? $('input[name="b5_2"]:checked').val() : 0;
+                var b6_1 = $('input[name="b6_1"]:checked').val() ? $('input[name="b6_1"]:checked').val() : 0;
+                var b6_2 = $('input[name="b6_2"]:checked').val() ? $('input[name="b6_2"]:checked').val() : 0;
+                var c1 = $('input[name="c1"]:checked').val() ? $('input[name="c1"]:checked').val() : 0;
+                var c2 = $('input[name="c2"]:checked').val() ? $('input[name="c2"]:checked').val() : 0;
+                var c3 = $('input[name="c3"]:checked').val() ? $('input[name="c3"]:checked').val() : 0;
+                var c4 = $('input[name="c4"]:checked').val() ? $('input[name="c4"]:checked').val() : 0;
+                var c5 = $('input[name="c5"]:checked').val() ? $('input[name="c5"]:checked').val() : 0;
+                var c6 = $('input[name="c6"]:checked').val() ? $('input[name="c6"]:checked').val() : 0;
+                var c7 = $('input[name="c7"]:checked').val() ? $('input[name="c7"]:checked').val() : 0;
+                var c8 = $('input[name="c8"]:checked').val() ? $('input[name="c8"]:checked').val() : 0;
+                var c9 = $('input[name="c9"]:checked').val() ? $('input[name="c9"]:checked').val() : 0;
+                var c10 = $('input[name="c10"]:checked').val() ? $('input[name="c10"]:checked').val() : 0;
+                var c11 = $('input[name="c11"]:checked').val() ? $('input[name="c11"]:checked').val() : 0;
+                var d1 = $('input[name="d1"]:checked').val() ? $('input[name="d1"]:checked').val() : 0;
+                var d2 = $('input[name="d2"]:checked').val() ? $('input[name="d2"]:checked').val() : 0;
+                var d3 = $('input[name="d3"]:checked').val() ? $('input[name="d3"]:checked').val() : 0;
+                var d4 = $('input[name="d4"]:checked').val() ? $('input[name="d4"]:checked').val() : 0;
+                var d5 = $('input[name="d5"]:checked').val() ? $('input[name="d5"]:checked').val() : 0;
 
+                var e1_1 = $('input[name="e1_1"]:checked').val() ? $('input[name="e1_1"]:checked').val() : 0;
+                var e1_2 = $('input[name="e1_2"]:checked').val() ? $('input[name="e1_2"]:checked').val() : 0;
+                var e1_3 = $('input[name="e1_3"]:checked').val() ? $('input[name="e1_3"]:checked').val() : 0;
+                var e1_4 = $('input[name="e1_4"]:checked').val() ? $('input[name="e1_4"]:checked').val() : 0;
+                var e1_5 = $('input[name="e1_5"]:checked').val() ? $('input[name="e1_5"]:checked').val() : 0;
+                var e1_6 = $('input[name="e1_6"]:checked').val() ? $('input[name="e1_6"]:checked').val() : 0;
+                var e1_7 = $('input[name="e1_7"]:checked').val() ? $('input[name="e1_7"]:checked').val() : 0;
+                var e1_8 = $('input[name="e1_8"]:checked').val() ? $('input[name="e1_8"]:checked').val() : 0;
+                var e1_9 = $('input[name="e1_9"]:checked').val() ? $('input[name="e1_9"]:checked').val() : 0;
+                var e1_10 = $('input[name="e1_10"]:checked').val() ? $('input[name="e1_10"]:checked').val() : 0;
+                var e1_11 = $('input[name="e1_11"]:checked').val() ? $('input[name="e1_11"]:checked').val() : 0;
+                var e1_12 = $('input[name="e1_12"]:checked').val() ? $('input[name="e1_12"]:checked').val() : 0;
 
+                var e2_1 = $('input[name="e2_1"]:checked').val() ? $('input[name="e2_1"]:checked').val() : 0;
+                var e2_2 = $('input[name="e2_2"]:checked').val() ? $('input[name="e2_2"]:checked').val() : 0;
+                var e2_3 = $('input[name="e2_3"]:checked').val() ? $('input[name="e2_3"]:checked').val() : 0;
+                var e2_4 = $('input[name="e2_4"]:checked').val() ? $('input[name="e2_4"]:checked').val() : 0;
+                var e2_5 = $('input[name="e2_5"]:checked').val() ? $('input[name="e2_5"]:checked').val() : 0;
+                var e2_6 = $('input[name="e2_6"]:checked').val() ? $('input[name="e2_6"]:checked').val() : 0;
+                var e2_7 = $('input[name="e2_7"]:checked').val() ? $('input[name="e2_7"]:checked').val() : 0;
+                var e2_8 = $('input[name="e2_8"]:checked').val() ? $('input[name="e2_8"]:checked').val() : 0;
+                var e2_9 = $('input[name="e2_9"]:checked').val() ? $('input[name="e2_9"]:checked').val() : 0;
+                var e2_10 = $('input[name="e2_10"]:checked').val() ? $('input[name="e2_10"]:checked').val() : 0;
+                var e2_11 = $('input[name="e2_11"]:checked').val() ? $('input[name="e2_11"]:checked').val() : 0;
+                var e2_12 = $('input[name="e2_12"]:checked').val() ? $('input[name="e2_12"]:checked').val() : 0;
+                var e2_13 = $('input[name="e2_13"]:checked').val() ? $('input[name="e2_13"]:checked').val() : 0;
+                var e3_1 = $('input[name="e3_1"]:checked').val() ? $('input[name="e3_1"]:checked').val() : 0;
+                var e3_2 = $('input[name="e3_2"]:checked').val() ? $('input[name="e3_2"]:checked').val() : 0;
+                var e3_3 = $('input[name="e3_3"]:checked').val() ? $('input[name="e3_3"]:checked').val() : 0;
+                var e3_4 = $('input[name="e3_4"]:checked').val() ? $('input[name="e3_4"]:checked').val() : 0;
+                var e3_5 = $('input[name="e3_5"]:checked').val() ? $('input[name="e3_5"]:checked').val() : 0;
+                var e4_1 = $('input[name="e4_1"]:checked').val() ? $('input[name="e4_1"]:checked').val() : 0;
+                var e4_2 = $('input[name="e4_2"]:checked').val() ? $('input[name="e4_2"]:checked').val() : 0;
+                var e4_3 = $('input[name="e4_3"]:checked').val() ? $('input[name="e4_3"]:checked').val() : 0;
+                var e4_4 = $('input[name="e4_4"]:checked').val() ? $('input[name="e4_4"]:checked').val() : 0;
+                var e4_5 = $('input[name="e4_5"]:checked').val() ? $('input[name="e4_5"]:checked').val() : 0;
+                var e5_1 = $('input[name="e5_1"]:checked').val() ? $('input[name="e5_1"]:checked').val() : 0;
+                var e5_2 = $('input[name="e5_2"]:checked').val() ? $('input[name="e5_2"]:checked').val() : 0;
+                var e6_1 = $('input[name="e6_1"]:checked').val() ? $('input[name="e6_1"]:checked').val() : 0;
+                var e6_2 = $('input[name="e6_2"]:checked').val() ? $('input[name="e6_2"]:checked').val() : 0;
+                var e6_3 = $('input[name="e6_3"]:checked').val() ? $('input[name="e6_3"]:checked').val() : 0;
+                var e6_4 = $('input[name="e6_4"]:checked').val() ? $('input[name="e6_4"]:checked').val() : 0;
+                var e6_5 = $('input[name="e6_5"]:checked').val() ? $('input[name="e6_5"]:checked').val() : 0;
+                var e6_6 = $('input[name="e6_6"]:checked').val() ? $('input[name="e6_6"]:checked').val() : 0;
+                var e7_1 = $('input[name="e7_1"]:checked').val() ? $('input[name="e7_1"]:checked').val() : 0;
+                var e7_2 = $('input[name="e7_2"]:checked').val() ? $('input[name="e7_2"]:checked').val() : 0;
+                var e7_3 = $('input[name="e7_3"]:checked').val() ? $('input[name="e7_3"]:checked').val() : 0;
+                var f1 = $('input[name="f1"]:checked').val() ? $('input[name="f1"]:checked').val() : 0;
+                var f2 = $('input[name="f2"]:checked').val() ? $('input[name="f2"]:checked').val() : 0;
+                var f3 = $('input[name="f3"]:checked').val() ? $('input[name="f3"]:checked').val() : 0;
+                var f4 = $('input[name="f4"]:checked').val() ? $('input[name="f4"]:checked').val() : 0;
+                var g1 = $('input[name="g1"]:checked').val() ? $('input[name="g1"]:checked').val() : 0;
+                var g2 = $('input[name="g2"]:checked').val() ? $('input[name="g2"]:checked').val() : 0;
+                var g3 = $('input[name="g3"]:checked').val() ? $('input[name="g3"]:checked').val() : 0;
+                var g4 = $('input[name="g4"]:checked').val() ? $('input[name="g4"]:checked').val() : 0;
+                var h1 = $('input[name="h1"]:checked').val() ? $('input[name="h1"]:checked').val() : 0;
+                var h2 = $('input[name="h2"]:checked').val() ? $('input[name="h2"]:checked').val() : 0;
+                var h3 = $('input[name="h3"]:checked').val() ? $('input[name="h3"]:checked').val() : 0;
+                var h4 = $('input[name="h4"]:checked').val() ? $('input[name="h4"]:checked').val() : 0;
 
-
+                var satisfaction_survey = {
+                    a1: a1,
+                    a2: a2,
+                    a3: a3,
+                    a4: a4,
+                    a5: a5,
+                    a6: a6,
+                    a7: a7,
+                    a8: a8,
+                    b1_1: b1_1,
+                    b1_2: b1_2,
+                    b1_3: b1_3,
+                    b1_4: b1_4,
+                    b1_5: b1_5,
+                    b1_6: b1_6,
+                    b2_1: b2_1,
+                    b2_2: b2_2,
+                    b2_3: b2_3,
+                    b2_4: b2_4,
+                    b2_5: b2_5,
+                    b2_6: b2_6,
+                    b3_1: b3_1,
+                    b3_2: b3_2,
+                    b3_3: b3_3,
+                    b3_4: b3_4,
+                    b3_5: b3_5,
+                    b3_6: b3_6,
+                    b4_1: b4_1,
+                    b4_2: b4_2,
+                    b5_1: b4_1,
+                    b5_2: b5_2,
+                    b6_1: b6_1,
+                    b6_2: b6_2,
+                    c1: c1,
+                    c2: c2,
+                    c3: c3,
+                    c4: c4,
+                    c5: c5,
+                    c6: c6,
+                    c7: c7,
+                    c8: c8,
+                    c9: c9,
+                    c10: c10,
+                    c11: c11,
+                    d1: d1,
+                    d2: d2,
+                    d3: d3,
+                    d4: d4,
+                    d5: d5,
+                    e1_1: e1_1,
+                    e1_2: e1_2,
+                    e1_3: e1_3,
+                    e1_4: e1_4,
+                    e1_5: e1_5,
+                    e1_6: e1_6,
+                    e1_7: e1_7,
+                    e1_8: e1_8,
+                    e1_9: e1_9,
+                    e1_10: e1_10,
+                    e1_11: e1_11,
+                    e1_12: e1_12,
+                    e2_1: e2_1,
+                    e2_2: e2_2,
+                    e2_3: e2_3,
+                    e2_4: e2_4,
+                    e2_5: e2_5,
+                    e2_6: e2_6,
+                    e2_7: e2_7,
+                    e2_8: e2_8,
+                    e2_9: e2_9,
+                    e2_10: e2_10,
+                    e2_11: e2_11,
+                    e2_12: e2_12,
+                    e2_13: e2_13,
+                    e3_1: e3_1,
+                    e3_2: e3_2,
+                    e3_3: e3_3,
+                    e3_4: e3_4,
+                    e3_5: e3_5,
+                    e4_1: e4_1,
+                    e4_2: e4_2,
+                    e4_3: e4_3,
+                    e4_4: e4_4,
+                    e4_5: e4_5,
+                    e5_1: e5_1,
+                    e5_2: e5_2,
+                    e6_1: e6_1,
+                    e6_2: e6_2,
+                    e6_3: e6_3,
+                    e6_4: e6_4,
+                    e6_5: e6_5,
+                    e6_6: e6_6,
+                    e7_1: e7_1,
+                    e7_2: e7_2,
+                    e7_3: e7_3,
+                    f1: f1,
+                    f2: f2,
+                    f3: f3,
+                    f4: f4,
+                    g1: g1,
+                    g2: g2,
+                    g3: g3,
+                    g4: g4,
+                    h1: h1,
+                    h2: h2,
+                    h3: h3,
+                    h4: h4,
+                    suggestion: suggestion
+                };
                 $scope.user.date_of_birth = _date;
                 $data = {
                     '_token': myToken,
@@ -265,8 +539,13 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                     'employment_survey': employment_survey,
                     'education_outcome_experiences': education_outcome_experiences,
                     'education_outcome_standards': education_outcome_standards,
-                    'activity_involvements': $scope.activity_involvements
+                    'activity_involvements': $scope.activity_involvements,
+                    'alumni_family_members': $scope.alumni_family_members,
+                    'alumni_professional_services': $scope.alumni_professional_services,
+                    'alumni_personal_services': $scope.alumni_personal_services,
+                    'satisfaction_survey': satisfaction_survey
                 };
+
 
 
                 $http.post('/api/user/signup', $data)
@@ -279,18 +558,28 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                             var educationOutcomeExperiences = data['educationOutcomeExperiences'];
                             var educationOutcomeStandards = data['educationOutcomeStandards'];
                             var activityInvolvements = data['activityInvolvements'];
+                            var alumni_family_members = data['alumni_family_members'];
+                            var alumni_personal_services = data['alumni_personal_services'];
+                            var alumni_professional_services = data['alumni_professional_services'];
+                            var satisfaction_survey = data['satisfaction_survey'];
+                            console.log('successfully save!');
 //                            console.log('user: ' + JSON.stringify(user));
-                            console.log('employmentSurvey: ' + JSON.stringify(employmentSurvey));
+//                            console.log('employmentSurvey: ' + JSON.stringify(employmentSurvey));
 //                            console.log('educationOutcomeExperiences: ' + JSON.stringify(educationOutcomeExperiences));
 //                            console.log('educationOutcomeStandards: ' + JSON.stringify(educationOutcomeStandards));
 //                            console.log('activityInvolvements: ' + JSON.stringify(activityInvolvements));
+//                            console.log('alumni_family_members: ' + JSON.stringify(alumni_family_members));
+//                            console.log('family_names: ' + JSON.stringify(family_names));
+//                            console.log('alumni_professional_services: ' + JSON.stringify(alumni_professional_services));
+//                            console.log('alumni_personal_services: ' + JSON.stringify(alumni_personal_services));
+//                            console.log('satisfaction_survey: ' + JSON.stringify(satisfaction_survey));
 //                            window.location.href = loginUrl;
-//                            $window.location.href = '/registered';
+                            $window.location.href = '/registered';
 
                             $scope.stopSpin();
                         })
                         .error(function (data, status, headers, config) {
-                            console.log(status);
+                            console.log(data);
                         });
 
             }

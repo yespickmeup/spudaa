@@ -6,14 +6,14 @@
         <title>Alumni Association | Signup</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <link rel="stylesheet" href="{{ URL::to('src/bootstrap/css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="<?php echo e(URL::to('src/bootstrap/css/bootstrap.min.css')); ?>"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="https://rawgit.com/maximnaidenov/angular-busy-tracker/v2.0.0/dist/busy.css"/>
-        <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/AdminLTE.min.css') }}"/>
-        <link rel="stylesheet" href="{{ URL::to('src/plugins/iCheck/square/blue.css') }}"/>
-        <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/skins/_all-skins.min.css') }}"/>
-        <link rel="stylesheet" href="{{ URL::to('src/plugins/datepicker/datepicker3.css') }}"/>
+        <link rel="stylesheet" href="<?php echo e(URL::to('src/AdminLTE/css/AdminLTE.min.css')); ?>"/>
+        <link rel="stylesheet" href="<?php echo e(URL::to('src/plugins/iCheck/square/blue.css')); ?>"/>
+        <link rel="stylesheet" href="<?php echo e(URL::to('src/AdminLTE/css/skins/_all-skins.min.css')); ?>"/>
+        <link rel="stylesheet" href="<?php echo e(URL::to('src/plugins/datepicker/datepicker3.css')); ?>"/>
 
 
     </head>
@@ -57,23 +57,23 @@
                                       >
                                     <div class="tab-content "  >
                                         <div class='tab-pane <%tab1%>' id="tab_1"  ng-controller="backgroundInfoController">
-                                            @include('users.signup-background-info')
+                                            <?php echo $__env->make('users.signup-background-info', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                         <div class='tab-pane <%tab2%>' id="tab_2"  ng-controller="employmentSurveyController">
-                                            @include('users.signup-survey-questions')
+                                            <?php echo $__env->make('users.signup-survey-questions', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                         <div class='tab-pane <%tab3%>' id="tab_3" ng-controller="educactionOutcomesController">
-                                            @include('users.signup-education-outcomes')
+                                            <?php echo $__env->make('users.signup-education-outcomes', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                         <div class='tab-pane <%tab4%>' id="tab_7" >
-                                            @include('users.signup-customer-satisfaction-survey')
+                                            <?php echo $__env->make('users.signup-customer-satisfaction-survey', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                        
                                         <div class='tab-pane <%tab5%>' id="tab_6" ng-controller="alumniFamilyMemberController">
-                                            @include('users.signup-alumni-family-members')
+                                            <?php echo $__env->make('users.signup-alumni-family-members', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                         <div class='tab-pane <%tab6%>' id="tab_4" >
-                                            @include('users.signup-alumni-services')
+                                            <?php echo $__env->make('users.signup-alumni-services', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                                         </div>
                                     </div>
 
@@ -87,28 +87,28 @@
         </div>
         <br> <br> <br>
      
-        <script src="{{ URL::to('src/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
-        <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
-        <script src="{{ URL::to('src/AdminLTE/js/app.min.js') }}"></script>
+        <script src="<?php echo e(URL::to('src/plugins/jQuery/jquery-2.2.3.min.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/bootstrap/js/bootstrap.min.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/plugins/iCheck/icheck.min.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/AdminLTE/js/app.min.js')); ?>"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.1.js"></script>
         <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
-        <script src="{{ URL::to('src/angular/js/angular-spinner.js') }}"></script>
-        <script src="{{ URL::to('src/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
-        <script src="{{ URL::to('src/AdminLTE/js/smart-table.debug.js') }}"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/angular-spinner.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/plugins/datepicker/bootstrap-datepicker.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/AdminLTE/js/smart-table.debug.js')); ?>"></script>
 
         
-        <script src="{{ URL::to('src/angular/js/signup/signup.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/background-info.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/employment-survey.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/education-outcomes.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/school-activities-involvements.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/alumni-family-members.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/alumni_professional_services.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/alumni_personal_services.js') }}" type="text/javascript"></script>
-        <script src="{{ URL::to('src/angular/js/signup/satisfaction-survey.js') }}" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/signup.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/background-info.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/employment-survey.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/education-outcomes.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/school-activities-involvements.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/alumni-family-members.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/alumni_professional_services.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/alumni_personal_services.js')); ?>" type="text/javascript"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/signup/satisfaction-survey.js')); ?>" type="text/javascript"></script>
 
         <script type="text/ng-template" id="spinjs.html">
             <div class="busy-overlay-container">
@@ -120,9 +120,9 @@
             </div>
         </script>
         <script>
-                                            var myToken = '{{ Session::token() }}';
-                                            var loginUrl = '{{ url('/signin') }}';
-                                            var baseURL = '{{url('/')}}';
+                                            var myToken = '<?php echo e(Session::token()); ?>';
+                                            var loginUrl = '<?php echo e(url('/signin')); ?>';
+                                            var baseURL = '<?php echo e(url('/')); ?>';
         </script>
         <script>
 
