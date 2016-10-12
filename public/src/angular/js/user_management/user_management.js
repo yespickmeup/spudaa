@@ -59,25 +59,28 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
         });
 
 
-
+        $active = 0;
         $scope.changeActive = function (my_user) {
 
-            $active = my_user.active;
-            if ($active === 1) {
-                $active = 0;
-            } else {
-                $active = 1;
+            if(my_user.role_id === '1' || my_user.role_id === '2'){
+                return;
             }
+            $active = (my_user.active === '1') ? 0 : 1;
+
+            
             $data = {
                 '_token': myToken,
                 'user': $scope.user,
                 'user_id': my_user.id,
                 'active': $active
             };
+            
             $http.post('/api/active_account', $data)
                     .success(function (data, status, headers, config) {
                         var user = data['user'];
                         my_user.active = $active;
+                        
+
                         $scope.account_name = my_user.last_name + ', ' + my_user.first_name + ' ' + my_user.middle_name;
                         $scope.showUserManagementSuccess = true;
                         setTimeout(function () {
@@ -110,7 +113,7 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
 
                     if (result === 'Yes') {
 
-                       
+
 
                         if (my_user.role_id === $scope.my_roles.selectedOption.id) {
                             return;
