@@ -54,14 +54,17 @@ use AuthenticatesAndRegistersUsers,
         }
 
         $user = $this->create($request->all());
-        
+
         $this->activationService->sendActivationMail($user);
 
         return redirect('/login')->with('status', 'We sent you an activation code. Check your email.');
     }
 
     public function authenticated(Request $request, $user) {
-
+        if (!$user->active) {
+            auth()->logout();
+            return back()->with(['status' => 'Account disabled!']);
+        }
         if (!$user->activated) {
             $this->activationService->sendActivationMail($user);
             auth()->logout();
@@ -79,7 +82,7 @@ use AuthenticatesAndRegistersUsers,
             auth()->login($user);
             auth()->logout();
             return redirect('/signin')->with('status', 'Please, proceed to admin office for account approval. Thank you!');
-            
+
 //            return redirect($this->redirectPath());
         }
         abort(404);

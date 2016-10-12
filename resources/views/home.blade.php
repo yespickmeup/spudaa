@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li><a href="#service">Services</a></li>
                                 <li><a href="#gallery">Gallery</a></li>
                                 <!--                                <li><a href="#contact">Contact</a></li>-->
-                                <li><a href="{{route('signin')}}">Signin </a></li>
+                                <li><a href="{{route('signin')}}">Sign in </a></li>
                             </ul>
                         </div>
                     </div>

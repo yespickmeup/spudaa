@@ -2,14 +2,14 @@
 
 
 @section('title')
-Account Approval
+User Management
 @endsection
 @section('content')
-<div class="row" ng-controller="accountApprovalController">
+<div class="row" ng-controller="userManagementController">
 
     <div class="col-md-12">
         <!--    Alert for Course-->
-        <div class="alert alert-success fade in" ng-show="showAccountApprovedSuccess">
+        <div class="alert alert-success fade in" ng-show="showUserManagementSuccess">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             Account&emsp;<strong><%account_name%> </strong> successfully approved!.
         </div>
@@ -26,8 +26,9 @@ Account Approval
                     <th style="width: 160px;" st-sort="user.first_name">First Name</th>
                     <th style="width: 100px;" st-sort="user.middle_name">Middle Name</th>
                     <th st-sort="user.email">email</th>
-                    <th style="width: 60px;" st-sort="user.activated"></th>
-                    <th style="width: 60px;" st-sort="user.approved"></th>
+                    <th style="width: 60px;" st-sort="user.role"></th>
+                    <th style="width: 60px;" st-sort="user.active"></th>
+
                 </tr>
 
             </thead>
@@ -37,22 +38,24 @@ Account Approval
                     <td><%user.first_name%></td>
                     <td><%user.middle_name%></td>
                     <td><%user.email%></td>
-
-                    <td> 
-                        <div ng-if="user.activated === '1'"> <span style="color: green;">Activated</span></div>
-                        <div ng-if="user.activated === '0'"> <span style="color: red;" >Pending</span></div>
+                    <td>
+                        <div ng-if="user.role === 'SuperAdministrator'">
+                            <a href="" ng-click="changeRole(user)"><u><span style="color: #d58512;">superadministrator</span></u></a>
+                        </div>
+                        <div ng-if="(user.role === 'administrator')">
+                            <a href="" ng-click="changeRole(user)"><u><span style="color: #d58512;">administrator</span></u></a>
+                        </div>
+                        <div ng-if="(user.role === 'user')">
+                            <a href="" ng-click="changeRole(user)"><u><span style="color: #d58512;">user</span></u></a>
+                        </div>
                     </td>
                     <td>
 
-                        <div ng-if="user.approved === '0' && user.activated === '0'">
-                            <span style="color: red;" >Pending</span>
+                        <div ng-if="user.active === '0'">
+                            <a href="" ng-click="changeActive(user)"><u><span style="color: red;">Inactive</span></u></a>
                         </div>
-                        <div ng-if="(user.approved === '0' && user.activated === '1')">
-                            <a href="" ng-click="approveAccount(user)"><u><span style="color: #0088cc;">Approve</span></u></a>
-                        </div>
-
-                        <div ng-if="user.approved === '1' && user.activated === '1'">
-                            <span style="color: green;">Approved</span>
+                        <div ng-if="(user.active === '1')">
+                            <a href="" ng-click="changeActive(user)"><u><span style="color: #0088cc;">Active</span></u></a>
                         </div>
 
                     </td>
@@ -68,7 +71,7 @@ Account Approval
             </tfoot>
         </table>
     </div>
-    <script type="text/ng-template" id="modalMajor.html">
+    <script type="text/ng-template" id="userManagement.html">
         <div class="modal ">
         <div class="modal-dialog modal-sm type-danger">
         <div class="modal-content">
@@ -77,7 +80,16 @@ Account Approval
         aria-hidden="true">&times;</button>
         <h4 class="modal-title">Confirm Delete!</h4>
         </div>
-
+        <div class="col-md-12">
+        <select class="form-control" placeholder="Roles" 
+        ng-model="my_roles.selectedOption" 
+        ng-options="option.name for option in my_roles.availableOptions | orderBy:'name' track by option.name  "
+        ng-change="roleOnChange(my_roles.selectedOption)"
+        >
+        </select>
+        </div>
+        <br>
+          <br>
         <div class="modal-footer">
         <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
         No

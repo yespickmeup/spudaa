@@ -16,7 +16,7 @@ settingsApp.controller('courseController', ['$scope', '$http', 'courseService', 
         $scope.showCourseAdd = true;
         $scope.showCourseUpdate = false;
 
-
+        
         courseService.getCourses().then(function (resp) {
             var courses = JSON.stringify(resp.data['courses']);
             $.each(JSON.parse(courses), function (idx, obj) {

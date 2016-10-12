@@ -221,15 +221,15 @@ settingsApp.service('majorService', function ($http) {
             method: 'GET',
             url: baseURL + '/api/majors'
         })
-            .success(function (data, status, headers, config) {
-                /* console.log('getMajors() success ');*/
-            })
-            .error(function (data, status, headers, config) {
-                console.log('getMajors() error');
-            });
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
     };
 
-    this.addMajor = function (major, level_id, year_id,course_id) {
+    this.addMajor = function (major, level_id, year_id, course_id) {
 
         return $http({
             method: 'POST',
@@ -242,12 +242,12 @@ settingsApp.service('majorService', function ($http) {
                 course_id: course_id
             }
         })
-            .success(function (data, status, headers, config) {
-                /*  console.log('add_major() success ');*/
-            })
-            .error(function (data, status, headers, config) {
-                console.log('add_major() error');
-            });
+                .success(function (data, status, headers, config) {
+                    /*  console.log('add_major() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('add_major() error');
+                });
     };
 
     this.updateMajor = function (id, major) {
@@ -260,12 +260,12 @@ settingsApp.service('majorService', function ($http) {
                 major: major
             }
         })
-            .success(function (data, status, headers, config) {
-                /* console.log('update_year() success ');*/
-            })
-            .error(function (data, status, headers, config) {
-                console.log('update_major() error');
-            });
+                .success(function (data, status, headers, config) {
+                    /* console.log('update_year() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('update_major() error');
+                });
     };
     this.deleteMajor = function (id) {
         return $http({
@@ -276,12 +276,106 @@ settingsApp.service('majorService', function ($http) {
                 id: id
             }
         })
-            .success(function (data, status, headers, config) {
-                /* console.log('delete_year() success ');*/
-            })
-            .error(function (data, status, headers, config) {
-                console.log('delete_major() error');
-            });
+                .success(function (data, status, headers, config) {
+                    /* console.log('delete_year() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('delete_major() error');
+                });
     };
 
+});
+
+settingsApp.service('accountApprovalService', function ($http) {
+
+    this.getUsers = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/users'
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
+    };
+    this.getUsersAll = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/users_all'
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
+    };
+    this.getRoles = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/roles'
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
+    };
+
+});
+
+settingsApp.service('userManagementService', function ($http) {
+
+    this.getUsers = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/users'
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
+    };
+    this.getUsersAll = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/users_all'
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
+    };
+    this.getRoles = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/roles'
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
+    };
+
+    this.changeRole = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/roles'
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('getMajors() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getMajors() error');
+                });
+    };
 });
