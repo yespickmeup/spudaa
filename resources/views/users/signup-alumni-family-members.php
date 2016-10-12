@@ -71,9 +71,9 @@
         </div>
 
         <div class="form-group pull-right">
-            <button class="btn btn-default " ng-click="clearMember()">New</button>
-            <button class="btn btn-primary " ng-click="addMember()" ng-show="showMemberAdd" ng-disabled="userForm.member_email.$invalid" >Add</button>
-            <button class="btn btn-primary " ng-click="updateMember()" ng-show="showMemberUpdate" ng-disabled="userForm.member_email.$error ">Update</button>
+            <a href="" class="btn btn-default " ng-click="clearMember()">New</a>
+            <a href="" class="btn btn-primary " ng-click="addMember()" ng-show="showMemberAdd" ng-disabled="userForm.member_email.$invalid" >Add</a>
+            <a href="" class="btn btn-primary " ng-click="updateMember()" ng-show="showMemberUpdate" ng-disabled="userForm.member_email.$error ">Update</a>
         </div>
         <br>
         <table st-table="displayedCollection2" st-safe-src="alumni_family_members"
