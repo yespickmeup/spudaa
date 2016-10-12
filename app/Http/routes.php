@@ -166,6 +166,7 @@ Route::get('/api/users', [
     'as' => 'users',
     'uses' => 'UserController@getUsers2'
 ]);
+
 Route::get('/api/users_all', [
     'as' => 'users.all',
     'uses' => 'UserController@getUsers3'
