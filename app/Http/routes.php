@@ -151,6 +151,11 @@ Route::post('api/major_delete', [
 // End of Major
 // Start of User
 
+Route::get('/api/user/{id}', [
+    'as' => 'user',
+    'uses' => 'UserController@getUser'
+]);
+
 Route::post('/api/user/signup', [
     'as' => 'user.signup',
     'uses' => 'UserController@postSignup'
@@ -202,7 +207,6 @@ Route::post('/api/active_account', [
     'uses' => 'UserController@accountActive'
 ]);
 //End of User Management
-
 //Start of Roles
 Route::get('/api/roles', [
     'as' => 'roles',
@@ -213,5 +217,100 @@ Route::post('/api/change_role', [
     'uses' => 'UserController@changeRole'
 ]);
 //End of Roles
+//Start of Account
+Route::get('/account', [
+    'as' => 'user.account',
+    function () {
+        return view('account.account');
+    }
+]);
+Route::post('/api/account/update', [
+    'as' => 'account.update',
+    'uses' => 'UserController@accountUpdate'
+]);
+Route::post('/fileUpload2', [
+    'as' => 'fileUpload2',
+    'uses' => 'UploadController@fileUpload2'
+]);
+
+//End of Account
+//Start of Family Members
+Route::get('/api/family_members/{user_id}', [
+    'as' => 'account.family_members',
+    'uses' => 'UserAlumniMembersController@getMembers'
+]);
+Route::post('/api/add_family_member', [
+    'as' => 'account.add_family_members',
+    'uses' => 'UserAlumniMembersController@postAddMember'
+]);
+Route::post('/api/update_family_member', [
+    'as' => 'account.update_family_members',
+    'uses' => 'UserAlumniMembersController@postUpdateMember'
+]);
+Route::post('/api/delete_family_member', [
+    'as' => 'account.delete_family_members',
+    'uses' => 'UserAlumniMembersController@postDeleteMember'
+]);
+//End of Family Members
+//Start of Professional Service
+Route::get('/api/professional_services/{user_id}', [
+    'as' => 'account.professional_services',
+    'uses' => 'UserAlumniProfessionalServiceController@getServices'
+]);
+Route::post('/api/add_professional_service', [
+    'as' => 'account.add_professional_service',
+    'uses' => 'UserAlumniProfessionalServiceController@postAddService'
+]);
+Route::post('/api/update_professional_service', [
+    'as' => 'account.update_professional_service',
+    'uses' => 'UserAlumniProfessionalServiceController@postUpdateService'
+]);
+Route::post('/api/delete_professional_service', [
+    'as' => 'account.delete_professional_service',
+    'uses' => 'UserAlumniProfessionalServiceController@postDeleteService'
+]);
+//End of Personal Service
+////Start of Professional Service
+Route::get('/api/personal_services/{user_id}', [
+    'as' => 'account.personal_services',
+    'uses' => 'UserAlumniPersonalServiceController@getServices'
+]);
+Route::post('/api/add_personal_service', [
+    'as' => 'account.add_personal_service',
+    'uses' => 'UserAlumniPersonalServiceController@postAddService'
+]);
+Route::post('/api/update_personal_service', [
+    'as' => 'account.update_personal_service',
+    'uses' => 'UserAlumniPersonalServiceController@postUpdateService'
+]);
+Route::post('/api/delete_personal_service', [
+    'as' => 'account.delete_personal_service',
+    'uses' => 'UserAlumniPersonalServiceController@postDeleteService'
+]);
+//End of Personal Service
+//Start of Survey
+Route::get('/surveys', [
+    'as' => 'account.survey',
+    function () {
+        return view('account.account-survey');
+    }
+]);
+Route::get('/api/employment_surveys/{user_id}', [
+    'as' => 'account.employment_surveys',
+    'uses' => 'UserEmploymentSurveyController@getSurvey'
+]);
+Route::post('/api/update_employment_survey', [
+    'as' => 'account.update_employment_survey',
+    'uses' => 'UserEmploymentSurveyController@postUpdateSurvey'
+]);
+Route::post('/api/update_educational_outcomes', [
+    'as' => 'account.update_educational_outcomes',
+    'uses' => 'UserEducationOutcomeController@postUpdateOutcome'
+]);
+Route::post('/api/update_satisfaction', [
+    'as' => 'account.update_satisfaction',
+    'uses' => 'UserSatisfactionController@postUpdateSatisfaction'
+]);
+//End of Survey
 // End of Api's
 

@@ -6,7 +6,7 @@ User Management
 @endsection
 @section('content')
 <div class="row" ng-controller="userManagementController">
-
+    
     <div class="col-md-12">
         <!--    Alert for Course-->
         <div class="alert alert-success fade in" ng-show="showUserManagementSuccess">
@@ -18,8 +18,7 @@ User Management
                class="table  table-bordered table-hover">
             <thead>
                 <tr>
-                    <th colspan="12"><input st-search="" class="form-control" placeholder="search"
-                                            type="text"/></th>
+                    <th colspan="12"><input st-search="" class="form-control" placeholder="search" type="text"/></th>
                 </tr>
                 <tr>
                     <th style="width: 160px;" st-sort="user.last_name">Last Name</th>
@@ -50,7 +49,6 @@ User Management
                         </div>
                     </td>
                     <td>
-
                         <div ng-if="user.active === '0'">
                             <a href="" ng-click="changeActive(user)"><u><span style="color: red;">Inactive</span></u></a>
                         </div>
