@@ -1,23 +1,29 @@
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Alumni Association | Dashboard</title>
-
-        <style>
-
-        </style>
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
         <link rel="stylesheet" href="{{ URL::to('src/bootstrap/css/bootstrap.min.css') }}"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="https://rawgit.com/maximnaidenov/angular-busy-tracker/v2.0.0/dist/busy.css"/>
         <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/AdminLTE.min.css') }}"/>
+        <link rel="stylesheet" href="{{ URL::to('src/plugins/iCheck/square/blue.css') }}"/>
         <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/skins/_all-skins.min.css') }}"/>
+        <link rel="stylesheet" href="{{ URL::to('src/plugins/datepicker/datepicker3.css') }}"/>
+        @yield('myCss')
+
+        <script src="{{ URL::to('src/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+        <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.1.js"></script>
+        <script src="{{ URL::to('src/angular/js/settings/settings.js') }}"></script>
     </head>
-    <body class="hold-transition skin-blue sidebar-mini" ng-app="settingsApp">
+    <body class="hold-transition skin-blue sidebar-mini" ng-app="settingsApp" ng-controller="settingsController">
         <div class="wrapper">
             <header class="main-header">
                 <a href="../../index2.html" class="logo">
@@ -31,19 +37,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-
                     <div class="navbar-custom-menu" >
                         <ul class="nav navbar-nav" >
                             <li class="dropdown user user-menu" >
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="{{ URL::to('src/images/users/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">Alexander Pierce</span>
+                                    <!--<img src="{{ URL::to('src/images/users/user2-160x160.jpg') }}" class="img-circle" alt="User Image">-->
+                                    <img class="img-circle" 
+                                         src="<%user.imageSource%>" 
+                                         ng-src="<%user.imageSource%> "
+                                         onerror="this.src='../src/images/users/user2-160x160.jpg'"
+                                         style="width: 17.5px;height: 17.5px;"
+                                         >
+                                    <span class="hidden-xs">{{ Auth::user()->first_name .' '. Auth::user()->middle_name .' '.Auth::user()->last_name }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
-                                        <img src="{{ URL::to('src/images/users/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                                        <img class="img-circle" 
+                                             src="<%user.imageSource%>" 
+                                             ng-src="<%user.imageSource%> "
+                                             onerror="this.src='../src/images/users/user2-160x160.jpg'"
+                                             style="width: 90px;height: 90px;"
+                                             >
                                         <p>
-                                            Alexander Pierce - Web Developer
+                                            {{ Auth::user()->first_name .' '. Auth::user()->middle_name .' '.Auth::user()->last_name }}
                                             <small>Member since Nov. 2012</small>
                                         </p>
                                     </li>
@@ -81,19 +97,25 @@
                 <section class="sidebar" >
 
                     <div class="user-panel" >
-                        <div class="pull-left image" >
-                            <img src="{{ URL::to('src/images/users/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                        <div class="pull-left image1" >
+                            <img class="img-circle" 
+                                 src="<%user.imageSource%>" 
+                                 ng-src="<%user.imageSource%> "
+                                 onerror="this.src='../src/images/users/user2-160x160.jpg'"
+                                 style="width: 50px !important;height: 50px;"
+                                 >
                         </div>
                         <div class="pull-left info">
-                            <p>Alexander Pierce</p>
+                            <p>{{ Auth::user()->first_name .' '. Auth::user()->middle_name .' '.Auth::user()->last_name }}</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
 
                     <ul class="sidebar-menu" >
                         <li class="header">MAIN NAVIGATION</li>
-                        <li><a href="{{route('user.management')}}"><i class="fa fa-user"></i> <span>My Account</span></a></li>
-                        <li><a href="{{route('user.management')}}"><i class="fa fa-book"></i> <span>Surveys</span></a></li>
+                        <li><a href="{{route('user.account')}}"><i class="fa fa-user"></i> <span>My Account</span></a></li>
+                        <li><a href="{{route('account.survey')}}"><i class="fa fa-book"></i> <span>Surveys</span></a></li>
+                        @if(Auth::user()->hasRole(['administrator', 'SuperAdministrator']))
                         <li><a href="{{route('user.management')}}"><i class="fa fa-users"></i> <span>User Management</span></a></li>
                         <li><a href="{{route('account.approval')}}"><i class="fa fa-check-circle-o"></i> <span>Account Approval</span></a></li>
                         <li><a href="{{route('card.releasing')}}"><i class="fa fa-photo"></i> <span>ID Card Releasing</span></a></li>
@@ -109,26 +131,31 @@
                                 <li><a href="{{route('year')}}"><i class="fa fa-circle-o"></i> Year</a></li>
                                 <li><a href="{{route('course')}}"><i class="fa fa-circle-o"></i> Courses</a></li>
                                 <li><a href="{{route('major')}}"><i class="fa fa-circle-o"></i> Majors</a></li>
-
+                                <li><a href="{{route('major')}}"><i class="fa fa-circle-o"></i> Preferences</a></li>
                             </ul>
                         </li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>Programs & Events</span></a></li>
+                        @endif
+
                     </ul>
                 </section>
             </aside>
             <div class="content-wrapper">
-                <section class="content-header">
+                <br> <br> 
+                <input type="hidden" value="{{Auth::user()->id}}" id="my_id" name="my_id">
+
+                <section class="content-header container">
                     <h1>
                         @yield('title')
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home </a></li>
                         <li><a href="#">Examples</a></li>
                         <li class="active">Blank page</li>
                     </ol>
                 </section>
-                <section class="content">
+                <section class="content container">
                     @yield('content')
                 </section>
             </div>
@@ -141,37 +168,71 @@
             </footer>
         </div>
         <script>
-            var myToken = '{{Session::token()}}';
-            var baseURL = '{{url('/')}}';
+                    var myToken = '{{Session::token()}}';
+                    var baseURL = '{{url('/')}}';
+                    var photo = '{{URL::asset('src/images/users/')}}';
+
+                   
         </script>
-        <script src="{{ URL::to('src/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
-        <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
 
 
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
-        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.1.js"></script>
+
+        <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
+        <script src="{{ URL::to('src/AdminLTE/js/app.min.js') }}"></script>
+
         <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
         <script src="{{ URL::to('src/angular/js/angular-spinner.js') }}"></script>
-        <script src="{{ URL::to('src/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+
         <script src="{{ URL::to('src/AdminLTE/js/smart-table.debug.js') }}"></script>
         <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
-      
+
 
         <script src="{{ URL::to('src/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
-        <script src="{{ URL::to('src/plugins/fastclick/fastclick.js') }}"></script>
-        <script src="{{ URL::to('src/AdminLTE/js/app.min.js') }}"></script>
+        <script src="{{ URL::to('src/plugins/fastclick/fastclick.js') }}"></script> 
         <script src="{{ URL::to('src/AdminLTE/js/demo.js') }}"></script>
-        <script src="{{ URL::to('src/angular/js/settings/settings.js') }}"></script>
+
+        <script src="{{ URL::to('src/plugins/select2/select2.full.min.js') }}"></script>
+        <script src="{{ URL::to('src/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
+        <script src="{{ URL::to('src/plugins/file_upload/ng-file-upload.js') }}"></script>
+        <script src="{{ URL::to('src/plugins/file_upload/ng-file-upload-shim.js') }}"></script>
+
+
         <script src="{{ URL::to('src/angular/js/settings/level.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/settings/year.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/settings/courses.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/settings/major.js') }}"></script>
-        <script src="{{ URL::to('src/angular/js/account_approval/account_approval.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/account/account_approval.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/user_management/user_management.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/id_card_releasing/id_card_releasing.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/account/account.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/account/account-background.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/account/account-family-members.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/account/account-alumni-professional-service.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/account/account-alumni-personal-service.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/account/account-survey.js') }}"></script>
         
-          <script src="{{ URL::to('src/angular/css/angularPrint.css') }}"></script>
-        <script src="{{ URL::to('src/angular/js/angularPrint.js') }}"></script>
+        
+        
+        
+        <script>
+                
+               $(function () {
+                   $('input').iCheck({
+                       checkboxClass: 'icheckbox_square-blue',
+                       radioClass: 'iradio_square-blue',
+                       increaseArea: '20%' // optional
+                   });
+               });
+               $('#datepicker').datepicker({
+                   autoclose: true
+               });
+
+             
+
+</script>
+        @yield('myScripts')
     </body>
+
+
+
 </html>

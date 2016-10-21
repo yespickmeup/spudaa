@@ -23,4 +23,5 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //     git push
 //      http://plnkr.co/edit/HkTTHfeLM8buwbWqHuOm?p=preview
     
-    
+//    composer require intervention/image
+//    php artisan vendor:publish

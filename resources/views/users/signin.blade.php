@@ -93,7 +93,7 @@
 
 
                 <a href="#">I forgot my password</a><br>
-                <a href="{{route('signup')}}" class="text-center">Register a new membership</a>
+                <a href="{{route('signup')}}" class="text-center"><label style="font-size: 18px;">Register a new membership</label></a>
 
             </div>
             <!-- /.login-box-body -->

@@ -117,8 +117,8 @@
 
         <div class="row text-center" >
             <div class="btn-group">
-                <a href="" class="btn btn-default pull-left" ng-click="changeTab(4)">Previous</a>
-                <a href="" class="btn btn-primary pull-right"  ng-click="changeTab(6)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
+                <a href="" class="btn btn-default pull-left" ng-click="changeTab(1)">Previous</a>
+                <a href="" class="btn btn-primary pull-right"  ng-click="changeTab(3)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
                    >Next</a>
                 <!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
                            >Next</a>-->

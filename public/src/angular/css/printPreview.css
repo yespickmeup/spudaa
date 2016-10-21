@@ -1,0 +1,22 @@
+
+
+
+
+@page { size: auto;  margin: 0mm; }
+@media screen { size: auto;  margin: 0mm; }
+.accountPhoto{
+    position: relative; 
+}
+
+.accountName{
+  
+    position: absolute;
+    margin-left: -235px;
+    top:150px;
+}
+.accountNo{
+     font-family: sans-serif;
+    position: absolute;
+    margin-left: -235px;
+    top:150px;
+}

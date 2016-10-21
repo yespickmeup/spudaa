@@ -113,14 +113,13 @@ class UserController extends Controller {
         $token = $request->get('_token');
 
         $userInput = $request->get('user');
-        $employmentSurvey = $request->get('employment_survey');
-        $educationOutcomeExperiences = $request->get('education_outcome_experiences');
-        $educationOutcomeStandards = $request->get('education_outcome_standards');
+
+
         $activityInvolvements = $request->get('activity_involvements');
         $alumni_family_members = $request->get('alumni_family_members');
         $alumni_professional_services = $request->get('alumni_professional_services');
         $alumni_personal_services = $request->get('alumni_personal_services');
-        $satisfaction_survey = $request->get('satisfaction_survey');
+
 
 
 
@@ -150,6 +149,7 @@ class UserController extends Controller {
         $user->level = $userInput['level'];
         $user->year = $userInput['year'];
         $user->course = $userInput['course'];
+        $user->major = $userInput['major'];
         $user->father = $userInput['father'];
         $user->father_is_paulinian = $userInput['father_is_paulinian'];
         $user->father_occupation = $userInput['father_occupation'];
@@ -173,67 +173,67 @@ class UserController extends Controller {
 
             $UserEmploymentSurvey = new UserEmploymentSurvey();
             $UserEmploymentSurvey->user_id = $user->id;
-            $UserEmploymentSurvey->work_status = $employmentSurvey['work_status'];
-            $UserEmploymentSurvey->work_status_others = $employmentSurvey['work_status_others'];
-            $UserEmploymentSurvey->sat_challenge = $employmentSurvey['sat_challenge'];
-            $UserEmploymentSurvey->sat_job_security = $employmentSurvey['sat_job_security'];
-            $UserEmploymentSurvey->sat_salary = $employmentSurvey['sat_salary'];
-            $UserEmploymentSurvey->sat_potential = $employmentSurvey['sat_potential'];
-            $UserEmploymentSurvey->sat_support = $employmentSurvey['sat_support'];
-            $UserEmploymentSurvey->sat_quality_of_service = $employmentSurvey['sat_quality_of_service'];
-            $UserEmploymentSurvey->sat_org_ethics = $employmentSurvey['sat_org_ethics'];
-            $UserEmploymentSurvey->job_course_relation = $employmentSurvey['job_course_relation'];
-            $UserEmploymentSurvey->seek_relavant_job = $employmentSurvey['seek_relavant_job'];
-            $UserEmploymentSurvey->unemployment_reason = $employmentSurvey['unemployment_reason'];
-            $UserEmploymentSurvey->seeking_employment = $employmentSurvey['seeking_employment'];
+            $UserEmploymentSurvey->work_status = 0;
+            $UserEmploymentSurvey->work_status_others = '';
+            $UserEmploymentSurvey->sat_challenge = 0;
+            $UserEmploymentSurvey->sat_job_security = 0;
+            $UserEmploymentSurvey->sat_salary = 0;
+            $UserEmploymentSurvey->sat_potential = 0;
+            $UserEmploymentSurvey->sat_support = 0;
+            $UserEmploymentSurvey->sat_quality_of_service = 0;
+            $UserEmploymentSurvey->sat_org_ethics = 0;
+            $UserEmploymentSurvey->job_course_relation = 0;
+            $UserEmploymentSurvey->seek_relavant_job = 'no';
+            $UserEmploymentSurvey->unemployment_reason = 0;
+            $UserEmploymentSurvey->seeking_employment = 0;
             $UserEmploymentSurvey->status = 1;
             $UserEmploymentSurvey->save();
 
             $UserEducationOutcomeExperience = new UserEducationOutcomeExperience();
             $UserEducationOutcomeExperience->user_id = $user->id;
-            $UserEducationOutcomeExperience->creativity_importance = $educationOutcomeExperiences['creativity_importance'];
-            $UserEducationOutcomeExperience->creativity_impact = $educationOutcomeExperiences['creativity_impact'];
-            $UserEducationOutcomeExperience->commitment_importance = $educationOutcomeExperiences['commitment_importance'];
-            $UserEducationOutcomeExperience->commitment_impact = $educationOutcomeExperiences['commitment_impact'];
-            $UserEducationOutcomeExperience->ethics_importance = $educationOutcomeExperiences['ethics_importance'];
-            $UserEducationOutcomeExperience->ethics_impact = $educationOutcomeExperiences['ethics_impact'];
-            $UserEducationOutcomeExperience->teamwork_importance = $educationOutcomeExperiences['teamwork_importance'];
-            $UserEducationOutcomeExperience->teamwork_impact = $educationOutcomeExperiences['teamwork_impact'];
-            $UserEducationOutcomeExperience->diversity_importance = $educationOutcomeExperiences['diversity_importance'];
-            $UserEducationOutcomeExperience->diversity_impact = $educationOutcomeExperiences['diversity_impact'];
-            $UserEducationOutcomeExperience->effective_communication_importance = $educationOutcomeExperiences['effective_communication_importance'];
-            $UserEducationOutcomeExperience->effective_communication_impact = $educationOutcomeExperiences['effective_communication_impact'];
-            $UserEducationOutcomeExperience->punctuality_importance = $educationOutcomeExperiences['punctuality_importance'];
-            $UserEducationOutcomeExperience->punctuality_impact = $educationOutcomeExperiences['punctuality_impact'];
-            $UserEducationOutcomeExperience->adaptably_importance = $educationOutcomeExperiences['adaptably_importance'];
-            $UserEducationOutcomeExperience->adaptably_impact = $educationOutcomeExperiences['adaptably_impact'];
+            $UserEducationOutcomeExperience->creativity_importance = 0;
+            $UserEducationOutcomeExperience->creativity_impact = 0;
+            $UserEducationOutcomeExperience->commitment_importance = 0;
+            $UserEducationOutcomeExperience->commitment_impact = 0;
+            $UserEducationOutcomeExperience->ethics_importance = 0;
+            $UserEducationOutcomeExperience->ethics_impact = 0;
+            $UserEducationOutcomeExperience->teamwork_importance = 0;
+            $UserEducationOutcomeExperience->teamwork_impact = 0;
+            $UserEducationOutcomeExperience->diversity_importance = 0;
+            $UserEducationOutcomeExperience->diversity_impact = 0;
+            $UserEducationOutcomeExperience->effective_communication_importance = 0;
+            $UserEducationOutcomeExperience->effective_communication_impact = 0;
+            $UserEducationOutcomeExperience->punctuality_importance = 0;
+            $UserEducationOutcomeExperience->punctuality_impact = 0;
+            $UserEducationOutcomeExperience->adaptably_importance = 0;
+            $UserEducationOutcomeExperience->adaptably_impact = 0;
             $UserEducationOutcomeExperience->status = 1;
             $UserEducationOutcomeExperience->save();
 
             $UserEducationOutcomeStandard = new UserEducationOutcomeStandard();
             $UserEducationOutcomeStandard->user_id = $user->id;
-            $UserEducationOutcomeStandard->nursing_care_importance = $educationOutcomeStandards['nursing_care_importance'];
-            $UserEducationOutcomeStandard->nursing_care_impact = $educationOutcomeStandards['nursing_care_impact'];
-            $UserEducationOutcomeStandard->management_of_environment_importance = $educationOutcomeStandards['management_of_environment_importance'];
-            $UserEducationOutcomeStandard->management_of_environment_impact = $educationOutcomeStandards['management_of_environment_impact'];
-            $UserEducationOutcomeStandard->health_education_importance = $educationOutcomeStandards['health_education_importance'];
-            $UserEducationOutcomeStandard->health_education_impact = $educationOutcomeStandards['health_education_impact'];
-            $UserEducationOutcomeStandard->profession_importance = $educationOutcomeStandards['profession_importance'];
-            $UserEducationOutcomeStandard->profession_impact = $educationOutcomeStandards['profession_impact'];
-            $UserEducationOutcomeStandard->legal_responsibilities_importance = $educationOutcomeStandards['legal_responsibilities_importance'];
-            $UserEducationOutcomeStandard->legal_responsibilities_impact = $educationOutcomeStandards['legal_responsibilities_impact'];
-            $UserEducationOutcomeStandard->ethico_importance = $educationOutcomeStandards['ethico_importance'];
-            $UserEducationOutcomeStandard->ethico_impact = $educationOutcomeStandards['ethico_impact'];
-            $UserEducationOutcomeStandard->improvement_importance = $educationOutcomeStandards['improvement_importance'];
-            $UserEducationOutcomeStandard->improvement_impact = $educationOutcomeStandards['improvement_impact'];
-            $UserEducationOutcomeStandard->records_management_importance = $educationOutcomeStandards['records_management_importance'];
-            $UserEducationOutcomeStandard->records_management_impact = $educationOutcomeStandards['records_management_impact'];
-            $UserEducationOutcomeStandard->research_importance = $educationOutcomeStandards['research_importance'];
-            $UserEducationOutcomeStandard->research_impact = $educationOutcomeStandards['research_impact'];
-            $UserEducationOutcomeStandard->collaboration_importance = $educationOutcomeStandards['collaboration_importance'];
-            $UserEducationOutcomeStandard->collaboration_impact = $educationOutcomeStandards['collaboration_impact'];
-            $UserEducationOutcomeStandard->communication_importance = $educationOutcomeStandards['communication_importance'];
-            $UserEducationOutcomeStandard->communication_impact = $educationOutcomeStandards['communication_impact'];
+            $UserEducationOutcomeStandard->nursing_care_importance = 0;
+            $UserEducationOutcomeStandard->nursing_care_impact = 0;
+            $UserEducationOutcomeStandard->management_of_environment_importance = 0;
+            $UserEducationOutcomeStandard->management_of_environment_impact = 0;
+            $UserEducationOutcomeStandard->health_education_importance = 0;
+            $UserEducationOutcomeStandard->health_education_impact = 0;
+            $UserEducationOutcomeStandard->profession_importance = 0;
+            $UserEducationOutcomeStandard->profession_impact = 0;
+            $UserEducationOutcomeStandard->legal_responsibilities_importance = 0;
+            $UserEducationOutcomeStandard->legal_responsibilities_impact = 0;
+            $UserEducationOutcomeStandard->ethico_importance = 0;
+            $UserEducationOutcomeStandard->ethico_impact = 0;
+            $UserEducationOutcomeStandard->improvement_importance = 0;
+            $UserEducationOutcomeStandard->improvement_impact = 0;
+            $UserEducationOutcomeStandard->records_management_importance = 0;
+            $UserEducationOutcomeStandard->records_management_impact = 0;
+            $UserEducationOutcomeStandard->research_importance = 0;
+            $UserEducationOutcomeStandard->research_impact = 0;
+            $UserEducationOutcomeStandard->collaboration_importance = 0;
+            $UserEducationOutcomeStandard->collaboration_impact = 0;
+            $UserEducationOutcomeStandard->communication_importance = 0;
+            $UserEducationOutcomeStandard->communication_impact = 0;
             $UserEducationOutcomeStandard->status = 1;
             $UserEducationOutcomeStandard->save();
 //            
@@ -272,129 +272,129 @@ class UserController extends Controller {
 //            Satisfaction Survey
             $satSurvey = new UserSatisfactionSurvey();
             $satSurvey->user_id = $user->id;
-            $satSurvey->a1 = $satisfaction_survey['a1'];
-            $satSurvey->a2 = $satisfaction_survey['a2'];
-            $satSurvey->a3 = $satisfaction_survey['a3'];
-            $satSurvey->a4 = $satisfaction_survey['a4'];
-            $satSurvey->a5 = $satisfaction_survey['a5'];
-            $satSurvey->a6 = $satisfaction_survey['a6'];
-            $satSurvey->a7 = $satisfaction_survey['a7'];
-            $satSurvey->a8 = $satisfaction_survey['a8'];
+            $satSurvey->a1 = 0;
+            $satSurvey->a2 = 0;
+            $satSurvey->a3 = 0;
+            $satSurvey->a4 = 0;
+            $satSurvey->a5 = 0;
+            $satSurvey->a6 = 0;
+            $satSurvey->a7 = 0;
+            $satSurvey->a8 = 0;
 
-            $satSurvey->b1_1 = $satisfaction_survey['b1_1'];
-            $satSurvey->b1_2 = $satisfaction_survey['b1_2'];
-            $satSurvey->b1_3 = $satisfaction_survey['b1_3'];
-            $satSurvey->b1_4 = $satisfaction_survey['b1_4'];
-            $satSurvey->b1_5 = $satisfaction_survey['b1_5'];
-            $satSurvey->b1_6 = $satisfaction_survey['b1_6'];
+            $satSurvey->b1_1 = 0;
+            $satSurvey->b1_2 = 0;
+            $satSurvey->b1_3 = 0;
+            $satSurvey->b1_4 = 0;
+            $satSurvey->b1_5 = 0;
+            $satSurvey->b1_6 = 0;
 
-            $satSurvey->b2_1 = $satisfaction_survey['b2_1'];
-            $satSurvey->b2_2 = $satisfaction_survey['b2_2'];
-            $satSurvey->b2_3 = $satisfaction_survey['b2_3'];
-            $satSurvey->b2_4 = $satisfaction_survey['b2_4'];
-            $satSurvey->b2_5 = $satisfaction_survey['b2_5'];
-            $satSurvey->b2_6 = $satisfaction_survey['b2_6'];
+            $satSurvey->b2_1 = 0;
+            $satSurvey->b2_2 = 0;
+            $satSurvey->b2_3 = 0;
+            $satSurvey->b2_4 = 0;
+            $satSurvey->b2_5 = 0;
+            $satSurvey->b2_6 = 0;
 
-            $satSurvey->b3_1 = $satisfaction_survey['b3_1'];
-            $satSurvey->b3_2 = $satisfaction_survey['b3_2'];
-            $satSurvey->b3_3 = $satisfaction_survey['b3_3'];
-            $satSurvey->b3_4 = $satisfaction_survey['b3_4'];
-            $satSurvey->b3_5 = $satisfaction_survey['b3_5'];
-            $satSurvey->b3_6 = $satisfaction_survey['b3_6'];
+            $satSurvey->b3_1 = 0;
+            $satSurvey->b3_2 = 0;
+            $satSurvey->b3_3 = 0;
+            $satSurvey->b3_4 = 0;
+            $satSurvey->b3_5 = 0;
+            $satSurvey->b3_6 = 0;
 
-            $satSurvey->b4_1 = $satisfaction_survey['b4_1'];
-            $satSurvey->b4_2 = $satisfaction_survey['b4_2'];
+            $satSurvey->b4_1 = 0;
+            $satSurvey->b4_2 = 0;
 
-            $satSurvey->b5_1 = $satisfaction_survey['b5_1'];
-            $satSurvey->b5_2 = $satisfaction_survey['b5_2'];
+            $satSurvey->b5_1 = 0;
+            $satSurvey->b5_2 = 0;
 
-            $satSurvey->b6_1 = $satisfaction_survey['b6_1'];
-            $satSurvey->b6_2 = $satisfaction_survey['b6_2'];
+            $satSurvey->b6_1 = 0;
+            $satSurvey->b6_2 = 0;
 
-            $satSurvey->c1 = $satisfaction_survey['c1'];
-            $satSurvey->c2 = $satisfaction_survey['c2'];
-            $satSurvey->c3 = $satisfaction_survey['c3'];
-            $satSurvey->c4 = $satisfaction_survey['c4'];
-            $satSurvey->c5 = $satisfaction_survey['c5'];
-            $satSurvey->c6 = $satisfaction_survey['c6'];
-            $satSurvey->c7 = $satisfaction_survey['c7'];
-            $satSurvey->c8 = $satisfaction_survey['c8'];
-            $satSurvey->c9 = $satisfaction_survey['c9'];
-            $satSurvey->c10 = $satisfaction_survey['c10'];
-            $satSurvey->c11 = $satisfaction_survey['c11'];
+            $satSurvey->c1 = 0;
+            $satSurvey->c2 = 0;
+            $satSurvey->c3 = 0;
+            $satSurvey->c4 = 0;
+            $satSurvey->c5 = 0;
+            $satSurvey->c6 = 0;
+            $satSurvey->c7 = 0;
+            $satSurvey->c8 = 0;
+            $satSurvey->c9 = 0;
+            $satSurvey->c10 = 0;
+            $satSurvey->c11 = 0;
 
-            $satSurvey->d1 = $satisfaction_survey['d1'];
-            $satSurvey->d2 = $satisfaction_survey['d2'];
-            $satSurvey->d3 = $satisfaction_survey['d3'];
-            $satSurvey->d4 = $satisfaction_survey['d4'];
-            $satSurvey->d5 = $satisfaction_survey['d5'];
+            $satSurvey->d1 = 0;
+            $satSurvey->d2 = 0;
+            $satSurvey->d3 = 0;
+            $satSurvey->d4 = 0;
+            $satSurvey->d5 = 0;
 
-            $satSurvey->e1_1 = $satisfaction_survey['e1_1'];
-            $satSurvey->e1_2 = $satisfaction_survey['e1_2'];
-            $satSurvey->e1_3 = $satisfaction_survey['e1_3'];
-            $satSurvey->e1_4 = $satisfaction_survey['e1_4'];
-            $satSurvey->e1_5 = $satisfaction_survey['e1_5'];
-            $satSurvey->e1_6 = $satisfaction_survey['e1_6'];
-            $satSurvey->e1_7 = $satisfaction_survey['e1_7'];
-            $satSurvey->e1_8 = $satisfaction_survey['e1_8'];
-            $satSurvey->e1_9 = $satisfaction_survey['e1_9'];
-            $satSurvey->e1_10 = $satisfaction_survey['e1_10'];
-            $satSurvey->e1_11 = $satisfaction_survey['e1_11'];
-            $satSurvey->e1_12 = $satisfaction_survey['e1_12'];
+            $satSurvey->e1_1 = 0;
+            $satSurvey->e1_2 = 0;
+            $satSurvey->e1_3 = 0;
+            $satSurvey->e1_4 = 0;
+            $satSurvey->e1_5 = 0;
+            $satSurvey->e1_6 = 0;
+            $satSurvey->e1_7 = 0;
+            $satSurvey->e1_8 = 0;
+            $satSurvey->e1_9 = 0;
+            $satSurvey->e1_10 = 0;
+            $satSurvey->e1_11 = 0;
+            $satSurvey->e1_12 = 0;
 
-            $satSurvey->e2_1 = $satisfaction_survey['e2_1'];
-            $satSurvey->e2_2 = $satisfaction_survey['e2_2'];
-            $satSurvey->e2_3 = $satisfaction_survey['e2_3'];
-            $satSurvey->e2_4 = $satisfaction_survey['e2_4'];
-            $satSurvey->e2_5 = $satisfaction_survey['e2_5'];
-            $satSurvey->e2_6 = $satisfaction_survey['e2_6'];
-            $satSurvey->e2_7 = $satisfaction_survey['e2_7'];
-            $satSurvey->e2_8 = $satisfaction_survey['e2_8'];
-            $satSurvey->e2_9 = $satisfaction_survey['e2_9'];
-            $satSurvey->e2_10 = $satisfaction_survey['e2_10'];
-            $satSurvey->e2_11 = $satisfaction_survey['e2_11'];
-            $satSurvey->e2_12 = $satisfaction_survey['e2_12'];
-            $satSurvey->e2_13 = $satisfaction_survey['e2_13'];
+            $satSurvey->e2_1 = 0;
+            $satSurvey->e2_2 = 0;
+            $satSurvey->e2_3 = 0;
+            $satSurvey->e2_4 = 0;
+            $satSurvey->e2_5 = 0;
+            $satSurvey->e2_6 = 0;
+            $satSurvey->e2_7 = 0;
+            $satSurvey->e2_8 = 0;
+            $satSurvey->e2_9 = 0;
+            $satSurvey->e2_10 = 0;
+            $satSurvey->e2_11 = 0;
+            $satSurvey->e2_12 = 0;
+            $satSurvey->e2_13 = 0;
 
-            $satSurvey->e3_1 = $satisfaction_survey['e3_1'];
-            $satSurvey->e3_2 = $satisfaction_survey['e3_2'];
-            $satSurvey->e3_3 = $satisfaction_survey['e3_3'];
+            $satSurvey->e3_1 = 0;
+            $satSurvey->e3_2 = 0;
+            $satSurvey->e3_3 = 0;
 
-            $satSurvey->e4_1 = $satisfaction_survey['e4_1'];
-            $satSurvey->e4_2 = $satisfaction_survey['e4_2'];
-            $satSurvey->e4_3 = $satisfaction_survey['e4_3'];
-            $satSurvey->e4_4 = $satisfaction_survey['e4_4'];
-            $satSurvey->e4_5 = $satisfaction_survey['e4_5'];
+            $satSurvey->e4_1 = 0;
+            $satSurvey->e4_2 = 0;
+            $satSurvey->e4_3 = 0;
+            $satSurvey->e4_4 = 0;
+            $satSurvey->e4_5 = 0;
 
-            $satSurvey->e5_1 = $satisfaction_survey['e5_1'];
-            $satSurvey->e5_2 = $satisfaction_survey['e5_2'];
+            $satSurvey->e5_1 = 0;
+            $satSurvey->e5_2 = 0;
 
-            $satSurvey->e6_1 = $satisfaction_survey['e6_1'];
-            $satSurvey->e6_2 = $satisfaction_survey['e6_2'];
-            $satSurvey->e6_3 = $satisfaction_survey['e6_3'];
-            $satSurvey->e6_4 = $satisfaction_survey['e6_4'];
-            $satSurvey->e6_5 = $satisfaction_survey['e6_5'];
-            $satSurvey->e6_6 = $satisfaction_survey['e6_6'];
+            $satSurvey->e6_1 = 0;
+            $satSurvey->e6_2 = 0;
+            $satSurvey->e6_3 = 0;
+            $satSurvey->e6_4 = 0;
+            $satSurvey->e6_5 = 0;
+            $satSurvey->e6_6 = 0;
 
-            $satSurvey->e7_1 = $satisfaction_survey['e7_1'];
-            $satSurvey->e7_2 = $satisfaction_survey['e7_2'];
-            $satSurvey->e7_3 = $satisfaction_survey['e7_3'];
+            $satSurvey->e7_1 = 0;
+            $satSurvey->e7_2 = 0;
+            $satSurvey->e7_3 = 0;
 
-            $satSurvey->f1 = $satisfaction_survey['f1'];
-            $satSurvey->f2 = $satisfaction_survey['f2'];
-            $satSurvey->f3 = $satisfaction_survey['f3'];
-            $satSurvey->f4 = $satisfaction_survey['f4'];
+            $satSurvey->f1 = 0;
+            $satSurvey->f2 = 0;
+            $satSurvey->f3 = 0;
+            $satSurvey->f4 = 0;
 
-            $satSurvey->g1 = $satisfaction_survey['g1'];
-            $satSurvey->g2 = $satisfaction_survey['g2'];
-            $satSurvey->g3 = $satisfaction_survey['g3'];
-            $satSurvey->g4 = $satisfaction_survey['g4'];
+            $satSurvey->g1 = 0;
+            $satSurvey->g2 = 0;
+            $satSurvey->g3 = 0;
+            $satSurvey->g4 = 0;
 
-            $satSurvey->h1 = $satisfaction_survey['h1'];
-            $satSurvey->h2 = $satisfaction_survey['h2'];
-            $satSurvey->h3 = $satisfaction_survey['h3'];
-            $satSurvey->h4 = $satisfaction_survey['h4'];
-            $satSurvey->suggestion = $satisfaction_survey['suggestion'];
+            $satSurvey->h1 = 0;
+            $satSurvey->h2 = 0;
+            $satSurvey->h3 = 0;
+            $satSurvey->h4 = 0;
+            $satSurvey->suggestion = '';
             $user->satSurvey()->save($satSurvey);
 
 
@@ -403,34 +403,76 @@ class UserController extends Controller {
                         'all' => $data,
                         'token' => $token,
                         'user' => $user,
-                        'employmentSurvey' => $employmentSurvey,
-                        'educationOutcomeStandards' => $UserEducationOutcomeExperience,
                         'alumni_family_members' => $alumni_family_members,
                         'alumni_professional_services' => $alumni_professional_services,
                         'alumni_personal_services' => $alumni_personal_services,
-                        'satisfaction_survey' => $satisfaction_survey,
-                        'message' => 'successfully added!'
+                      
                             ], 200);
         }
         return response()->json([
                     'all' => $data,
                     'token' => $token,
                     'user' => $user,
-                    'employmentSurvey' => $employmentSurvey,
-                    'educationOutcomeExperiences' => $educationOutcomeExperiences,
-                    'educationOutcomeStandards' => $educationOutcomeStandards,
+                   
                     'activityInvolvements' => $activityInvolvements,
                     'alumni_family_members' => $alumni_family_members,
                     'alumni_family_members' => $alumni_family_members,
                     'alumni_professional_services' => $alumni_professional_services,
                     'alumni_personal_services' => $alumni_personal_services,
-                    'satisfaction_survey' => $satisfaction_survey,
+                 
                     'message' => 'successfully added!'
                         ], 200);
     }
 
+    public function accountUpdate(Request $request) {
+        $data = $request->json()->all();
+        $userInput = $request->get('user');
+        $id = $request->get('id');
+        $user = User::find($id);
+
+        $user->student_no = $userInput['student_no'];
+        $user->first_name = $userInput['first_name'];
+        $user->middle_name = $userInput['middle_name'];
+        $user->last_name = $userInput['last_name'];
+        $user->suffix_name = $userInput['suffix_name'];
+        $user->civil_status = $userInput['civil_status'];
+        $user->gender = $userInput['gender'];
+        $user->date_of_birth = $userInput['date_of_birth'];
+        $user->blood_type = $userInput['blood_type'];
+        $user->country = $userInput['country'];
+        $user->province = $userInput['province'];
+        $user->city = $userInput['city'];
+        $user->zip_code = $userInput['zip_code'];
+        $user->home_address = $userInput['home_address'];
+        $user->present_address = $userInput['present_address'];
+        $user->landline_no = $userInput['landline_no'];
+        $user->cellphone_no = $userInput['cellphone_no'];
+        $user->level = $userInput['level'];
+        $user->year = $userInput['year'];
+        $user->course = $userInput['course'];
+        $user->major = $userInput['major'];
+        $user->father = $userInput['father'];
+        $user->father_is_paulinian = $userInput['father_is_paulinian'];
+        $user->father_occupation = $userInput['father_occupation'];
+        $user->father_office_address = $userInput['father_office_address'];
+        $user->mother = $userInput['mother'];
+        $user->mother_is_paulinian = $userInput['mother_is_paulinian'];
+        $user->mother_occupation = $userInput['mother_occupation'];
+        $user->mother_office_address = $userInput['mother_office_address'];
+
+        if (!$user->save()) {
+            return response()->json(['error' => 'record not updated!']);
+        }
+        return response()->json(['all' => $data, 'user' => $user]);
+    }
+
     public function getCheckEmailIfExists($email) {
         $user = User::where('email', '=', $email)->first();
+        return response()->json(['user' => $user]);
+    }
+
+    public function getUser($id) {
+        $user = User::where('id', '=', $id)->first();
         return response()->json(['user' => $user]);
     }
 
