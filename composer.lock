@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "3c5517f845fe9353498b2291a25ede77",
-    "content-hash": "1981cbdf79a81540e3901abef1bec597",
-=======
     "hash": "f819da8cd810863c24c4a709c52c1afb",
     "content-hash": "cb4127a87068ba340efaee197426d9c7",
->>>>>>> e0b277d090ebc32b9e14571da80f7773659a5d40
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -608,20 +603,20 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.27",
+            "version": "1.0.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9"
+                "reference": "1b5c4a0031697f46e779a9d1b309c2e1b24daeab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/50e2045ed70a7e75a5e30bc3662904f3b67af8a9",
-                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1b5c4a0031697f46e779a9d1b309c2e1b24daeab",
+                "reference": "1b5c4a0031697f46e779a9d1b309c2e1b24daeab",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.5.9"
             },
             "conflict": {
                 "league/flysystem-sftp": "<1.0.6"
@@ -687,7 +682,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-08-10 08:55:11"
+            "time": "2016-10-19 20:38:46"
         },
         {
             "name": "monolog/monolog",
@@ -1009,16 +1004,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
             "require": {
@@ -1052,7 +1047,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-09-19 16:02:08"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "psy/psysh",
@@ -1128,16 +1123,16 @@
         },
         {
             "name": "santigarcor/laratrust",
-            "version": "3.0.6",
+            "version": "3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/santigarcor/laratrust.git",
-                "reference": "64980d811222e5041ef6bf9891ff37bb74a7268b"
+                "reference": "bbccc46c9ea51d124cd6fbb86d7091b42590dcaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/santigarcor/laratrust/zipball/64980d811222e5041ef6bf9891ff37bb74a7268b",
-                "reference": "64980d811222e5041ef6bf9891ff37bb74a7268b",
+                "url": "https://api.github.com/repos/santigarcor/laratrust/zipball/bbccc46c9ea51d124cd6fbb86d7091b42590dcaf",
+                "reference": "bbccc46c9ea51d124cd6fbb86d7091b42590dcaf",
                 "shasum": ""
             },
             "require": {
@@ -1202,7 +1197,7 @@
                 "rbac",
                 "roles"
             ],
-            "time": "2016-09-26 17:24:33"
+            "time": "2016-10-18 20:18:39"
         },
         {
             "name": "swiftmailer/swiftmailer",

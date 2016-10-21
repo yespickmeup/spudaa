@@ -26,7 +26,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
         <!-- navigation -->
-
+        
         <div class="navbar-wrapper">
             <div class="container">
                 <nav class="navbar navbar-inverse navbar-static-top cl-effect-1">
@@ -89,7 +89,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 Created in 1961 and established in 1964 under the Office of the President, the Office of Alumni Relations (OAR) serves as the link between the alumni and the rest of the academic community. The OAR seeks to encourage the maximum participation, involvement, support and commitment of the alumni to the University of the Philippines’ social mission. It assists the UP and its Alumni Association (UPAA) in identifying, cultivating, and involving the alumni in institutional and alumni programs, events and activities. It also represents the UP and the UPAA at institutional and alumni programs, events and activities both locally, on-and off-campus, and foreign venues whenever possible.
                                 <br>
                                 Its objectives include.... <a href="#">Learn more</a>
-                               
+
                         </div>	
                     </div>
                 </div>
@@ -328,7 +328,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row">
                     <div class="col-lg-12 slideanim">
                         <iframe class="googlemaps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3937.0721769061033!2d123.29599791540937!3d9.326872593314642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33ab6f300771c587%3A0x2e0a3d3ded6fb861!2sSt.+Paul+University+Dumaguete!5e0!3m2!1sen!2sph!4v1475557826279" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    
+
                     </div>	
                 </div>
             </div>
@@ -401,38 +401,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </section>
 
-        <!-- /Footer Section -->
-        <!-- js files -->
-        <script src="<?php echo e(URL::to('src/AdminLTE/js/jquery.min.js')); ?>"></script>
+
+        <script src="<?php echo e(URL::to('src/plugins/jQuery/jquery-2.2.3.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/bootstrap.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/SmoothScroll.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/index.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/darkbox.js')); ?>"></script>
 
-        <!-- /js for gallery -->
-        <!-- js for smooth navigation -->
+ 
         <script>
 $(document).ready(function () {
-    // Add smooth scrolling to all links in navbar + footer link
+
     $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
 
         // Store hash
         var hash = this.hash;
 
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+
         $('html, body').animate({
             scrollTop: $(hash).offset().top
         }, 900, function () {
-
-            // Add hash (#) to URL when done scrolling (default click behavior)
             window.location.hash = hash;
         });
     });
-})
+});
         </script>
-        <!-- /js for smooth navigation -->
-        <!-- js for sliding animations -->
+
         <script>
             $(window).scroll(function () {
                 $(".slideanim").each(function () {
@@ -445,7 +439,5 @@ $(document).ready(function () {
                 });
             });
         </script>
-        <!-- /js for sliding animations -->
-        <!-- /js files -->
     </body>
 </html>
