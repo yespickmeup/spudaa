@@ -345,9 +345,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-lg-5 col-md-5">
                         <div class="contact-info">
                             <h4>Connect With Us :-</h4>
-                            <p><strong>Phone :</strong> 123.456.7890</p>
-                            <p><strong>Email :</strong> <a href="mailto:name@example.com">name@example.com</a></p>
-                            <p class="addr"><strong>Address :</strong> 3481 Melrose Place,Beverly Hills, Chicago 90210.</p>
+                            <p><strong>Phone :</strong><%preference.contact_no%></p>
+                            <p><strong>Email :</strong> <a href="mailto:name@example.com"><%preference.email_address%></a></p>
+                            <p class="addr"><strong>Address :</strong> <%preference.address%></p>
                             <ul class="social-icons2">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -360,7 +360,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <form action="#" method="post">
                             <div class="row">
                                 <div class="col-sm-12 form-group slideanim">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required >
                                 </div>
                             </div>
                             <div class="row email-bar">

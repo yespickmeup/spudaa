@@ -19,7 +19,7 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //    git config --global user.email rpascua.synsoftech@gmail.com
     
 //     git add .
-//     git commit -m "aw"
+//     git commit -m "aw" git commit -a
 //     git push
 //      http://plnkr.co/edit/HkTTHfeLM8buwbWqHuOm?p=preview
     
