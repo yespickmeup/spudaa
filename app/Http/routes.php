@@ -312,5 +312,27 @@ Route::post('/api/update_satisfaction', [
     'uses' => 'UserSatisfactionController@postUpdateSatisfaction'
 ]);
 //End of Survey
+//Start of Preference
+Route::get('/preferences', [
+    'as' => 'settings.preferences',
+    function () {
+        return view('settings.preference');
+    }
+]);
+Route::get('/api/preferences', [
+    'as' => 'account.preferences',
+    'uses' => 'PreferenceController@getPreference'
+]);
+Route::post('/api/update_preference', [
+    'as' => 'account.update_preferences',
+    'uses' => 'PreferenceController@postUpdatePreference'
+]);
+Route::get('/about-us', [
+    'as' => 'about.us',
+    function () {
+        return view('about-us');
+    }
+]);
+//End of Preference
 // End of Api's
 

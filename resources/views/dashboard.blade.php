@@ -20,7 +20,7 @@
         <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
-        <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
         <script src="{{ URL::to('src/angular/js/settings/settings.js') }}"></script>
     </head>
     <body class="hold-transition skin-blue sidebar-mini" ng-app="settingsApp" ng-controller="settingsController">
@@ -43,7 +43,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!--<img src="{{ URL::to('src/images/users/user2-160x160.jpg') }}" class="img-circle" alt="User Image">-->
                                     <img class="img-circle" 
-                                       
+
                                          ng-src="<%user.imageSource%> "
                                          onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                          style="width: 17.5px;height: 17.5px;"
@@ -53,7 +53,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
                                         <img class="img-circle" 
-                                           
+
                                              ng-src="<%user.imageSource%> "
                                              onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                              style="width: 90px;height: 90px;"
@@ -99,7 +99,7 @@
                     <div class="user-panel" >
                         <div class="pull-left image1" >
                             <img class="img-circle" 
-                             
+
                                  ng-src="<%user.imageSource%> "
                                  onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                  style="width: 50px !important;height: 50px;"
@@ -131,7 +131,7 @@
                                 <li><a href="{{route('year')}}"><i class="fa fa-circle-o"></i> Year</a></li>
                                 <li><a href="{{route('course')}}"><i class="fa fa-circle-o"></i> Courses</a></li>
                                 <li><a href="{{route('major')}}"><i class="fa fa-circle-o"></i> Majors</a></li>
-                                <li><a href="{{route('major')}}"><i class="fa fa-circle-o"></i> Preferences</a></li>
+                                <li><a href="{{route('settings.preferences')}}"><i class="fa fa-circle-o"></i> Preferences</a></li>
                             </ul>
                         </li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>
@@ -172,7 +172,6 @@
                     var baseURL = '{{url('/')}}';
                     var photo = '{{URL::asset('src/images/users/')}}';
 
-                   
         </script>
 
 
@@ -180,7 +179,7 @@
         <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
         <script src="{{ URL::to('src/AdminLTE/js/app.min.js') }}"></script>
 
-        <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
         <script src="{{ URL::to('src/angular/js/angular-spinner.js') }}"></script>
 
         <script src="{{ URL::to('src/AdminLTE/js/smart-table.debug.js') }}"></script>
@@ -202,6 +201,7 @@
         <script src="{{ URL::to('src/angular/js/settings/courses.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/settings/major.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account_approval.js') }}"></script>
+        <script src="{{ URL::to('src/angular/js/settings/preference.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/user_management/user_management.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/id_card_releasing/id_card_releasing.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account.js') }}"></script>
@@ -210,26 +210,26 @@
         <script src="{{ URL::to('src/angular/js/account/account-alumni-professional-service.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account-alumni-personal-service.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account-survey.js') }}"></script>
-        
-        
-        
-        
+
+
+
+
         <script>
-                
-               $(function () {
-                   $('input').iCheck({
-                       checkboxClass: 'icheckbox_square-blue',
-                       radioClass: 'iradio_square-blue',
-                       increaseArea: '20%' // optional
-                   });
-               });
-               $('#datepicker').datepicker({
-                   autoclose: true
-               });
 
-             
+                    $(function () {
+                        $('input').iCheck({
+                            checkboxClass: 'icheckbox_square-blue',
+                            radioClass: 'iradio_square-blue',
+                            increaseArea: '20%' // optional
+                        });
+                    });
+                    $('#datepicker').datepicker({
+                        autoclose: true
+                    });
 
-</script>
+
+
+        </script>
         @yield('myScripts')
     </body>
 
