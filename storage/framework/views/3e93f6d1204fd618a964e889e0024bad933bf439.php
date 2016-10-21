@@ -4,7 +4,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
-<html>
+<html ng-app="homeApp">
     <head>
         <title>Alumni Association | Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,12 +21,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href='//fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
         <!-- /fonts -->
         <!-- js files -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/modernizr.j')); ?>s"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/settings/home.js')); ?>"></script>
         <!-- /js files -->
     </head>
-    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller="homeController">
         <!-- navigation -->
-        
+
         <div class="navbar-wrapper">
             <div class="container">
                 <nav class="navbar navbar-inverse navbar-static-top cl-effect-1">
@@ -83,14 +87,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <img src="../src/AdminLTE/img/home/about-img.jpg" alt="about" class="img-responsive">
                     </div>
                     <div class="col-lg-6 about-info2 slideanim">
-                        <div class="about-details">
-                            <h2>About Us</h2>
-                            <p>
-                                Created in 1961 and established in 1964 under the Office of the President, the Office of Alumni Relations (OAR) serves as the link between the alumni and the rest of the academic community. The OAR seeks to encourage the maximum participation, involvement, support and commitment of the alumni to the University of the Philippines’ social mission. It assists the UP and its Alumni Association (UPAA) in identifying, cultivating, and involving the alumni in institutional and alumni programs, events and activities. It also represents the UP and the UPAA at institutional and alumni programs, events and activities both locally, on-and off-campus, and foreign venues whenever possible.
-                                <br>
-                                Its objectives include.... <a href="#">Learn more</a>
-
+                        <div class="about-details" id="details">
+                            <br><h1>About Us</h1>
+                            <p class="about-details" id="about-details"></p>
+                            <a href='<?php echo e(route('about.us')); ?>' style="font-size: 25px;">Learn more...</a>
                         </div>	
+
                     </div>
                 </div>
             </div>		
@@ -408,36 +410,37 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="<?php echo e(URL::to('src/AdminLTE/js/index.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/darkbox.js')); ?>"></script>
 
- 
+
         <script>
-$(document).ready(function () {
+                                        var baseURL = '<?php echo e(url('/')); ?>';
+                                        $(document).ready(function () {
 
-    $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                                            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
 
-        // Store hash
-        var hash = this.hash;
+                                                // Store hash
+                                                var hash = this.hash;
 
 
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 900, function () {
-            window.location.hash = hash;
-        });
-    });
-});
+                                                $('html, body').animate({
+                                                    scrollTop: $(hash).offset().top
+                                                }, 900, function () {
+                                                    window.location.hash = hash;
+                                                });
+                                            });
+                                        });
         </script>
 
         <script>
-            $(window).scroll(function () {
-                $(".slideanim").each(function () {
-                    var pos = $(this).offset().top;
+                    $(window).scroll(function () {
+                        $(".slideanim").each(function () {
+                            var pos = $(this).offset().top;
 
-                    var winTop = $(window).scrollTop();
-                    if (pos < winTop + 600) {
-                        $(this).addClass("slide");
-                    }
-                });
-            });
+                            var winTop = $(window).scrollTop();
+                            if (pos < winTop + 600) {
+                                $(this).addClass("slide");
+                            }
+                        });
+                    });
         </script>
     </body>
 </html>

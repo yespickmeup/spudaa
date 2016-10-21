@@ -73,7 +73,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
         <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.0.1.js"></script>
-        <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
         <script src="{{ URL::to('src/angular/js/angular-spinner.js') }}"></script>
         <script src="{{ URL::to('src/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
         <script src="{{ URL::to('src/AdminLTE/js/smart-table.debug.js') }}"></script>

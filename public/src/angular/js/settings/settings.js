@@ -13,7 +13,7 @@ var settingsApp = angular.module('settingsApp', ['angularSpinner', 'smart-table'
 settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService', function ($scope, $http, ModalService) {
         $scope.my_id = angular.element('#my_id').val();
         $scope.defaultImage = photo + '/' + 'user1-128x128.jpg';
-        
+
         $scope.user = {
             alumni_no: '',
             student_no: '',
@@ -662,8 +662,8 @@ settingsApp.service('accountSurveyService', function ($http) {
                     console.log('getlevels() error');
                 });
     };
-    
-     this.updateEmploymentSurvey = function (survey) {
+
+    this.updateEmploymentSurvey = function (survey) {
 //         console.log(survey);
         return $http({
             method: 'POST',
@@ -680,16 +680,16 @@ settingsApp.service('accountSurveyService', function ($http) {
                     console.log('update_major() error');
                 });
     };
-    this.updateEducationalOutcomes = function (education_outcome_experiences,education_outcome_standards,user_id) {
+    this.updateEducationalOutcomes = function (education_outcome_experiences, education_outcome_standards, user_id) {
 //         console.log(survey);
         return $http({
             method: 'POST',
             url: baseURL + '/api/update_educational_outcomes',
             data: {
                 _token: myToken,
-                user_id:user_id,
+                user_id: user_id,
                 education_outcome_experiences: education_outcome_experiences,
-                education_outcome_standards:education_outcome_standards
+                education_outcome_standards: education_outcome_standards
             }
         })
                 .success(function (data, status, headers, config) {
@@ -699,16 +699,16 @@ settingsApp.service('accountSurveyService', function ($http) {
                     console.log('update_major() error');
                 });
     };
-     this.updateSatisfaction = function (satisfaction_survey,user_id) {
-         
+    this.updateSatisfaction = function (satisfaction_survey, user_id) {
+
         return $http({
             method: 'POST',
             url: baseURL + '/api/update_satisfaction',
             data: {
                 _token: myToken,
-                user_id:user_id,
+                user_id: user_id,
                 satisfaction_survey: satisfaction_survey
-               
+
             }
         })
                 .success(function (data, status, headers, config) {
@@ -718,4 +718,37 @@ settingsApp.service('accountSurveyService', function ($http) {
                     console.log('update_major() error');
                 });
     };
+});
+
+settingsApp.service('preferenceService', function ($http) {
+    this.getPreference = function () {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/preferences'
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getlevels() error');
+                });
+    };
+    this.updatePreference = function (preference) {
+
+        return $http({
+            method: 'POST',
+            url: baseURL + '/api/update_preference',
+            data: {
+                _token: myToken,
+                preference: preference
+            }
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('update_year() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('update_major() error');
+                });
+    };
+
 });
