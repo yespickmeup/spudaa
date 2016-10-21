@@ -50,7 +50,7 @@ ID Card Releasing
             <label style="position: absolute;margin-left: -235px;top:150px; font-family:  Helvetica, sans-serif;font-size: 14px; " id="accountName" >Rodel Luis Nacianceno</label>
             <label style="position: absolute;margin-left: -235px;top:170px; " id="accountNo" >00000000000001</label>
             <img class="img-thumbnail" 
-                 src="<%user.imageSource%>" 
+                
                  ng-src="<%user.imageSource%> "
                  onerror="this.src='../src/images/users/user2-160x160.jpg'"
                  style="width: 72px;height: 78px;position: absolute; margin-left: -314px;top:110px;"
