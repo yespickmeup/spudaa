@@ -43,7 +43,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!--<img src="{{ URL::to('src/images/users/user2-160x160.jpg') }}" class="img-circle" alt="User Image">-->
                                     <img class="img-circle" 
-                                         src="<%user.imageSource%>" 
+                                       
                                          ng-src="<%user.imageSource%> "
                                          onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                          style="width: 17.5px;height: 17.5px;"
@@ -53,7 +53,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
                                         <img class="img-circle" 
-                                             src="<%user.imageSource%>" 
+                                           
                                              ng-src="<%user.imageSource%> "
                                              onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                              style="width: 90px;height: 90px;"
@@ -99,7 +99,7 @@
                     <div class="user-panel" >
                         <div class="pull-left image1" >
                             <img class="img-circle" 
-                                 src="<%user.imageSource%>" 
+                             
                                  ng-src="<%user.imageSource%> "
                                  onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                  style="width: 50px !important;height: 50px;"
