@@ -6,6 +6,8 @@
 
 
 
+/* global photo */
+
 settingsApp.controller('idCardReleasingController', ['$scope', '$http', 'ModalService', 'accountApprovalService', function ($scope, $http, ModalService, accountApprovalService) {
 
 
@@ -62,7 +64,7 @@ settingsApp.controller('idCardReleasingController2', ['$scope', '$http', 'ModalS
         $scope.users = [];
 
         $scope.itemsUsers = 20;
-
+        $scope.imageSource = '';
         accountApprovalService.getUsers().then(function (resp) {
             var majors = JSON.stringify(resp.data['users']);
             $.each(JSON.parse(majors), function (idx, obj) {
@@ -83,8 +85,12 @@ settingsApp.controller('idCardReleasingController2', ['$scope', '$http', 'ModalS
             });
         });
         $scope.view = function (user) {
+            
             $scope.$parent.printName = user.first_name + ' ' + user.middle_name + ' ' + user.last_name;
-            $scope.$parent.printID = '0000000000000'+user.id;
+            $scope.$parent.printID = '0000000000000' + user.id;
+            $scope.$parent.printImage = photo + '/' + user.id + '.jpg';
+           
+
         };
 
     }]);

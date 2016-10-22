@@ -25,7 +25,7 @@ ID Card Releasing
                 <label  style="position: absolute;margin-left: -235px;top:150px; font-family:  Helvetica, sans-serif;font-size: 14px; "id="accountNo" ><%printID%></label>
                 <img class="img-thumbnail" 
 
-                     ng-src="<%user.imageSource%> "
+                     ng-src="<%printImage%> "
                      onerror="this.src='../src/images/users/user2-160x160.jpg'"
                      style="width: 72px;height: 78px;position: absolute; margin-left: -314px;top:110px;"
                      >
@@ -44,7 +44,6 @@ ID Card Releasing
                         <th style="width:30px;"></th>
                         <th style="width:30px;"></th>
                     </tr>
-
                 </thead>
                 <tbody>
                     <tr ng-repeat="level in displayedCollection">

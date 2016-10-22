@@ -15,6 +15,7 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
         $scope.defaultImage = photo + '/' + 'user1-128x128.jpg';
         $scope.printName = '';
         $scope.printID = '';
+        $scope.printImage = photo + '/' + 'user1-128x128.jpg';
         $scope.user = {
             alumni_no: '',
             student_no: '',
