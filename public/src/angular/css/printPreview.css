@@ -2,20 +2,28 @@
 
 
 
-@page { size: auto;  margin: 0mm; }
-@media screen { size: auto;  margin: 0mm; }
+@page { 
+      margin: 0;
+       size: landscape;
+}
+@media screen { 
+    size: landscape;  margin: 0; 
+}
+@media print { 
+    size: landscape;  margin: 0; 
+}
 .accountPhoto{
     position: relative; 
 }
 
 .accountName{
-  
+
     position: absolute;
     margin-left: -235px;
     top:150px;
 }
 .accountNo{
-     font-family: sans-serif;
+    font-family: sans-serif;
     position: absolute;
     margin-left: -235px;
     top:150px;

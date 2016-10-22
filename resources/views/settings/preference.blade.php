@@ -38,12 +38,42 @@ Preferences
                 <span style="color: green;font-size: 24px;" ng-show="showUpdatPreferenceSuccess" ><span class="glyphicon glyphicon-ok"></span> Successfully Updated</span>
             </div>
             <div class="btn-group">
-
                 <a href="" class="btn btn-primary pull-right"  ng-click="updatePreference()" 
                    >Update</a>
             </div>
         </div>
         <hr>
+        <h2>Banner</h2>
+        <div class="row">
+
+            <div class="col-md-4">
+                <img src="{{ URL::to('src/AdminLTE/img/home/banner1.jpg') }}" class="img-thumbnail" alt="User Image" style="width: 250px;height: 250px;">
+                <input type="file" name="image" id="image" accept="image/jpeg/png"
+                       class="btn btn-default form-control image"
+                       style="width: 250px;" ng-model="imageSource" ngf-max-height="1000"
+                       ngf-max-size="100MB"
+                       onchange="angular.element(this).scope().fileNameChaged(this)">
+                <span style="color: green" ng-show="uploadBanner1"><span class="glyphicon glyphicon-ok"></span> Upload complete</span>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ URL::to('src/AdminLTE/img/home/banner2.jpg') }}" class="img-thumbnail" alt="User Image" style="width: 250px;height: 250px;">
+                <input type="file" name="image" id="image" accept="image/jpeg/png"
+                       class="btn btn-default form-control image"
+                       style="width: 250px;" ng-model="imageSource" ngf-max-height="1000"
+                       ngf-max-size="100MB"
+                       onchange="angular.element(this).scope().fileNameChaged(this)">
+                <span style="color: green" ng-show="uploadBanner2"><span class="glyphicon glyphicon-ok"></span> Upload complete</span>
+            </div>
+            <div class="col-md-4">
+                <img src="{{ URL::to('src/AdminLTE/img/home/banner3.jpg') }}" class="img-thumbnail" alt="User Image" style="width: 250px;height: 250px;">
+                <input type="file" name="image" id="image" accept="image/jpeg/png"
+                       class="btn btn-default form-control image"
+                       style="width: 250px;" ng-model="imageSource" ngf-max-height="1000"
+                       ngf-max-size="100MB"
+                       onchange="angular.element(this).scope().fileNameChaged(this)">
+                <span style="color: green" ng-show="uploadBanner3"><span class="glyphicon glyphicon-ok"></span> Upload complete</span>
+            </div>
+        </div>
     </div>
 
 </div>
