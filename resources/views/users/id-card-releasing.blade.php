@@ -22,8 +22,9 @@ ID Card Releasing
                      id="accountPhoto"
                      ng-src="<%imageSource%>"
                      >
-                <label style="position: absolute;margin-left: -235px;top:150px; font-family:  Helvetica, sans-serif;font-size: 14px; " id="accountName" ><%printName%></label>
-                <label style="position: absolute;margin-left: -235px;top:170px; " id="accountNo" ><%printID%></label>
+                
+                <label  style="position: absolute;margin-left: -235px;top:175px; font-family:  Helvetica, sans-serif;font-size: 16px;" id="accountName" ><%printName%></label>
+                <label  style="position: absolute;margin-left: -235px;top:150px; font-family:  Helvetica, sans-serif;font-size: 14px; "id="accountNo" ><%printID%></label>
                 <img class="img-thumbnail" 
 
                      ng-src="<%user.imageSource%> "
@@ -101,7 +102,7 @@ ID Card Releasing
                         <td><%user.first_name%></td>
                         <td><%user.middle_name%></td>
                         <td><%user.email%></td>
-                        <td><button class="btn btn-success sm" ng-click="view(user)">View</button></td>
+                        <td><button class="btn btn-success sm" ng-click="view(user)">Select</button></td>
                     </tr>
                 </tbody>
                 <tfoot>
