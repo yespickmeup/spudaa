@@ -13,7 +13,8 @@ var settingsApp = angular.module('settingsApp', ['angularSpinner', 'smart-table'
 settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService', function ($scope, $http, ModalService) {
         $scope.my_id = angular.element('#my_id').val();
         $scope.defaultImage = photo + '/' + 'user1-128x128.jpg';
-
+        $scope.printName = '';
+        $scope.printID = '';
         $scope.user = {
             alumni_no: '',
             student_no: '',

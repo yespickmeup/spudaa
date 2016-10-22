@@ -6,7 +6,8 @@
 
 
 
-settingsApp.controller('idCardReleasingController', ['$scope', '$http', 'ModalService', function ($scope, $http, ModalService) {
+settingsApp.controller('idCardReleasingController', ['$scope', '$http', 'ModalService', 'accountApprovalService', function ($scope, $http, ModalService, accountApprovalService) {
+
 
         $scope.print = function () {
             var innerContents = document.getElementById('mySelector').innerHTML;
@@ -17,64 +18,76 @@ settingsApp.controller('idCardReleasingController', ['$scope', '$http', 'ModalSe
 
             popupWinindow.document.close();
 
+        };
+        $scope.users = [];
 
-        };
-        $scope.options = {
-            width: 1.5,
-            height: 25,
-            quite: 10,
-            displayValue: true,
-            font: "monospace",
-            textAlign: "center",
-            fontSize: 12,
-            backgroundColor: "",
-            lineColor: "#000"
-        };
-        
-        $scope.items = [{
-                'name': 'Item 1'
-            }, {
-                'name': 'Item 2'
-            }, {
-                'name': 'Account 3'
-            }, {
-                'name': 'Account 4'
-            }, {
-                'name': 'Item 5'
-            }, {
-                'name': 'Item 6'
-            }, {
-                'name': 'User 7'
-            }, {
-                'name': 'User 8'
-            }, {
-                'name': 'Item 9'
-            }, {
-                'name': 'Item 10'
-            }, {
-                'name': 'Item 11'
-            }, {
-                'name': 'Item 12'
-            }, {
-                'name': 'Item 13'
-            }, {
-                'name': 'Item 14'
-            }, {
-                'name': 'User 15'
-            }, {
-                'name': 'User 16'
-            }, {
-                'name': 'Person 17'
-            }, {
-                'name': 'Person 18'
-            }, {
-                'name': 'Person 19'
-            }, {
-                'name': 'Item 20'
-            }];
+        $scope.itemsUsers = 20;
+
+        accountApprovalService.getUsers().then(function (resp) {
+            var majors = JSON.stringify(resp.data['users']);
+            $.each(JSON.parse(majors), function (idx, obj) {
+                var data = {};
+                data.id = obj.id;
+                data.name = obj.name;
+                data.email = obj.email;
+                data.activated = obj.activated;
+                data.approved = obj.approved;
+                data.first_name = obj.first_name;
+                data.middle_name = obj.middle_name;
+                data.last_name = obj.last_name;
+                data.role_id = obj.role_id;
+                data.role = obj.role;
+                data.status = obj.status;
+                $scope.users.push(data);
+
+            });
+        });
+
+
     }]);
 
 
+settingsApp.controller('idCardReleasingController2', ['$scope', '$http', 'ModalService', 'accountApprovalService', function ($scope, $http, ModalService, accountApprovalService) {
+
+        $scope.print = function () {
+            var innerContents = document.getElementById('mySelector').innerHTML;
+            var popupWinindow = window.open('', '_blank', 'width=1000,height=900,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+            popupWinindow.document.open();
+            popupWinindow.document.write('<html><head><link rel="stylesheet" type="text/css" href="../src/angular/css/printPreview.css" /></head>\n\
+            <body onload="window.print()">' + innerContents + '</body></html>');
+
+            popupWinindow.document.close();
+
+        };
+        $scope.users = [];
+
+        $scope.itemsUsers = 20;
+
+        accountApprovalService.getUsers().then(function (resp) {
+            var majors = JSON.stringify(resp.data['users']);
+            $.each(JSON.parse(majors), function (idx, obj) {
+                var data = {};
+                data.id = obj.id;
+                data.name = obj.name;
+                data.email = obj.email;
+                data.activated = obj.activated;
+                data.approved = obj.approved;
+                data.first_name = obj.first_name;
+                data.middle_name = obj.middle_name;
+                data.last_name = obj.last_name;
+                data.role_id = obj.role_id;
+                data.role = obj.role;
+                data.status = obj.status;
+                $scope.users.push(data);
+
+            });
+        });
+        $scope.view = function (user) {
+            $scope.$parent.printName = user.first_name + ' ' + user.middle_name + ' ' + user.last_name;
+            $scope.$parent.printID = '0000000000000'+user.id;
+        };
+
+    }]);
 
 
 settingsApp.controller('ModalAccountApprovallController', function ($scope, close) {
