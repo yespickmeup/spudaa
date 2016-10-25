@@ -232,6 +232,10 @@ Route::post('/fileUpload2', [
     'as' => 'fileUpload2',
     'uses' => 'UploadController@fileUpload2'
 ]);
+Route::post('/fileUpload3', [
+    'as' => 'fileUpload3',
+    'uses' => 'UploadController@fileUploadBanner'
+]);
 
 //End of Account
 //Start of Family Members

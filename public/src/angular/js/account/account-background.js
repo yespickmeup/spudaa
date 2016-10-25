@@ -171,9 +171,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             reader.readAsDataURL(element.files[0]);
         };
         function uploadImage(filename) {
-              
             if ($scope.photoFile) {
-                
                 $scope.photoFile.upload = Upload.upload({
                     url: '/fileUpload2',
                     data: {
