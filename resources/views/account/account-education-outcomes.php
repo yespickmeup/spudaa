@@ -26,92 +26,127 @@
             <td style="width: 20px;text-align: center;">3</td>
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_importance" value="4" ></td>          
+
+
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="creativity_importance" value="<%choice.id%>" ng-model="aCreativity_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>
+
             <td style="text-align: center;">Creativity</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="creativity_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="creativity_impact" value="<%choice.id%>" ng-model="aCreativity_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="commitment_importance" value="<%choice.id%>" ng-model="aCommitment_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
             <td style="text-align: center;">Lifelong Learning Commitment</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="commitment_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="commitment_impact" value="<%choice.id%>" ng-model="aCommitment_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="ethics_importance" value="<%choice.id%>" ng-model="aEthics_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
             <td style="text-align: center;">Living my professional life according to my standards and ethics</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethics_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="ethics_impact" value="<%choice.id%>" ng-model="aEthics_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="teamwork_importance" value="<%choice.id%>" ng-model="aTeamwork_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
             <td style="text-align: center;">Leadership and Teamwork</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="teamwork_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="teamwork_impact" value="<%choice.id%>" ng-model="aTeamwork_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="diversity_importance" value="<%choice.id%>" ng-model="aDiversity_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
             <td style="text-align: center;">Respect of cultural diversity</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="diversity_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="diversity_impact" value="<%choice.id%>" ng-model="aDiversity_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="effective_communication_importance" value="<%choice.id%>" ng-model="aEffective_communication_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>      
             <td style="text-align: center;">Effective communication</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="effective_communication_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="effective_communication_impact" value="<%choice.id%>" ng-model="aEffective_communication_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>    
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_importance" value="3"" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="punctuality_importance" value="<%choice.id%>" ng-model="aPunctuality_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
             <td style="text-align: center;">Punctuality</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="punctuality_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="punctuality_impact" value="<%choice.id%>" ng-model="aPunctuality_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="adaptably_importance" value="<%choice.id%>" ng-model="aAdaptably_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
             <td style="text-align: center;">Flexibility and adaptably</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="adaptably_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="adaptably_impact" value="<%choice.id%>" ng-model="aAdaptably_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
     </table>
     <!--     <a class="btn btn-default" ng-click="checkOutcome()">check</a>-->
@@ -134,125 +169,169 @@
             <td style="width: 20px;text-align: center;">3</td>
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="c" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="nursing_care_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="nursing_care_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="nursing_care_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="nursing_care_importance" value="<%choice.id%>" ng-model="aNursing_care_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>        
             <td style="text-align: center;">Safety and quality nursing care</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="nursing_care_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="nursing_care_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="nursing_care_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="nursing_care_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="nursing_care_impact" value="<%choice.id%>" ng-model="aNursing_care_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="management_of_environment_importance" value="<%choice.id%>" ng-model="aManagement_of_environment_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>             
             <td style="text-align: center;">Management of resources and environment</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="management_of_environment_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="management_of_environment_impact" value="<%choice.id%>" ng-model="aManagement_of_environment_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>        
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="health_education_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="health_education_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="health_education_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="health_education_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="health_education_importance" value="<%choice.id%>" ng-model="aHealth_education_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>           
             <td style="text-align: center;">Health Education</td>
-            <td style="width: 20px;text-align: center;"><input type="radio"  name="health_education_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio"  name="health_education_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio"  name="health_education_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio"  name="health_education_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="health_education_impact" value="<%choice.id%>" ng-model="aHealth_education_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="profession_importance" value="<%choice.id%>" ng-model="aProfession_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>             
             <td style="text-align: center;">Personal and Profession</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="profession_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="profession_impact" value="<%choice.id%>" ng-model="aProfession_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>           
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="legal_responsibilities_importance" value="<%choice.id%>" ng-model="aLegal_responsibilities_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
             <td style="text-align: center;">Legal responsibilities</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="legal_responsibilities_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="legal_responsibilities_impact" value="<%choice.id%>" ng-model="aLegal_responsibilities_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="ethico_importance" value="<%choice.id%>" ng-model="aEthico_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
             <td style="text-align: center;">Ethico-moral Responsibilities</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="ethico_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="ethico_impact" value="<%choice.id%>" ng-model="aEthico_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="improvement_importance" value="<%choice.id%>" ng-model="aImprovement_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
             <td style="text-align: center;">Quality Improvement</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="improvement_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="improvement_impact" value="<%choice.id%>" ng-model="aImprovement_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="records_management_importance" value="<%choice.id%>" ng-model="aRecords_management_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>        
             <td style="text-align: center;">Records Management</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="records_management_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="records_management_impact" value="<%choice.id%>" ng-model="aRecords_management_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="research_importance" value="<%choice.id%>" ng-model="aResearch_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>          
             <td style="text-align: center;">Research</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="research_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="research_impact" value="<%choice.id%>" ng-model="aResearch_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>        
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="collaboration_importance" value="<%choice.id%>" ng-model="aCollaboration_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>              
             <td style="text-align: center;">Collaboration and Teamwork</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="collaboration_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="collaboration_impact" value="<%choice.id%>" ng-model="aCollaboration_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>        
         </tr>
         <tr>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_importance" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_importance" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_importance" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_importance" value="4" ></td>          
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in importances.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="communication_importance" value="<%choice.id%>" ng-model="aCommunication_importance" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>              
             <td style="text-align: center;">Communication</td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_impact" value="1" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_impact" value="2" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_impact" value="3" ></td>
-            <td style="width: 20px;text-align: center;"><input type="radio" name="communication_impact" value="4" ></td>
+            <td style="width: 20px;padding-left: 15px;text-align: center;" ng-repeat="choice in impacts.choices">
+                <label class="control control--radio"><%choice.text%>
+                    <input type="radio"   name="communication_impact" value="<%choice.id%>" ng-model="aCommunication_impact" />
+                    <div class="control__indicator"></div>
+                </label>
+            </td>     
         </tr>
     </table>
     <!--      <a class="btn btn-default" ng-click="checkOutcome2()">check</a>-->

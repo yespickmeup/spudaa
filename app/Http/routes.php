@@ -299,6 +299,18 @@ Route::get('/api/employment_surveys/{user_id}', [
     'as' => 'account.employment_surveys',
     'uses' => 'UserEmploymentSurveyController@getSurvey'
 ]);
+Route::get('/api/outcome_experiences/{user_id}', [
+    'as' => 'account.outcome_experiences',
+    'uses' => 'UserEducationOutcomeController@getOutcomeExperience'
+]);
+Route::get('/api/outcome_standards/{user_id}', [
+    'as' => 'account.outcome_standards',
+    'uses' => 'UserEducationOutcomeController@getOutcomeStandard'
+]);
+Route::get('/api/satisfication_surveys/{user_id}', [
+    'as' => 'account.satisfication_surveys',
+    'uses' => 'UserSatisfactionController@getSurvey'
+]);
 Route::post('/api/update_employment_survey', [
     'as' => 'account.update_employment_survey',
     'uses' => 'UserEmploymentSurveyController@postUpdateSurvey'
