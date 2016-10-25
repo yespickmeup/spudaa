@@ -22,13 +22,15 @@
         <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
         
-        <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
        
+          <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
        
         
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
         <script src="{{ URL::to('src/angular/js/settings/settings.js') }}"></script>
+        
+        
     </head>
     <body class="hold-transition skin-blue sidebar-mini" ng-app="settingsApp" ng-controller="settingsController">
         <div class="wrapper">
@@ -219,6 +221,7 @@
         <script src="{{ URL::to('src/angular/js/account/account-alumni-personal-service.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account-survey.js') }}"></script>
 
+          
 
 
  <script type="text/javascript">
