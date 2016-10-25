@@ -16,6 +16,10 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
         $scope.printName = '';
         $scope.printID = '';
         $scope.printImage = photo + '/' + 'user1-128x128.jpg';
+        $scope.imageSourceBanner1='../src/AdminLTE/img/home/banner1.jpg';
+        $scope.imageSourceBanner2='../src/AdminLTE/img/home/banner2.jpg';
+        $scope.imageSourceBanner3='../src/AdminLTE/img/home/banner3.jpg';
+       $scope.htmlEditor = '...';
         $scope.user = {
             alumni_no: '',
             student_no: '',

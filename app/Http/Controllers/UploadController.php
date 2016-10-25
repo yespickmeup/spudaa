@@ -64,4 +64,17 @@ class UploadController extends Controller
 
         return response()->json(['data'=>$image]);
     }
+     public function fileUploadBanner(Request $request)
+    {
+
+        $data = $request->json()->all();
+        $image = $request->file('file');
+        $filename = $request->get('filename');
+        $input['imagename'] =  $filename;
+        $destinationPath = public_path('/src/AdminLTE/img/home');
+        $image->move($destinationPath, $input['imagename']);
+
+
+        return response()->json(['data'=>$image]);
+    }
 }

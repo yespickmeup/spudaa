@@ -99,8 +99,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-lg-6 about-info1 slideanim" >
                         <img src="../src/AdminLTE/img/home/about-img.jpg" alt="about" class="img-responsive">
                     </div>
-                    <div class="col-lg-6 about-info2 slideanim">
-                        <div class="about-details" id="details">
+                    <div class="col-lg-6 about-info2 slideanim" >
+                        <div class="about-details" id="details" style="margin-left: 15px;margin-top: 15px;">
                             <br><h1>About Us</h1>
                             <p class="about-details" id="about-details"></p>
                             <a href='<?php echo e(route('about.us')); ?>' style="font-size: 25px;">Learn more...</a>
@@ -223,20 +223,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <section class="our-gallery" id="gallery">
             <h3 class="text-center slideanim">Our Gallery</h3>
             <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <div class="container ">
-                <img src="../src/AdminLTE/img/home/work1.jpg" data-darkbox="../src/AdminLTE/img/home/work1-1.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work2.jpg" data-darkbox="../src/AdminLTE/img/home/work2-2.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work3.jpg" data-darkbox="../src/AdminLTE/img/home/work3-3.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work4.jpg" data-darkbox="../src/AdminLTE/img/home/work4-4.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-<!--                <img src="../src/AdminLTE/img/home/work5.jpg" data-darkbox="../src/AdminLTE/img/home/work5-5.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work6.jpg" data-darkbox="../src/AdminLTE/img/home/work6-6.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work7.jpg" data-darkbox="../src/AdminLTE/img/home/work7-7.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work8.jpg" data-darkbox="../src/AdminLTE/img/home/work8-8.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work9.jpg" data-darkbox="../src/AdminLTE/img/home/work9-9.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+            <div class="container">
+                 <div class="col-md-12 ">
+                <img src="../src/images/gallery/work1.jpg" data-darkbox="../src/images/gallery/work1.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/images/gallery/work2.jpg" data-darkbox="../src/images/gallery/work2.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/images/gallery/work3.jpg" data-darkbox="../src/images/gallery/work3.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/images/gallery/work4.jpg" data-darkbox="../src/images/gallery/work4.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/images/gallery/work5.jpg" data-darkbox="../src/images/gallery/work5.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/images/gallery/work6.jpg" data-darkbox="../src/images/gallery/work6.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/images/gallery/work7.jpg" data-darkbox="../src/images/gallery/work7.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/images/gallery/work8.jpg" data-darkbox="../src/images/gallery/work8.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+<!--                <img src="../src/AdminLTE/img/home/work9.jpg" data-darkbox="../src/AdminLTE/img/home/work9-9.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work10.jpg" data-darkbox="../src/AdminLTE/img/home/work10-10.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work11.jpg" data-darkbox="../src/AdminLTE/img/home/work11-11.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work12.jpg" data-darkbox="../src/AdminLTE/img/home/work12-12.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">-->
+            </div>  
             </div>
+         
         </section>	
         <!-- /Gallery section -->
         <!-- Team -->
