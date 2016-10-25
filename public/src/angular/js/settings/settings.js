@@ -16,10 +16,19 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
         $scope.printName = '';
         $scope.printID = '';
         $scope.printImage = photo + '/' + 'user1-128x128.jpg';
-        $scope.imageSourceBanner1='../src/AdminLTE/img/home/banner1.jpg';
-        $scope.imageSourceBanner2='../src/AdminLTE/img/home/banner2.jpg';
-        $scope.imageSourceBanner3='../src/AdminLTE/img/home/banner3.jpg';
-       $scope.htmlEditor = '...';
+        $scope.imageSourceBanner1 = '../src/AdminLTE/img/home/banner1.jpg';
+        $scope.imageSourceBanner2 = '../src/AdminLTE/img/home/banner2.jpg';
+        $scope.imageSourceBanner3 = '../src/AdminLTE/img/home/banner3.jpg';
+        $scope.htmlEditor = '...';
+        $scope.preference = {
+            id: 0,
+            school_name: '',
+            school_label: '',
+            contact_no: '',
+            email_address: '',
+            address: '',
+            about_us: ''
+        };
         $scope.user = {
             alumni_no: '',
             student_no: '',
@@ -695,7 +704,7 @@ settingsApp.service('accountSurveyService', function ($http) {
                     console.log('getlevels() error');
                 });
     };
-     this.getSatiscationSurveys = function (user_id) {
+    this.getSatiscationSurveys = function (user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/satisfication_surveys/' + user_id

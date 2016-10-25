@@ -26,7 +26,7 @@ Preferences
             <input type="text" class="form-control" placeholder=""  ng-model="preference.address" id="address">
         </div>
         <div class="form-group">
-           <textarea cols="80" id="editor1" name="editor1" rows="10"><%preference.about_us%></textarea>
+           <textarea cols="80" id="editor1" name="editor1" rows="10"><%preference.about_us%>aw</textarea>
         </div>
      
          
