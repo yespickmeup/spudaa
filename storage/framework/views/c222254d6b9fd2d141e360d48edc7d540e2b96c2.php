@@ -1,5 +1,26 @@
 <div class="row">
     <div class="col-md-6">
+
+
+        <div class="form-group">
+            <h4><p><b>A.) Which of the following best describes yor primary work status at this time?</b></p></h4>
+            <input type="radio" name="work_status" value="1" > employed full time  <br>
+
+            <fieldset  >
+                <label ng-repeat="choice in question1.choices" >
+                    <input type="radio"  ng-class="{ 'radio1': true }"  name="work_status" value="<%choice.id%>" ng-model="aQuestion1" />
+                    <%choice.text%>
+
+                </label>
+
+
+            </fieldset>
+         
+
+            <p>Others (pls. specify)<input type="text" name="work_status_others" class="form-control"></p>
+            <h5><p><b>* Note: for those currently employed, please proceed to section B.1, otherwise, proceed to section B.2</b></p></h5>
+        </div>
+
         <div class="form-group">
             <h4><p><b>A.) Which of the following best describes yor primary work status at this time?</b></p></h4>
 

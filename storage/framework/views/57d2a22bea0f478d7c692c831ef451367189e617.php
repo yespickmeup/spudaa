@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="<?php echo e(URL::to('src/plugins/iCheck/square/blue.css')); ?>"/>
         <link rel="stylesheet" href="<?php echo e(URL::to('src/AdminLTE/css/skins/_all-skins.min.css')); ?>"/>
         <link rel="stylesheet" href="<?php echo e(URL::to('src/plugins/datepicker/datepicker3.css')); ?>"/>
+        <link rel="stylesheet" href="<?php echo e(URL::to('src/angular/css/radio.css')); ?>"/>
         <?php echo $__env->yieldContent('myCss'); ?>
 
         <script src="<?php echo e(URL::to('src/plugins/jQuery/jquery-2.2.3.min.js')); ?>"></script>

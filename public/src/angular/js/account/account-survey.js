@@ -4,15 +4,48 @@
 
 settingsApp.controller('accountSurveyController', ['$scope', '$http', 'accountSurveyService', function ($scope, $http, accountSurveyService) {
 
+
         $scope.showUpdateEmploymentSurveySuccess = false;
         $scope.showUpdateEducationalOutcomesSuccess = false;
         $scope.showUpdateSatisfactionSuccess = false;
 
+
         $scope.selected = '';
+
+
+
+
         accountSurveyService.getEmploymentSurvey($scope.my_id).then(function (resp) {
 
             var employment_survey = resp.data['survey'];
+           
+            $scope.aQuestion1 = employment_survey['work_status'];
 
+            $scope.question1 = {
+                questionText: "This is a test question.",
+                choices: [{
+                        id: 1,
+                        text: "employed full time"
+                      
+                    }, {
+                        id: 2,
+                        text: "employed part time"
+                       
+                    }, {
+                        id: 3,
+                        text: "continuing education part time and employed"
+                       
+                    }, {
+                        id: 4,
+                        text: "unemployed, seeking employment"
+                       
+                    }, {
+                        id: 5,
+                        text: "unemployed, not seeking employment"
+                       
+                    }]
+
+            };
         });
 
         $scope.updateEmploymentSurvey2 = function () {
