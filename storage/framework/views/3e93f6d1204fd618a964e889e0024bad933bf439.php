@@ -26,6 +26,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/modernizr.j')); ?>s"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/home.js')); ?>"></script>
+        <style>
+            html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+         
+    }
+        </style>
         <!-- /js files -->
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller="homeController">
@@ -42,7 +49,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"><h1>Alumni Association</h1>
+
+                            <a class="navbar-brand" href="#">
+                                <img class="img-thumbnail" 
+                                ng-src="../src/images/system/spud-alumni-logo.png"
+                                style="width: 80px;height: 80px;background-color : transparent;position: absolute;margin-left: -85px;margin-top: -15px;border: 0;"
+                                >
+                                <h1>Alumni Association</h1>
                                 <h4 style="color:darkolivegreen;">St. Paul University Dumaguete Campus</h4>
                             </a>
                         </div>
@@ -210,19 +223,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <section class="our-gallery" id="gallery">
             <h3 class="text-center slideanim">Our Gallery</h3>
             <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <div class="container">
-                <img src="../src/AdminLTE/img/home/work1.jpg" data-darkbox="../src/AdminLTE/img/home/work1-1.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work2.jpg" data-darkbox="../src/AdminLTE/img/home/work2-2.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work3.jpg" data-darkbox="../src/AdminLTE/img/home/work3-3.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work4.jpg" data-darkbox="../src/AdminLTE/img/home/work4-4.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work5.jpg" data-darkbox="../src/AdminLTE/img/home/work5-5.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+            <div class="container ">
+                <img src="../src/AdminLTE/img/home/work1.jpg" data-darkbox="../src/AdminLTE/img/home/work1-1.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/AdminLTE/img/home/work2.jpg" data-darkbox="../src/AdminLTE/img/home/work2-2.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/AdminLTE/img/home/work3.jpg" data-darkbox="../src/AdminLTE/img/home/work3-3.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/AdminLTE/img/home/work4.jpg" data-darkbox="../src/AdminLTE/img/home/work4-4.jpg" style="height: 300px;width: 300px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+<!--                <img src="../src/AdminLTE/img/home/work5.jpg" data-darkbox="../src/AdminLTE/img/home/work5-5.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work6.jpg" data-darkbox="../src/AdminLTE/img/home/work6-6.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work7.jpg" data-darkbox="../src/AdminLTE/img/home/work7-7.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work8.jpg" data-darkbox="../src/AdminLTE/img/home/work8-8.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work9.jpg" data-darkbox="../src/AdminLTE/img/home/work9-9.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work10.jpg" data-darkbox="../src/AdminLTE/img/home/work10-10.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                 <img src="../src/AdminLTE/img/home/work11.jpg" data-darkbox="../src/AdminLTE/img/home/work11-11.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work12.jpg" data-darkbox="../src/AdminLTE/img/home/work12-12.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <img src="../src/AdminLTE/img/home/work12.jpg" data-darkbox="../src/AdminLTE/img/home/work12-12.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">-->
             </div>
         </section>	
         <!-- /Gallery section -->

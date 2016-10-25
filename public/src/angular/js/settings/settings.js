@@ -52,6 +52,8 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
             mother_office_address: '',
             imageSource: photo + '/' + $scope.my_id + '.jpg'
         };
+        
+      
 //        console.log('image: '+$scope.user.imageSource);
 //        $scope.check = function () {
 //
