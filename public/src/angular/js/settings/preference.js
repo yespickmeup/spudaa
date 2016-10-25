@@ -9,32 +9,25 @@ settingsApp.controller('preferenceController', ['$scope', '$http', 'preferenceSe
 
         $scope.showUpdatPreferenceSuccess = false;
          
-        $scope.preference = {
-            id: 0,
-            school_name: '',
-            school_label: '',
-            contact_no: '',
-            email_address: '',
-            address: '',
-            about_us: ''
-        };
+       
+        
         preferenceService.getPreference().then(function (resp) {
             var preference = JSON.parse(resp.data['preference']);
-            $scope.preference.id = preference[0].id;
-            $scope.preference.school_name = preference[0].school_name;
-            $scope.preference.school_label = preference[0].school_label;
-            $scope.preference.contact_no = preference[0].contact_no;
-            $scope.preference.email_address = preference[0].email_address;
-            $scope.preference.address = preference[0].address;
-            $scope.preference.about_us = preference[0].about_us;
+            $scope.$parent.preference.id = preference[0].id;
+            $scope.$parent.preference.school_name = preference[0].school_name;
+            $scope.$parent.preference.school_label = preference[0].school_label;
+            $scope.$parent.preference.contact_no = preference[0].contact_no;
+            $scope.$parent.preference.email_address = preference[0].email_address;
+            $scope.$parent.preference.address = preference[0].address;
+            $scope.$parent.preference.about_us = preference[0].about_us;
 
 
         });
 
         $scope.updatePreference = function () {
             var data = CKEDITOR.instances.editor1.getData();
-            $scope.preference.about_us = data;
-            preferenceService.updatePreference($scope.preference).then(function (resp) {
+            $scope.$parent.preference.about_us = data;
+            preferenceService.updatePreference($scope.$parent.preference).then(function (resp) {
                 var message = JSON.stringify(resp.data['message']);
                 if (resp.status === 200) {
                     $scope.showUpdatPreferenceSuccess = true;
