@@ -14,15 +14,25 @@ class UserEducationOutcomeController extends Controller {
         return response()->json(['experience' => $survey]);
     }
 
+    public function getOutcomeExperience($user_id) {
+        $survey = UserEducationOutcomeExperience::where('user_id', '=', $user_id)->first();
+        return response()->json(['experience' => $survey]);
+    }
+
+    public function getOutcomeStandard($user_id) {
+        $standard = UserEducationOutcomeStandard::where('user_id', '=', $user_id)->first();
+        return response()->json(['standard' => $standard]);
+    }
+
     public function postUpdateOutcome(Request $request) {
 
         $user_id = $request->get('user_id');
-       
+
         $educationOutcomeExperiences = $request->get('education_outcome_experiences');
         $educationOutcomeStandards = $request->get('education_outcome_standards');
 
-        $UserEducationOutcomeExperience =  UserEducationOutcomeExperience::where('user_id', '=', $user_id)->first();
-       
+        $UserEducationOutcomeExperience = UserEducationOutcomeExperience::where('user_id', '=', $user_id)->first();
+
         $UserEducationOutcomeExperience->creativity_importance = $educationOutcomeExperiences['creativity_importance'];
         $UserEducationOutcomeExperience->creativity_impact = $educationOutcomeExperiences['creativity_impact'];
         $UserEducationOutcomeExperience->commitment_importance = $educationOutcomeExperiences['commitment_importance'];
@@ -40,10 +50,10 @@ class UserEducationOutcomeController extends Controller {
         $UserEducationOutcomeExperience->adaptably_importance = $educationOutcomeExperiences['adaptably_importance'];
         $UserEducationOutcomeExperience->adaptably_impact = $educationOutcomeExperiences['adaptably_impact'];
         $UserEducationOutcomeExperience->status = 1;
-       
+
 
         $UserEducationOutcomeStandard = UserEducationOutcomeStandard::where('user_id', '=', $user_id)->first();
-        
+
         $UserEducationOutcomeStandard->nursing_care_importance = $educationOutcomeStandards['nursing_care_importance'];
         $UserEducationOutcomeStandard->nursing_care_impact = $educationOutcomeStandards['nursing_care_impact'];
         $UserEducationOutcomeStandard->management_of_environment_importance = $educationOutcomeStandards['management_of_environment_importance'];
@@ -67,7 +77,7 @@ class UserEducationOutcomeController extends Controller {
         $UserEducationOutcomeStandard->communication_importance = $educationOutcomeStandards['communication_importance'];
         $UserEducationOutcomeStandard->communication_impact = $educationOutcomeStandards['communication_impact'];
         $UserEducationOutcomeStandard->status = 1;
-        
+
 
 
         if ($UserEducationOutcomeExperience->save() && $UserEducationOutcomeStandard->save()) {

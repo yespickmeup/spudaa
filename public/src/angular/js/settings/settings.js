@@ -52,8 +52,8 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
             mother_office_address: '',
             imageSource: photo + '/' + $scope.my_id + '.jpg'
         };
-        
-      
+
+
 //        console.log('image: '+$scope.user.imageSource);
 //        $scope.check = function () {
 //
@@ -667,6 +667,42 @@ settingsApp.service('accountSurveyService', function ($http) {
                 });
     };
 
+    this.getOutcomeExperiences = function (user_id) {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/outcome_experiences/' + user_id
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getlevels() error');
+                });
+    };
+    this.getOutcomeStandards = function (user_id) {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/outcome_standards/' + user_id
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getlevels() error');
+                });
+    };
+     this.getSatiscationSurveys = function (user_id) {
+        return $http({
+            method: 'GET',
+            url: baseURL + '/api/satisfication_surveys/' + user_id
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getlevels() error');
+                });
+    };
     this.updateEmploymentSurvey = function (survey) {
 //         console.log(survey);
         return $http({
