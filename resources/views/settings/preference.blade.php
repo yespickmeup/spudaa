@@ -104,9 +104,9 @@ Preferences
 <script type="text/javascript">
     window.onload = function () {
         CKEDITOR.replace('editor1');
-        CKEDITOR.instances['editor1'].on('change', function () {
-            CKEDITOR.instances['editor1'].updateElement();
-        });
+        for (var i in CKEDITOR.instances) {
+            CKEDITOR.instances[i].updateElement();
+        }
     };
 </script>
 @endsection
