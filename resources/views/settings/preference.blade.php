@@ -108,7 +108,7 @@ Preferences
         CKEDITOR.instances.editor1.setMode('source');
         CKEDITOR.instances.editor1.setData(document.getElementById('about').value);
         CKEDITOR.instances.editor1.updateElement();
-        alert(document.getElementById('editor1').value);  // The current editor data.
+        alert(document.getElementById('about').value);  // The current editor data.
     };
 </script>
 @endsection
