@@ -4,6 +4,8 @@
 
 
 
+/* global CKEDITOR */
+
 settingsApp.controller('preferenceController', ['$scope', '$http', 'preferenceService', 'ModalService', 'Upload', function ($scope, $http, preferenceService, ModalService, Upload) {
 
 
@@ -27,6 +29,7 @@ settingsApp.controller('preferenceController', ['$scope', '$http', 'preferenceSe
         $scope.updatePreference = function () {
             var data = CKEDITOR.instances.editor1.getData();
             $scope.$parent.preference.about_us = data;
+            console.log($scope.$parent.preference.about_us);
             preferenceService.updatePreference($scope.$parent.preference).then(function (resp) {
                 var message = JSON.stringify(resp.data['message']);
                 if (resp.status === 200) {
