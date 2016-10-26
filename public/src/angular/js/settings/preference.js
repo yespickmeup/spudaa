@@ -10,9 +10,9 @@ settingsApp.controller('preferenceController', ['$scope', '$http', 'preferenceSe
 
 
         $scope.showUpdatPreferenceSuccess = false;
-         
-       
-        
+
+
+
         preferenceService.getPreference().then(function (resp) {
             var preference = JSON.parse(resp.data['preference']);
             $scope.$parent.preference.id = preference[0].id;
@@ -29,7 +29,7 @@ settingsApp.controller('preferenceController', ['$scope', '$http', 'preferenceSe
         $scope.updatePreference = function () {
             var data = CKEDITOR.instances.editor1.getData();
             $scope.$parent.preference.about_us = data;
-           
+
             preferenceService.updatePreference($scope.$parent.preference).then(function (resp) {
                 var message = JSON.stringify(resp.data['message']);
                 if (resp.status === 200) {
@@ -99,7 +99,29 @@ settingsApp.controller('preferenceController', ['$scope', '$http', 'preferenceSe
 
 
     }]);
+settingsApp.directive('ckEditor', function () {
+    return {
+        require: '?ngModel',
+        link: function ($scope, elm, attr, ngModel) {
 
+            var ck = CKEDITOR.replace(elm[0]);
+
+            ck.on('instanceReady', function () {
+                ck.setData(ngModel.$viewValue);
+            });
+
+            ck.on('pasteState', function () {
+                $scope.$apply(function () {
+                    ngModel.$setViewValue(ck.getData());
+                });
+            });
+
+            ngModel.$render = function (value) {
+                ck.setData(ngModel.$modelValue);
+            };
+        }
+    };
+});
 settingsApp.controller('ModalPreferenceController', function ($scope, close) {
     $scope.close = function (result) {
         close(result, 500); // close, but give 500ms for bootstrap to animate
