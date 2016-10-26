@@ -104,14 +104,18 @@ Preferences
 <script type="text/javascript">
     CKEDITOR.disableAutoInline = true;
     CKEDITOR.replace('editor1');
-    CKEDITOR.on('instanceReady', function () {
-        $.each(CKEDITOR.instances, function (instance) {
-            CKEDITOR.instances[instance].on("change", function (e) {
-                for (instance in CKEDITOR.instances)
-                    CKEDITOR.instances[instance].updateElement();
+
+
+    window.onload = function () {
+        CKEDITOR.on('instanceReady', function () {
+            $.each(CKEDITOR.instances, function (instance) {
+                CKEDITOR.instances[instance].on("change", function (e) {
+                    for (instance in CKEDITOR.instances)
+                        CKEDITOR.instances[instance].updateElement();
+                });
             });
         });
-    });
+    };
 </script>
 @endsection
 
