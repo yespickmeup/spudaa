@@ -99,29 +99,7 @@ settingsApp.controller('preferenceController', ['$scope', '$http', 'preferenceSe
 
 
     }]);
-settingsApp.directive('ckEditor', function () {
-    return {
-        require: '?ngModel',
-        link: function ($scope, elm, attr, ngModel) {
 
-            var ck = CKEDITOR.replace(elm[0]);
-
-            ck.on('instanceReady', function () {
-                ck.setData(ngModel.$viewValue);
-            });
-
-            ck.on('pasteState', function () {
-                $scope.$apply(function () {
-                    ngModel.$setViewValue(ck.getData());
-                });
-            });
-
-            ngModel.$render = function (value) {
-                ck.setData(ngModel.$modelValue);
-            };
-        }
-    };
-});
 settingsApp.controller('ModalPreferenceController', function ($scope, close) {
     $scope.close = function (result) {
         close(result, 500); // close, but give 500ms for bootstrap to animate
