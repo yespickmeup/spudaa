@@ -31,7 +31,7 @@ Preferences
         <div class="form-group">
 
             <textarea ck-editor id="editor1" name="editor1" ng-model="preference.about_us"></textarea>
-          
+            
         </div>
 
 
@@ -104,14 +104,14 @@ Preferences
 
 @section('myScripts')
 <script type="text/javascript">
-    $(document).ready(function () {
+//    $(document).ready(function () {
 
 //        CKEDITOR.replace('editor1');
 //        CKEDITOR.instances.editor1.setMode('source');
 //        CKEDITOR.instances.editor1.setData(document.getElementById('about').value);
 //        CKEDITOR.instances.editor1.updateElement();
        
-    });
+//    });
 
 </script>
 @endsection

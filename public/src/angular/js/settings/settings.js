@@ -2,7 +2,7 @@
 
 
 
-/* global baseURL, myToken, photo */
+/* global baseURL, myToken, photo, CKEDITOR */
 
 var settingsApp = angular.module('settingsApp', ['angularSpinner', 'smart-table', 'angularModalService', 'ngFileUpload'], function ($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
@@ -804,4 +804,28 @@ settingsApp.service('preferenceService', function ($http) {
                 });
     };
 
+});
+
+settingsApp.directive('ckEditor', function () {
+    return {
+        require: '?ngModel',
+        link: function ($scope, elm, attr, ngModel) {
+
+            var ck = CKEDITOR.replace(elm[0]);
+
+            ck.on('instanceReady', function () {
+                ck.setData(ngModel.$viewValue);
+            });
+
+            ck.on('pasteState', function () {
+                $scope.$apply(function () {
+                    ngModel.$setViewValue(ck.getData());
+                });
+            });
+
+            ngModel.$render = function (value) {
+                ck.setData(ngModel.$modelValue);
+            };
+        }
+    };
 });
