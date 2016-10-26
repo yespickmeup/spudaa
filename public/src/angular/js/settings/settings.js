@@ -822,3 +822,8 @@ settingsApp.directive('ckEditor', function () {
     };
 });
 
+settingsApp.filter('trustAsHtml', function($sce) {
+  return function(html) {
+    return $sce.trustAsHtml(html);
+  };
+});

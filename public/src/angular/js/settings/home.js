@@ -23,7 +23,8 @@ homeApp.controller('homeController', ['$scope', '$http', 'aboutService', '$sce',
             about_us: ''
         };
         $scope.renderHtml = function (htmlCode) {
-            htmlCode = htmlCode.substring(0, 800);
+            htmlCode = htmlCode.substring(0, 500);
+           
             return $sce.trustAsHtml(htmlCode);
         };
         aboutService.getAbout().then(function (resp) {
