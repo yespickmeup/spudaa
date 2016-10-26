@@ -211,7 +211,7 @@
         <script src="{{ URL::to('src/angular/js/settings/courses.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/settings/major.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account_approval.js') }}"></script>
-       
+        <script src="{{ URL::to('src/angular/js/settings/preference.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/user_management/user_management.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/id_card_releasing/id_card_releasing.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account.js') }}"></script>
@@ -242,7 +242,6 @@
 
         </script>
         @yield('myScripts')
-         <script src="{{ URL::to('src/angular/js/settings/preference.js') }}"></script>
     </body>
 
 
