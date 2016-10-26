@@ -20,7 +20,7 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
         $scope.imageSourceBanner2 = '../src/AdminLTE/img/home/banner2.jpg';
         $scope.imageSourceBanner3 = '../src/AdminLTE/img/home/banner3.jpg';
         $scope.htmlEditor = '...';
-       
+
         $scope.user = {
             alumni_no: '',
             student_no: '',
@@ -58,7 +58,16 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
             imageSource: photo + '/' + $scope.my_id + '.jpg'
         };
 
-
+        $scope.preference = {
+            id: 0,
+            school_name: '',
+            school_label: '',
+            contact_no: '',
+            email_address: '',
+            address: '',
+            about_us: ''
+        };
+        
 //        console.log('image: '+$scope.user.imageSource);
 //        $scope.check = function () {
 //
@@ -822,8 +831,8 @@ settingsApp.directive('ckEditor', function () {
     };
 });
 
-settingsApp.filter('trustAsHtml', function($sce) {
-  return function(html) {
-    return $sce.trustAsHtml(html);
-  };
+settingsApp.filter('trustAsHtml', function ($sce) {
+    return function (html) {
+        return $sce.trustAsHtml(html);
+    };
 });
