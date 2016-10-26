@@ -26,7 +26,8 @@ Preferences
             <input type="text" class="form-control" placeholder=""  ng-model="preference.address" id="address">
         </div>
         <div class="form-group">
-            <textarea cols="80" id="editor1" name="editor1" rows="10" ><%preference.about_us%></textarea>
+            <input type="hidden" value="<%preference.about_us%>" id="about" name="about">
+            <textarea cols="80" id="editor1" name="editor1" rows="10" ></textarea>
         </div>
 
 
@@ -101,9 +102,7 @@ Preferences
 <script type="text/javascript">
     window.onload = function () {
         CKEDITOR.replace('editor1');
-        for (var i in CKEDITOR.instances) {
-            CKEDITOR.instances[i].updateElement();
-        }
+        CKEDITOR.instances.editor1.setData(document.getElementById('about').value);
     };
 </script>
 <?php $__env->stopSection(); ?>
