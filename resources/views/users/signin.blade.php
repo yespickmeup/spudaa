@@ -11,7 +11,9 @@
         <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/AdminLTE.min.css') }}"/>
         <link rel="stylesheet" href="{{ URL::to('src/plugins/iCheck/square/blue.css') }}"/>
 
-
+        <script src="{{ URL::to('src/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+        <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
     </head>
     <body class="hold-transition login-page">
         <div class="login-box">
@@ -100,10 +102,8 @@
         </div>
         <!-- /.login-box -->
 
-        <script src="{{ URL::to('src/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
-        <script src="{{ URL::to('src/bootstrap/js/bootstrap.min.js') }}"></script>
-        <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
-       
+
+
         <script>
 $(function () {
     $('input').iCheck({
