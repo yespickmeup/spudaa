@@ -10,7 +10,7 @@ var homeApp = angular.module('homeApp', [], function ($interpolateProvider) {
 });
 
 
-homeApp.controller('homeController', ['$scope', '$http', 'aboutService', function ($scope, $http, aboutService) {
+homeApp.controller('homeController', ['$scope', '$http', 'aboutService', '$sce', function ($scope, $http, aboutService, $sce) {
 
 
         $scope.preference = {
@@ -22,6 +22,10 @@ homeApp.controller('homeController', ['$scope', '$http', 'aboutService', functio
             address: '',
             about_us: ''
         };
+        $scope.renderHtml = function (htmlCode) {
+            htmlCode = htmlCode.substring(0, 800);
+            return $sce.trustAsHtml(htmlCode);
+        };
         aboutService.getAbout().then(function (resp) {
             var preference = JSON.parse(resp.data['preference']);
             $scope.preference.id = preference[0].id;
@@ -31,8 +35,11 @@ homeApp.controller('homeController', ['$scope', '$http', 'aboutService', functio
             $scope.preference.email_address = preference[0].email_address;
             $scope.preference.address = preference[0].address;
             $scope.preference.about_us = preference[0].about_us;
-            var string = $scope.preference.about_us;
-            $("#about-details").append(string);
+//            var string = $scope.preference.about_us;
+
+
+//            document.getElementById('about-details').innerHTML = string;
+//            $("#about-details").append();
             var myDiv = $('#about-details');
             myDiv.text(myDiv.text().substring(0, 900));
         });

@@ -102,7 +102,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-lg-6 about-info2 slideanim" >
                         <div class="about-details" id="details" style="margin-left: 15px;margin-top: 15px;">
                             <br><h1>About Us</h1>
-                            <p class="about-details" id="about-details"></p>
+                            <div ng-bind-html="renderHtml(preference.about_us)" id="about-details" ></div>
+                      
                             <a href='{{route('about.us')}}' style="font-size: 25px;">Learn more...</a>
                         </div>	
 
