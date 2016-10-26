@@ -102,7 +102,10 @@ Preferences
 <script type="text/javascript">
     window.onload = function () {
         CKEDITOR.replace('editor1');
+        CKEDITOR.instances.editor1.setMode('source');
         CKEDITOR.instances.editor1.setData(document.getElementById('about').value);
+        CKEDITOR.instances.editor1.updateElement();
+        alert(document.getElementById('editor1').value);  // The current editor data.
     };
 </script>
 <?php $__env->stopSection(); ?>
