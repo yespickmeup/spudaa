@@ -15,22 +15,22 @@
         <link rel="stylesheet" href="<?php echo e(URL::to('src/AdminLTE/css/skins/_all-skins.min.css')); ?>"/>
         <link rel="stylesheet" href="<?php echo e(URL::to('src/plugins/datepicker/datepicker3.css')); ?>"/>
         <link rel="stylesheet" href="<?php echo e(URL::to('src/angular/css/radio.css')); ?>"/>
-       
+
         <?php echo $__env->yieldContent('myCss'); ?>
 
         <script src="<?php echo e(URL::to('src/plugins/jQuery/jquery-2.2.3.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/bootstrap/js/bootstrap.min.js')); ?>"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-        
-       
-          <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
-       
-        
+
+
+
+
+
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/settings.js')); ?>"></script>
-        
-        
+        <script src="http://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
+
     </head>
     <body class="hold-transition skin-blue sidebar-mini" ng-app="settingsApp" ng-controller="settingsController">
         <div class="wrapper">
@@ -176,7 +176,7 @@
                 <strong>Copyright &copy; 2014-2016 <a href="#">Synapse Software Technologies</a>.</strong> All rights
                 reserved.
             </footer>
-           
+
         </div>
         <script>
                     var myToken = '<?php echo e(Session::token()); ?>';
@@ -200,7 +200,7 @@
         <script src="<?php echo e(URL::to('src/plugins/slimScroll/jquery.slimscroll.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/plugins/fastclick/fastclick.js')); ?>"></script> 
         <script src="<?php echo e(URL::to('src/AdminLTE/js/demo.js')); ?>"></script>
-     
+
         <script src="<?php echo e(URL::to('src/plugins/select2/select2.full.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/plugins/datepicker/bootstrap-datepicker.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/plugins/file_upload/ng-file-upload.js')); ?>"></script>
@@ -222,16 +222,12 @@
         <script src="<?php echo e(URL::to('src/angular/js/account/account-alumni-personal-service.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/account/account-survey.js')); ?>"></script>
 
-          
 
 
- <script type="text/javascript">
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace('editor1');
-            </script>
+
+       
         <script>
-                  
+
                     $(function () {
                         $('input').iCheck({
                             checkboxClass: 'icheckbox_square-blue',
