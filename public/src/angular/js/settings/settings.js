@@ -20,15 +20,7 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
         $scope.imageSourceBanner2 = '../src/AdminLTE/img/home/banner2.jpg';
         $scope.imageSourceBanner3 = '../src/AdminLTE/img/home/banner3.jpg';
         $scope.htmlEditor = '...';
-        $scope.preference = {
-            id: 0,
-            school_name: '',
-            school_label: '',
-            contact_no: '',
-            email_address: '',
-            address: '',
-            about_us: ''
-        };
+       
         $scope.user = {
             alumni_no: '',
             student_no: '',
