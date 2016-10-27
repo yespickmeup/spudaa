@@ -53,4 +53,35 @@ aboutUssApp.service('aboutService', function ($http) {
                 });
     };
 
+    this.sendEmailToServer = function () {
+
+        return $http({
+            method: 'POST',
+            url: baseURL + '/api/send_email',
+            data: {
+                _token: myToken
+
+            }
+        })
+                .success(function (data, status, headers, config) {
+                    /* console.log('update_year() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('update_major() error');
+                });
+    };
+
+    this.getAbout2 = function () {
+        console.log(baseURL + '/api/send_email');
+        return $http({
+            method: 'POST',
+            url: baseURL + '/api/send_email'
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getlevels() error');
+                });
+    };
 });

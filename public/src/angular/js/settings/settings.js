@@ -804,6 +804,8 @@ settingsApp.service('preferenceService', function ($http) {
                     console.log('update_major() error');
                 });
     };
+    
+     
 
 });
 

@@ -24,7 +24,7 @@ homeApp.controller('homeController', ['$scope', '$http', 'aboutService', '$sce',
         };
         $scope.renderHtml = function (htmlCode) {
             htmlCode = htmlCode.substring(0, 500);
-           
+
             return $sce.trustAsHtml(htmlCode);
         };
         aboutService.getAbout().then(function (resp) {
@@ -44,6 +44,33 @@ homeApp.controller('homeController', ['$scope', '$http', 'aboutService', '$sce',
             var myDiv = $('#about-details');
             myDiv.text(myDiv.text().substring(0, 900));
         });
+
+        $scope.email = {
+            name: '',
+            email: '',
+            comment: ''
+        };
+
+
+        $scope.sendEmail = function () {
+            $data = {
+                '_token': myToken
+            };
+            $http.post('/api/send_email', $data)
+                    .success(function (data, status, headers, config) {
+                        var message = data['message'];
+
+                        console.log('message: ' + message);
+
+                    })
+                    .error(function (data, status, headers, config) {
+                        
+                        console.log('message: ' + data);
+                    });
+
+
+        };
+
 
     }]);
 

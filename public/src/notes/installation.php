@@ -25,3 +25,13 @@ http://laratrust.readthedocs.io/en/stable/installation.html
     
 //    composer require intervention/image
 //    php artisan vendor:publish
+//    
+//    spudaaor@spudaa.org - 
+//    support@spudaa.org  - 
+//    admin@spudaa.org - {b%l9To%Izq#
+//    myspudaa@gmail.com - {b%l9To%Izq#
+    
+//Control Panel URL: http://107.190.141.194/cpanel
+//Once your domain has propagated, you may also use http://spudaa.org/cpanel
+//Username: spudaaor
+//Password: P3vzrH902l    

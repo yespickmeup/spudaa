@@ -49,6 +49,16 @@ class ActivationService {
         });
     }
 
+    public function sendMail($user) {
+
+        $link = 'google.com';
+        $message = sprintf('Activate account <a href="%s">%s</a>', $link, $link);
+
+        $this->mailer->raw($message, function (Message $m) use ($user) {
+            $m->to($user->email)->subject('Activation mail');
+        });
+    }
+
     public function activateUser($token) {
         $activation = $this->activationRepo->getActivationByToken($token);
 

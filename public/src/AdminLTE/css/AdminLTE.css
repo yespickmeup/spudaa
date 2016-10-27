@@ -278,11 +278,11 @@ a:focus {
 .main-header .navbar .nav > li > a > .label {
   position: absolute;
   top: 9px;
-  right: 7px;
+  right: 1px;
   text-align: center;
   font-size: 9px;
-  padding: 2px 3px;
-  line-height: .9;
+  padding: 1px 1px;
+  line-height: .1;
 }
 .main-header .logo {
   -webkit-transition: width 0.3s ease-in-out;
@@ -378,6 +378,7 @@ a:focus {
   }
   .navbar-custom-menu .navbar-nav > li > a {
     padding-top: 15px;
+    padding-left: 5px;
     padding-bottom: 15px;
     line-height: 20px;
   }
