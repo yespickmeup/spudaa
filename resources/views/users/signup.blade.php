@@ -18,9 +18,17 @@
         <div class="container " ng-controller="signupController">
             <div class="col-md-12">
                 <br><br><br>
-                <div class="register-logo">
-                    <b>Alumni</b>Association
-                </div>
+                <div class="row text-center">
+                <img class="img-thumbnail" 
+                     src="../src/images/system/spud-alumni-logo.png"
+                     style="width: 80px;height: 80px;background-color : transparent;position: absolute;margin-left: -280px;border: 0;"
+                     >
+
+                <h2 style="color:darkolivegreen;">St. Paul University Dumaguete</h2>
+                <h4 style="color:gray;margin-top: -10px;margin-left: -234px;">Alumni Association</h4>
+                <br>
+                <br>
+            </div>
                 <div class="register-box-body">
 
                     <h2 class="page-header">Signup</h2>
@@ -36,8 +44,8 @@
 
                                     <li class='<%tab1%>'  ><a href="#tab_1" data-toggle="tab">Background Information</a></li>
                                    
-                                    <li class='<%tab2%>'><a href="#tab_6" data-toggle="tab">Alumni Family Members</a></li>
-                                    <li class='<%tab3%>'><a href="#tab_4" data-toggle="tab">Alumni Services</a></li>
+                                    <li class='<%tab2%>'><a href="#tab_2" data-toggle="tab">Alumni Family Members</a></li>
+                                    <li class='<%tab3%>'><a href="#tab_3" data-toggle="tab">Alumni Services</a></li>
                                 </ul>
                                 <form name="userForm" ng-submit="submitForm(userForm.$valid)"  
                                       style="" ng-model="userForm" enctype="multipart/form-data" novalidate data-toggle="validator"
@@ -47,10 +55,10 @@
                                             @include('users.signup-background-info')
                                         </div>
                                 
-                                        <div class='tab-pane <%tab2%>' id="tab_6" ng-controller="alumniFamilyMemberController">
+                                        <div class='tab-pane <%tab2%>' id="tab_2" ng-controller="alumniFamilyMemberController">
                                             @include('users.signup-alumni-family-members')
                                         </div>
-                                        <div class='tab-pane <%tab3%>' id="tab_4" >
+                                        <div class='tab-pane <%tab3%>' id="tab_3" >
                                             @include('users.signup-alumni-services')
                                         </div>
                                     </div>
