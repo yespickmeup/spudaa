@@ -4,9 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Alumni Association | Signin</title>
+        <link rel="shortcut icon" type="image/png" href="../src/images/system/spud-alumni-logo.png" />
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <link rel="stylesheet" href="{{ URL::to('src/bootstrap/css/bootstrap.min.css') }}"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/style.css') }}"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="{{ URL::to('src/AdminLTE/css/AdminLTE.min.css') }}"/>
         <link rel="stylesheet" href="{{ URL::to('src/plugins/iCheck/square/blue.css') }}"/>
@@ -16,12 +18,22 @@
         <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
     </head>
     <body class="hold-transition login-page">
+
         <div class="login-box">
-            <div class="login-logo">
-                <b>Alumni</b>Association
+            <div style="margin-left:90px; ">
+                <img class="img-thumbnail" 
+                     src="../src/images/system/spud-alumni-logo.png"
+                     style="width: 80px;height: 80px;background-color : transparent;position: absolute;margin-left: -85px;margin-top: -15px;border: 0;"
+                     >
+
+                <h2 style="color:darkolivegreen;">St. Paul University Dumaguete</h2>
+                <h4 style="color:gray;">Alumni Association</h4>
+                <br>
             </div>
+            <br>
             <!-- /.login-logo -->
             <div class="login-box-body">
+                <br>
                 <h3>Sign in to start your session</h3>
                 <br>
 
@@ -40,8 +52,9 @@
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
                         <div class="col-md-12">
-                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }} " placeholder="Email Address">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            <label for="email">Email Address</label>
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }} "  style="border:1px 1px 1px 1px;border-color: gray;color:black;height: 35px;" placeholder="Email Address">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback" style="margin-top: -5px;"></span>
                             @if ($errors->has('email'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('email') }}</strong>
@@ -49,10 +62,11 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback">
+                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} has-feedback" style="margin-top: -20px;">
                         <div class="col-md-12">
-                            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
-                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            <label for="password">Password</label>
+                            <input id="password" type="password" class="form-control" name="password" placeholder="Password" style="border-color: gray;">
+                            <span class="glyphicon glyphicon-lock form-control-feedback" style="margin-top: -5px;"></span>
                             @if ($errors->has('password'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('password') }}</strong>

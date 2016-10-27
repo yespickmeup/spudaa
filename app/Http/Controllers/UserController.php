@@ -406,20 +406,17 @@ class UserController extends Controller {
                         'alumni_family_members' => $alumni_family_members,
                         'alumni_professional_services' => $alumni_professional_services,
                         'alumni_personal_services' => $alumni_personal_services,
-                      
                             ], 200);
         }
         return response()->json([
                     'all' => $data,
                     'token' => $token,
                     'user' => $user,
-                   
                     'activityInvolvements' => $activityInvolvements,
                     'alumni_family_members' => $alumni_family_members,
                     'alumni_family_members' => $alumni_family_members,
                     'alumni_professional_services' => $alumni_professional_services,
                     'alumni_personal_services' => $alumni_personal_services,
-                 
                     'message' => 'successfully added!'
                         ], 200);
     }
@@ -474,6 +471,18 @@ class UserController extends Controller {
     public function getUser($id) {
         $user = User::where('id', '=', $id)->first();
         return response()->json(['user' => $user]);
+    }
+
+    public function postSendEmail(Request $request) {
+        $user = new User();
+        $user->email = 'dodong.ronald@gmail.com';
+        $user->name = 'ronald';
+        $user->activated = 1;
+        $user->id = 0;
+        if ($this->activationService->sendMail($user)) {
+            return response()->json(['message' => 'email sent', 'user' => $user]);
+        }
+        return response()->json(['message' => 'failed']);
     }
 
 }

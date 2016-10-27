@@ -21,11 +21,6 @@
         <script src="<?php echo e(URL::to('src/plugins/jQuery/jquery-2.2.3.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/bootstrap/js/bootstrap.min.js')); ?>"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-
-
-
-
-
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/settings.js')); ?>"></script>
@@ -128,7 +123,7 @@
                         <?php if(Auth::user()->hasRole(['administrator', 'SuperAdministrator'])): ?>
                         <li><a href="<?php echo e(route('user.management')); ?>"><i class="fa fa-users"></i> <span>User Management</span></a></li>
                         <li><a href="<?php echo e(route('account.approval')); ?>"><i class="fa fa-check-circle-o"></i> <span>Account Approval</span></a></li>
-                        <li><a href="<?php echo e(route('card.releasing')); ?>"><i class="fa fa-photo"></i> <span>ID Card Releasing</span></a></li>
+<!--                        <li><a href="<?php echo e(route('card.releasing')); ?>"><i class="fa fa-photo"></i> <span>ID Card Releasing</span></a></li>-->
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-dashboard"></i> <span>Settings</span>
@@ -142,6 +137,7 @@
                                 <li><a href="<?php echo e(route('course')); ?>"><i class="fa fa-circle-o"></i> Courses</a></li>
                                 <li><a href="<?php echo e(route('major')); ?>"><i class="fa fa-circle-o"></i> Majors</a></li>
                                 <li><a href="<?php echo e(route('settings.preferences')); ?>"><i class="fa fa-circle-o"></i> Preferences</a></li>
+                                <li><a href="<?php echo e(route('settings.faculty')); ?>"><i class="fa fa-circle-o"></i> Faculty and Staff</a></li>
                             </ul>
                         </li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>
@@ -155,17 +151,17 @@
                 <br> <br> 
                 <input type="hidden" value="<?php echo e(Auth::user()->id); ?>" id="my_id" name="my_id">
 
-                <section class="content-header container">
+                <section class="content-header ">
                     <h1>
                         <?php echo $__env->yieldContent('title'); ?>
                     </h1>
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb ">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home </a></li>
                         <li><a href="#">Examples</a></li>
                         <li class="active">Blank page</li>
                     </ol>
                 </section>
-                <section class="content container">
+                <section class="content ">
                     <?php echo $__env->yieldContent('content'); ?>
                 </section>
             </div>
@@ -211,6 +207,8 @@
         <script src="<?php echo e(URL::to('src/angular/js/settings/year.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/courses.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/major.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/settings/faculty.js')); ?>"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/settings/maintenance_faculty.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/account/account_approval.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/settings/preference.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/user_management/user_management.js')); ?>"></script>

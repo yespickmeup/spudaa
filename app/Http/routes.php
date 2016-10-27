@@ -349,6 +349,22 @@ Route::get('/about-us', [
         return view('about-us');
     }
 ]);
+Route::get('/board-of-directors', [
+    'as' => 'faculty.staff',
+    function () {
+        return view('team');
+    }
+]);
+Route::get('/faculty', [
+    'as' => 'settings.faculty',
+    function () {
+        return view('settings.faculty');
+    }
+]);
+Route::post('api/send_email', [
+    'as' => 'send.email',
+    'uses' => 'UserController@postSendEmail'
+]);
 //End of Preference
 // End of Api's
 

@@ -96,8 +96,8 @@ ul.nav.navbar-nav.navbar-right {
     padding-left: 0;
 }
 .navbar-wrapper .navbar {
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 1px;
+    padding-left: 1px;
     /*-- W3layouts --*/
 }
 .navbar-wrapper .navbar .container {
@@ -109,8 +109,8 @@ ul.nav.navbar-nav.navbar-right {
         margin-top: 20px;
     }
     .navbar-wrapper .container {
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-right: 1px;
+        padding-left: 1px;
     }
     .navbar-wrapper .navbar {
         padding-right: 0;
@@ -1496,6 +1496,8 @@ body {
 .navbar-inverse .navbar-nav>li>a {
     color: darkgreen;
     font-size:22px;
+   
+   
 }
 .navbar>.container .navbar-header a.navbar-brand h1{
     font-size: 31px;
