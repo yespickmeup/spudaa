@@ -4,9 +4,10 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE HTML>
-<html>
+<html ng-app="homeApp">
     <head>
         <title>Alumni Association | Home</title>
+         <link rel="shortcut icon" type="image/png" href="../src/images/system/spud-alumni-logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Academy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -21,10 +22,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <link href='//fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'>
         <!-- /fonts -->
         <!-- js files -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/modernizr.j')); ?>s"></script>
+        <script src="<?php echo e(URL::to('src/angular/js/settings/home.js')); ?>"></script>
+        <style>
+            html, body {
+                max-width: 100%;
+                overflow-x: hidden;
+
+            }
+        </style>
         <!-- /js files -->
     </head>
-    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller="homeController">
         <!-- navigation -->
         
         <div class="navbar-wrapper">
@@ -38,16 +50,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#"><h1>Alumni Association</h1>
-                                <h4 style="color:darkolivegreen;">St. Paul University Dumaguete Campus</h4>
+
+                            <a class="navbar-brand" href="#" style="margin-left:50px !important;">
+                                <img class="img-thumbnail" 
+                                     ng-src="../src/images/system/spud-alumni-logo.png"
+                                     style="width: 80px;height: 80px;background-color : transparent;position: absolute;margin-left: -85px;margin-top: -15px;border: 0;"
+                                     >
+
+                                <h1>St. Paul University Dumaguete</h1>
+                                <h4 style="color:darkolivegreen;">Alumni Association</h4>
                             </a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav navbar-right" style="margin-top: -12px;margin-left: 220px !important;">
                                 <!--                                <li class="active"><a href="#">Home</a></li>-->
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#news">News & Events</a></li>
-                                <li><a href="#service">Services</a></li>
+                                <li><a href="#service">Partners</a></li>
                                 <li><a href="#gallery">Gallery</a></li>
                                 <!--                                <li><a href="#contact">Contact</a></li>-->
                                 <li><a href="<?php echo e(route('signin')); ?>">Sign in </a></li>
@@ -82,15 +101,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-lg-6 about-info1 slideanim" >
                         <img src="../src/AdminLTE/img/home/about-img.jpg" alt="about" class="img-responsive">
                     </div>
-                    <div class="col-lg-6 about-info2 slideanim">
-                        <div class="about-details">
-                            <h2>About Us</h2>
-                            <p>
-                                Created in 1961 and established in 1964 under the Office of the President, the Office of Alumni Relations (OAR) serves as the link between the alumni and the rest of the academic community. The OAR seeks to encourage the maximum participation, involvement, support and commitment of the alumni to the University of the Philippines’ social mission. It assists the UP and its Alumni Association (UPAA) in identifying, cultivating, and involving the alumni in institutional and alumni programs, events and activities. It also represents the UP and the UPAA at institutional and alumni programs, events and activities both locally, on-and off-campus, and foreign venues whenever possible.
-                                <br>
-                                Its objectives include.... <a href="#">Learn more</a>
+                    <div class="col-lg-6 about-info2 slideanim" >
+                        <div class="about-details" id="details" style="margin-left: 15px;margin-top: 15px;">
+                            <br><h1>About Us</h1>
+                            <div ng-bind-html="renderHtml(preference.about_us)" id="about-details" ></div>
 
+                            <a href='<?php echo e(route('about.us')); ?>' style="font-size: 25px;">Learn more...</a>
                         </div>	
+
                     </div>
                 </div>
             </div>		
@@ -102,12 +120,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row col-md-offset-0">	
                     <div class="col-lg-6 about-info2 slideanim">
                         <div class="about-details">
-                            <?php echo $__env->make('home.news', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                            
                         </div>	
                     </div>
                     <div class="col-lg-6 about-info2 slideanim">
                         <div class="about-details">
-                            <?php echo $__env->make('home.events', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                           
                         </div>	
 
                     </div>
@@ -118,7 +136,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- /News and Events  Section -->
         <!-- Service Section -->
         <section class="our-services slideanim" id="service">
-            <h3 class="text-center slideanim">Our Amazing Services</h3>
+            <h3 class="text-center slideanim">Partners</h3>
             <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             <div class="container">
                 <div class="row">
@@ -207,27 +225,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- Gallery Section -->
         <section class="our-gallery" id="gallery">
             <h3 class="text-center slideanim">Our Gallery</h3>
-            <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p class="text-center slideanim"></p>
             <div class="container">
-                <img src="../src/AdminLTE/img/home/work1.jpg" data-darkbox="../src/AdminLTE/img/home/work1-1.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work2.jpg" data-darkbox="../src/AdminLTE/img/home/work2-2.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work3.jpg" data-darkbox="../src/AdminLTE/img/home/work3-3.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work4.jpg" data-darkbox="../src/AdminLTE/img/home/work4-4.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work5.jpg" data-darkbox="../src/AdminLTE/img/home/work5-5.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work6.jpg" data-darkbox="../src/AdminLTE/img/home/work6-6.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work7.jpg" data-darkbox="../src/AdminLTE/img/home/work7-7.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work8.jpg" data-darkbox="../src/AdminLTE/img/home/work8-8.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work9.jpg" data-darkbox="../src/AdminLTE/img/home/work9-9.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work10.jpg" data-darkbox="../src/AdminLTE/img/home/work10-10.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work11.jpg" data-darkbox="../src/AdminLTE/img/home/work11-11.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                <img src="../src/AdminLTE/img/home/work12.jpg" data-darkbox="../src/AdminLTE/img/home/work12-12.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                <div class="col-md-12 ">
+                    <img src="../src/images/gallery/work1.jpg" data-darkbox="../src/images/gallery/work1.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work2.jpg" data-darkbox="../src/images/gallery/work2.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work3.jpg" data-darkbox="../src/images/gallery/work3.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work4.jpg" data-darkbox="../src/images/gallery/work4.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work5.jpg" data-darkbox="../src/images/gallery/work5.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work6.jpg" data-darkbox="../src/images/gallery/work6.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work7.jpg" data-darkbox="../src/images/gallery/work7.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work8.jpg" data-darkbox="../src/images/gallery/work8.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+    <!--                <img src="../src/AdminLTE/img/home/work9.jpg" data-darkbox="../src/AdminLTE/img/home/work9-9.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/AdminLTE/img/home/work10.jpg" data-darkbox="../src/AdminLTE/img/home/work10-10.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/AdminLTE/img/home/work11.jpg" data-darkbox="../src/AdminLTE/img/home/work11-11.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/AdminLTE/img/home/work12.jpg" data-darkbox="../src/AdminLTE/img/home/work12-12.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">-->
+                </div>  
             </div>
+
         </section>	
         <!-- /Gallery section -->
         <!-- Team -->
         <section class="our-team" id="team">
-            <h3 class="text-center slideanim">Best Of The Best, Our Faculty</h3>
-            <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <h3 class="text-center slideanim">Board of Directors</h3>
+            <p class="text-center slideanim"></p>
             <div class="container">
                 <section class="main">
                     <ul class="ch-grid">
@@ -318,7 +339,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <p class="team-info slideanim">Treasurer</p>
                         </li>
                     </ul>
-                </section>           
+                </section>      
+                <div class="row text-center">
+                    <div class="col-sm-12 ">
+                        <!--<a href="<?php echo e(route('faculty.staff')); ?>"  class="btn btn-outline1 btn-lg" >View All</a>-->
+                    </div>
+                </div>
             </div>
         </section>	
         <!-- /Team -->
@@ -343,9 +369,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-lg-5 col-md-5">
                         <div class="contact-info">
                             <h4>Connect With Us :-</h4>
-                            <p><strong>Phone :</strong> 123.456.7890</p>
-                            <p><strong>Email :</strong> <a href="mailto:name@example.com">name@example.com</a></p>
-                            <p class="addr"><strong>Address :</strong> 3481 Melrose Place,Beverly Hills, Chicago 90210.</p>
+                            <p><strong>Phone :</strong><%preference.contact_no%></p>
+                            <p><strong>Email :</strong> <a href="mailto:name@example.com"><%preference.email_address%></a></p>
+                            <p class="addr"><strong>Address :</strong> <%preference.address%></p>
                             <ul class="social-icons2">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -358,18 +384,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <form action="#" method="post">
                             <div class="row">
                                 <div class="col-sm-12 form-group slideanim">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required ng-model="email.name">
                                 </div>
                             </div>
                             <div class="row email-bar">
                                 <div class="col-sm-12 form-group slideanim">
-                                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required ng-model="email.email">
                                 </div>
                             </div>
-                            <textarea class="form-control slideanim" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                            <textarea class="form-control slideanim" id="comments" name="comments" placeholder="Comment" rows="5" ng-model="email.comment"></textarea><br>
                             <div class="row">
                                 <div class="col-sm-12 form-group">
-                                    <button class="btn btn-outline1 btn-lg" type="submit">Send</button>
+                                    <a href="" ng-click="sendEmail()" class="btn btn-outline1 btn-lg" >Send</a>
                                 </div>
                             </div>
                         </form>			
@@ -408,36 +434,38 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="<?php echo e(URL::to('src/AdminLTE/js/index.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/darkbox.js')); ?>"></script>
 
- 
+
         <script>
-$(document).ready(function () {
+                                        var baseURL = '<?php echo e(url('/')); ?>';
+                                        var myToken = '<?php echo e(Session::token()); ?>';
+                                        $(document).ready(function () {
 
-    $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
+                                            $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
 
-        // Store hash
-        var hash = this.hash;
+                                                // Store hash
+                                                var hash = this.hash;
 
 
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 900, function () {
-            window.location.hash = hash;
-        });
-    });
-});
+                                                $('html, body').animate({
+                                                    scrollTop: $(hash).offset().top
+                                                }, 900, function () {
+                                                    window.location.hash = hash;
+                                                });
+                                            });
+                                        });
         </script>
 
         <script>
-            $(window).scroll(function () {
-                $(".slideanim").each(function () {
-                    var pos = $(this).offset().top;
+                    $(window).scroll(function () {
+                        $(".slideanim").each(function () {
+                            var pos = $(this).offset().top;
 
-                    var winTop = $(window).scrollTop();
-                    if (pos < winTop + 600) {
-                        $(this).addClass("slide");
-                    }
-                });
-            });
+                            var winTop = $(window).scrollTop();
+                            if (pos < winTop + 600) {
+                                $(this).addClass("slide");
+                            }
+                        });
+                    });
         </script>
     </body>
 </html>

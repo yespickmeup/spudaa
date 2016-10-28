@@ -1,11 +1,15 @@
 
 <div class="box box-widget widget-user">
-    <div class="widget-user-header bg-black" style="background: url('<?php echo e(URL::to('src/images/users/photo1.png')); ?>') center center;">
+    <div class="widget-user-header bg-black" style="background: url('<?php echo e(URL::to('src/AdminLTE/img/home/signup.png')); ?>')   no-repeat;background-size: 100% 100%; ">
         <h3 class="widget-user-username"></h3>
         <h5 class="widget-user-desc"></h5>
     </div>
     <div class="widget-user-image">
-        <img class="img-circle" src="<?php echo e(URL::to('src/images/users/user1-128x128.jpg')); ?>" alt="User Avatar">
+         <img class="img-circle" 
+             ng-src="<%user.imageSource%> "
+             onerror="this.src='../src/images/users/user2-160x160.jpg'"
+             style="width: 80px;height: 80px;"
+             >
     </div>
 
     <div class="box-footer">
@@ -16,10 +20,14 @@
                     <span class="description-text"></span>
                 </div>
             </div>
-            <div class="col-sm-4 border-right">
+            <div class="col-sm-2 col-sm-offset-1">
                 <div class="description-block">
-                    <h5 class="description-header">Upload Photo</h5>
-                    <span class="description-text"></span>
+                    <input type="file" name="image" id="image" accept="image/jpeg/png"
+                               class="btn btn-default form-control image"
+                               style="" ng-model="imageSource" ngf-max-height="1000"
+                               ngf-max-size="100MB"
+                               onchange="angular.element(this).scope().fileNameChaged(this)">
+                    
                 </div>
             </div>
             <div class="col-sm-4">
@@ -325,7 +333,7 @@
 
 <div class="row text-center" >
     <div class="btn-group">
-        <a href="" class="btn btn-default pull-left" ng-click="changeTab(1)">Back to Login</a>
+        <a href="<?php echo e(route('signin')); ?>" class="btn btn-default pull-left" >Back to Login</a>
         <!--        <a href="" class="btn btn-primary pull-right"  ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
                    >Next</a>-->
         <a href="" class="btn btn-primary pull-right"  
