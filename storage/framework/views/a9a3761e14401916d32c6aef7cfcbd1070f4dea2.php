@@ -105,7 +105,7 @@
 </div>
 <div class="row text-center" >
     <div class="btn-group">
-        <a href="" class="btn btn-default pull-left" ng-click="changeTab(5)">Previous</a>
+        <a href="" class="btn btn-default pull-left" ng-click="changeTab(2)">Previous</a>
         <a href="" class="btn btn-success pull-right"  ng-click="((userForm.$error && !userForm.$error.emailExists) || userForm.first_name.$invalid  || userForm.last_name.$invalid || userForm.date_of_birth.$invalid) || submitForm()" ng-disabled="(userForm.$error && !userForm.$error.emailExists) || userForm.first_name.$invalid  || userForm.last_name.$invalid || userForm.date_of_birth.$invalid"  
            >Save</a>
         <!--        <a href="" class="btn btn-primary pull-right" ng-click="submitForm(userForm.$invalid)" ng-disabled="userForm.email.$error && !userForm.$error.emailExists" 
