@@ -137,7 +137,7 @@
                                 <li><a href="{{route('course')}}"><i class="fa fa-circle-o"></i> Courses</a></li>
                                 <li><a href="{{route('major')}}"><i class="fa fa-circle-o"></i> Majors</a></li>
                                 <li><a href="{{route('settings.preferences')}}"><i class="fa fa-circle-o"></i> Preferences</a></li>
-                                <li><a href="{{route('settings.faculty')}}"><i class="fa fa-circle-o"></i> Faculty and Staff</a></li>
+                                <li><a href="{{route('settings.directors')}}"><i class="fa fa-circle-o"></i> Board of Directors</a></li>
                             </ul>
                         </li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>

@@ -6,12 +6,13 @@ User Management
 @endsection
 @section('content')
 <div class="row" ng-controller="userManagementController">
-    
+
     <div class="col-md-12">
         <!--    Alert for Course-->
-        <div class="alert alert-success fade in" ng-show="showUserManagementSuccess">
-            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            Account&emsp;<strong><%account_name%> </strong> successfully approved!.
+
+        <div class="row text-center " >
+            <span style="color: green;font-size: 24px;" ng-show="showUserManagementSuccess" ><span class="glyphicon glyphicon-ok"></span> Successfully Updated</span>
+            <br>
         </div>
 
         <table st-table="displayedCollection" st-safe-src="users"
@@ -27,7 +28,6 @@ User Management
                     <th st-sort="user.email">email</th>
                     <th style="width: 60px;" st-sort="user.role"></th>
                     <th style="width: 60px;" st-sort="user.active"></th>
-
                 </tr>
 
             </thead>
@@ -39,23 +39,22 @@ User Management
                     <td><%user.email%></td>
                     <td>
                         <div ng-if="user.role === 'SuperAdministrator'">
-                            <a href="" ng-click="changeRole(user)"><u><span style="color: #d58512;">superadministrator</span></u></a>
+                            <a href="" ng-click="changeRole(user)"><span class="label label-info">superadministrator</span></a>
                         </div>
                         <div ng-if="(user.role === 'administrator')">
-                            <a href="" ng-click="changeRole(user)"><u><span style="color: #d58512;">administrator</span></u></a>
+                            <a href="" ng-click="changeRole(user)"><span class="label label-info">administrator</span></a>
                         </div>
                         <div ng-if="(user.role === 'user')">
-                            <a href="" ng-click="changeRole(user)"><u><span style="color: #d58512;">user</span></u></a>
+                            <a href="" ng-click="changeRole(user)"><span class="label label-info">user</span></a>
                         </div>
                     </td>
                     <td>
                         <div ng-if="user.active === '0'">
-                            <a href="" ng-click="changeActive(user)"><u><span style="color: red;">Inactive</span></u></a>
+                            <a href="" ng-click="changeActive(user)"><span class="label label-warning">Inactive</span></a>
                         </div>
                         <div ng-if="(user.active === '1')">
-                            <a href="" ng-click="changeActive(user)"><u><span style="color: #0088cc;">Active</span></u></a>
+                            <a href="" ng-click="changeActive(user)"><span class="label label-success">Active</span></a>
                         </div>
-
                     </td>
 
                 </tr>
@@ -76,7 +75,7 @@ User Management
         <div class="modal-header">
         <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
         aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Confirm Delete!</h4>
+        <h4 class="modal-title">Select Role:</h4>
         </div>
         <div class="col-md-12">
         <select class="form-control" placeholder="Roles" 
@@ -87,7 +86,29 @@ User Management
         </select>
         </div>
         <br>
-          <br>
+        <br>
+        <div class="modal-footer">
+        <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
+        No
+        </button>
+        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">
+        Yes
+        </button>
+        </div>
+        </div>
+        </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="changeRole.html">
+        <div class="modal ">
+        <div class="modal-dialog modal-sm type-danger">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+        aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Confirm Action!</h4>
+        </div>
+
         <div class="modal-footer">
         <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
         No

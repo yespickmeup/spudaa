@@ -67,7 +67,7 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
             address: '',
             about_us: ''
         };
-        
+
 //        console.log('image: '+$scope.user.imageSource);
 //        $scope.check = function () {
 //
@@ -426,6 +426,57 @@ settingsApp.service('courseService', function ($http) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/courses'
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getCourses() error');
+                });
+    };
+
+    this.addCourse = function (course) {
+        return $http({
+            method: 'POST',
+            url: baseURL + '/api/course_add',
+            data: {
+                _token: myToken,
+                course: course
+            }
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getCourses() error');
+                });
+    };
+    this.updateCourse = function (id, course) {
+        return $http({
+            method: 'POST',
+            url: baseURL + '/api/course_update',
+            data: {
+                _token: myToken,
+                id: id,
+                course: course
+            }
+        })
+                .success(function (data, status, headers, config) {
+                    /*console.log('getlevels() success ');*/
+                })
+                .error(function (data, status, headers, config) {
+                    console.log('getCourses() error');
+                });
+    };
+    
+    this.deleteCourse = function (id) {
+        return $http({
+            method: 'POST',
+            url: baseURL + '/api/course_delete',
+            data: {
+                _token: myToken,
+                id: id
+            }
         })
                 .success(function (data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
@@ -804,8 +855,8 @@ settingsApp.service('preferenceService', function ($http) {
                     console.log('update_major() error');
                 });
     };
-    
-     
+
+
 
 });
 

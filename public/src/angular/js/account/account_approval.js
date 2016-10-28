@@ -6,6 +6,8 @@
 
 
 
+/* global myToken */
+
 settingsApp.controller('accountApprovalController', ['$scope', '$http', 'accountApprovalService', 'ModalService', function ($scope, $http, accountApprovalService, ModalService) {
 
 
@@ -14,8 +16,6 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
         $scope.itemsUsers = 20;
         $scope.account_name = '';
         $scope.showAccountApprovedSuccess = false;
-
-
 
         accountApprovalService.getUsers().then(function (resp) {
             var majors = JSON.stringify(resp.data['users']);
@@ -39,7 +39,6 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
 
         $scope.approveAccount = function (my_user) {
 
-
             $data = {
                 '_token': myToken,
                 'user': $scope.user,
@@ -47,27 +46,42 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
 
             };
 
+            ModalService.showModal({
+                templateUrl: 'modalApprove.html',
+                controller: "ModalAccountApprovallController",
+                inputs: {
+                    title: 'my title'
+                  
+                }
+            }).then(function (modal) {
+                modal.element.modal();
+                modal.close.then(function (result) {
 
-            $http.post('/api/approve_account', $data)
-                    .success(function (data, status, headers, config) {
-                        var user = data['user'];
-                        my_user.approved = 1;
-                        my_user.activated = 1;
-                        $scope.account_name = my_user.last_name + ', ' + my_user.first_name + ' ' + my_user.middle_name;
-                        $scope.showAccountApprovedSuccess = true;
+                    if (result === 'Yes') {
+
+                        $http.post('/api/approve_account', $data)
+                                .success(function (data, status, headers, config) {
+                                    var user = data['user'];
+                                    my_user.approved = '' + 1;
+                                    my_user.activated = '' + 1;
+                                    $scope.account_name = my_user.last_name + ', ' + my_user.first_name + ' ' + my_user.middle_name;
+                                    $scope.showAccountApprovedSuccess = true;
 //                        console.log('user: ' + JSON.stringify(user));
-                        setTimeout(function () {
-                            $scope.$apply(function () {
+                                    setTimeout(function () {
+                                        $scope.$apply(function () {
 
-                                $scope.showAccountApprovedSuccess = false;
-                            });
-                        }, 1000);
+                                            $scope.showAccountApprovedSuccess = false;
+                                        });
+                                    }, 1000);
 
-                    })
-                    .error(function (data, status, headers, config) {
+                                })
+                                .error(function (data, status, headers, config) {
 
-                    })
-                    ;
+                                })
+                                ;
+                    }
+                });
+            });
 
         };
 

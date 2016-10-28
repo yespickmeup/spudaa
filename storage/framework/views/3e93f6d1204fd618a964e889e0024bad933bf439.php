@@ -120,12 +120,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row col-md-offset-0">	
                     <div class="col-lg-6 about-info2 slideanim">
                         <div class="about-details">
-                            <?php echo $__env->make('home.news', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                            
                         </div>	
                     </div>
                     <div class="col-lg-6 about-info2 slideanim">
                         <div class="about-details">
-                            <?php echo $__env->make('home.events', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                           
                         </div>	
 
                     </div>
@@ -136,7 +136,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- /News and Events  Section -->
         <!-- Service Section -->
         <section class="our-services slideanim" id="service">
-            <h3 class="text-center slideanim">Our Amazing Services</h3>
+            <h3 class="text-center slideanim">Partners</h3>
             <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             <div class="container">
                 <div class="row">
@@ -225,7 +225,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- Gallery Section -->
         <section class="our-gallery" id="gallery">
             <h3 class="text-center slideanim">Our Gallery</h3>
-            <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <p class="text-center slideanim"></p>
             <div class="container">
                 <div class="col-md-12 ">
                     <img src="../src/images/gallery/work1.jpg" data-darkbox="../src/images/gallery/work1.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
@@ -247,8 +247,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- /Gallery section -->
         <!-- Team -->
         <section class="our-team" id="team">
-            <h3 class="text-center slideanim">Best Of The Best, Our Faculty</h3>
-            <p class="text-center slideanim">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <h3 class="text-center slideanim">Best Of The Best, Board of Directors</h3>
+            <p class="text-center slideanim"></p>
             <div class="container">
                 <section class="main">
                     <ul class="ch-grid">
@@ -342,7 +342,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </section>      
                 <div class="row text-center">
                     <div class="col-sm-12 ">
-                        <a href="<?php echo e(route('faculty.staff')); ?>"  class="btn btn-outline1 btn-lg" >View All</a>
+                        <!--<a href="<?php echo e(route('faculty.staff')); ?>"  class="btn btn-outline1 btn-lg" >View All</a>-->
                     </div>
                 </div>
             </div>
