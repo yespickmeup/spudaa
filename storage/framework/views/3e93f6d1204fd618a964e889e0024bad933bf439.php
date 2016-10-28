@@ -410,7 +410,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row">
                     <div class="col-md-6">
                         <div class="links">
-                            <a href="index.html">Home</a>
+                            <a href="#">Home</a>
                             <a href="#about">About</a>
                             <a href="#news">News and Events</a>
                             <a href="#service">Services</a>
@@ -420,7 +420,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-md-6">
                         <div class="copyright">
-                            <p>&copy; 2016 Academy. All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts </a></p>
+                            <p class="love">Made with <i class="fa fa-heart-o" aria-hidden="false" style="color: red;"></i> by Synapse Software Technologies</p>
                         </div>
                     </div>
                 </div>
