@@ -1,6 +1,6 @@
 /vendor
 /node_modules
-/public/storage
+/storage
 <<<<<<< HEAD
 /public/src/images/users
 =======
