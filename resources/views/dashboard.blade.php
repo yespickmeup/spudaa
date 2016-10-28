@@ -34,6 +34,9 @@
                 <a href="../../index2.html" class="logo">
                     <span class="logo-mini"><b>A</b>LT</span>
                     <span class="logo-lg"><b>Alumni</b>Association</span>
+                    
+                    
+               
                 </a>
                 <nav class="navbar navbar-static-top">
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -165,14 +168,11 @@
                     @yield('content')
                 </section>
             </div>
-            <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    <b>Version</b> 2.3.6
-                </div>
-                <strong>Copyright &copy; 2014-2016 <a href="#">Synapse Software Technologies</a>.</strong> All rights
-                reserved.
+            <footer class="main-footer text-center">
+               
+               <p class="love">Made with <i class="fa fa-heart-o" aria-hidden="false" style="color: red;"></i> by Synapse Software Technologies.</p>
             </footer>
-
+            
         </div>
         <script>
                     var myToken = '{{Session::token()}}';

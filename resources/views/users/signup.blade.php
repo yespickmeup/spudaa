@@ -65,12 +65,19 @@
                                     </div>
 
                                 </form>
+                              
+                                 <div class="col-md-12 text-center">
+                        <div class="copyright">
+                              <br>
+                            <p class="love">Made with <i class="fa fa-heart-o" aria-hidden="false" style="color: red;"></i> by Synapse Software Technologies.</p>
+                        </div>
+                    </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
         </div>
         <br> <br> <br>
 
