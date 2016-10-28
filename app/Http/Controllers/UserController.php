@@ -69,6 +69,18 @@ class UserController extends Controller {
         return response()->json(['user' => $user]);
     }
 
+    public function accountActivate(Request $request) {
+        $user_id = $request->get('user_id');
+
+
+        $user = User::find($user_id);
+
+        $user->activated = 1;
+
+        $user->save();
+        return response()->json(['user' => $user]);
+    }
+
     public function accountActive(Request $request) {
         $user_id = $request->get('user_id');
         $active = $request->get('active');
@@ -95,7 +107,7 @@ class UserController extends Controller {
 //        $role->role_id = $role_id;
 //        $role->save();
 
-        $role = DB::update('update role_user set role_id = :new_role_id where user_id = :user_id ', ['new_role_id' => $role_id,'user_id' => $user_id]);
+        $role = DB::update('update role_user set role_id = :new_role_id where user_id = :user_id ', ['new_role_id' => $role_id, 'user_id' => $user_id]);
 //        DB::table('role_user')->where('user_id', '=', $user_id)->where('role_id', '=', $old_role)->get()->delete();
 //        
         if ($role) {

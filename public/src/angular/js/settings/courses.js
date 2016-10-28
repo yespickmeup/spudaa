@@ -8,7 +8,7 @@ settingsApp.controller('courseController', ['$scope', '$http', 'courseService', 
 
         $scope.courses = [];
         $scope.inputCourse = '';
-        $scope.itemsByPage = 5;
+        $scope.itemsByPage = 10;
 
         $scope.showAddCourseSuccess = false;
         $scope.showUpdateCourseSuccess = false;

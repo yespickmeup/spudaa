@@ -51,7 +51,7 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
                 controller: "ModalAccountApprovallController",
                 inputs: {
                     title: 'my title'
-                  
+
                 }
             }).then(function (modal) {
                 modal.element.modal();
@@ -85,7 +85,53 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
 
         };
 
+        $scope.activateAccount = function (my_user) {
+            console.log('asdad');
+            $data = {
+                '_token': myToken,
+                'user': $scope.user,
+                'user_id': my_user.id
 
+            };
+
+            ModalService.showModal({
+                templateUrl: 'modalActivate.html',
+                controller: "ModalAccountApprovallController",
+                inputs: {
+                    title: 'my title'
+
+                }
+            }).then(function (modal) {
+                modal.element.modal();
+                modal.close.then(function (result) {
+
+                    if (result === 'Yes') {
+
+                        $http.post('/api/activate_account', $data)
+                                .success(function (data, status, headers, config) {
+                                    var user = data['user'];
+                                  
+                                    my_user.activated = '' + 1;
+                                   
+                                    $scope.showAccountApprovedSuccess = true;
+
+                                    setTimeout(function () {
+                                        $scope.$apply(function () {
+
+                                            $scope.showAccountApprovedSuccess = false;
+                                        });
+                                    }, 1000);
+
+                                })
+                                .error(function (data, status, headers, config) {
+
+                                })
+                                ;
+                    }
+                });
+            });
+
+        };
 
 
 
