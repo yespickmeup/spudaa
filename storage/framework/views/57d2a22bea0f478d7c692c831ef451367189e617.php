@@ -4,6 +4,7 @@
         <meta charset="utf-8">
        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Alumni Association | Dashboard</title>
+         <link rel="shortcut icon" type="image/png" href="../src/images/system/spud-alumni-logo.png" />
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
         <link rel="stylesheet" href="<?php echo e(URL::to('src/bootstrap/css/bootstrap.min.css')); ?>"/>
@@ -137,7 +138,7 @@
                                 <li><a href="<?php echo e(route('course')); ?>"><i class="fa fa-circle-o"></i> Courses</a></li>
                                 <li><a href="<?php echo e(route('major')); ?>"><i class="fa fa-circle-o"></i> Majors</a></li>
                                 <li><a href="<?php echo e(route('settings.preferences')); ?>"><i class="fa fa-circle-o"></i> Preferences</a></li>
-                                <li><a href="<?php echo e(route('settings.faculty')); ?>"><i class="fa fa-circle-o"></i> Faculty and Staff</a></li>
+                                <li><a href="<?php echo e(route('settings.directors')); ?>"><i class="fa fa-circle-o"></i> Board of Directors</a></li>
                             </ul>
                         </li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>

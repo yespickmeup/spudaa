@@ -355,8 +355,8 @@ Route::get('/board-of-directors', [
         return view('team');
     }
 ]);
-Route::get('/faculty', [
-    'as' => 'settings.faculty',
+Route::get('/directors', [
+    'as' => 'settings.directors',
     function () {
         return view('settings.faculty');
     }

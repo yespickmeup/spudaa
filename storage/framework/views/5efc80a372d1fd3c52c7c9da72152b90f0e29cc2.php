@@ -1,6 +1,6 @@
 
 <div class="box box-widget widget-user">
-    <div class="widget-user-header bg-black" style="background: url('<?php echo e(URL::to('src/images/users/photo1.png')); ?>') center center;">
+    <div class="widget-user-header bg-black" style="background: url('<?php echo e(URL::to('src/AdminLTE/img/home/signup.png')); ?>')   no-repeat;background-size: 100% 100%; ">
         <h3 class="widget-user-username"></h3>
         <h5 class="widget-user-desc"></h5>
     </div>

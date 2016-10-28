@@ -15,6 +15,7 @@ use App\UserAlumniPersonalService;
 use App\UserSatisfactionSurvey;
 use App\Role;
 use DB;
+use App\RoleUser;
 
 class UserController extends Controller {
 
@@ -85,18 +86,23 @@ class UserController extends Controller {
         $role_id = $request->get('role_id');
         $old_role = $request->get('old_role');
 
-        $user = User::find($user_id);
+        $user = User::where('id', '=', $user_id)->first();
 //        $role = Role::find($role_id);
 //        $role->delete();
 //        $role->users()->sync([]);
+//        
+//        $role = RoleUser::where('user_id', '=', $user_id)->first();
+//        $role->role_id = $role_id;
+//        $role->save();
 
+        $role = DB::update('update role_user set role_id = :new_role_id where user_id = :user_id ', ['new_role_id' => $role_id,'user_id' => $user_id]);
+//        DB::table('role_user')->where('user_id', '=', $user_id)->where('role_id', '=', $old_role)->get()->delete();
+//        
+        if ($role) {
+            return response()->json(['message' => 'success']);
+        }
 
-        DB::table('role_user')->where('user_id', '=', $user_id)->where('role_id', '=', $old_role)->delete();
-        $user->roles()->attach($role_id);
-
-
-
-        return response()->json(['user' => $user]);
+        return response()->json(['message' => $role]);
     }
 
     protected $activationService;
