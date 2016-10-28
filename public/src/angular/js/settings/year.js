@@ -8,7 +8,7 @@ settingsApp.controller('yearController', ['$scope', '$http', 'yearService', 'Mod
 
         $scope.years = [];
         $scope.inputYear = '';
-        $scope.itemsByPage = 5;
+        $scope.itemsByPage = 10;
 
         $scope.showAddYearSuccess = false;
         $scope.showUpdateYearSuccess = false;

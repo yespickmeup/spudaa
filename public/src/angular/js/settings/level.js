@@ -8,7 +8,7 @@ settingsApp.controller('levelController', ['$scope', '$http', 'levelService', 'M
 
         $scope.levels = [];
         $scope.inputLevel = '';
-        $scope.itemsByPage = 5;
+        $scope.itemsByPage = 10;
 
         $scope.showAddLevelSuccess = false;
         $scope.showUpdateLevelSuccess = false;

@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller="homeController">
         <!-- navigation -->
-        Debug
+        
         <div class="navbar-wrapper">
             <div class="container">
                 <nav class="navbar navbar-inverse navbar-static-top cl-effect-1">
@@ -395,7 +395,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <textarea class="form-control slideanim" id="comments" name="comments" placeholder="Comment" rows="5" ng-model="email.comment"></textarea><br>
                             <div class="row">
                                 <div class="col-sm-12 form-group">
-                                    <a href="" ng-click="sendEmail()" class="btn btn-outline1 btn-lg" >Send</a>
+                                    <a href="" ng-click="sendEmail22()" class="btn btn-outline1 btn-lg" >Send</a>
                                 </div>
                             </div>
                         </form>			

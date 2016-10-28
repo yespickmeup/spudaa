@@ -6,7 +6,6 @@
     </div>
     <div class="widget-user-image">
          <img class="img-circle" 
-           
              ng-src="<%user.imageSource%> "
              onerror="this.src='../src/images/users/user2-160x160.jpg'"
              style="width: 80px;height: 80px;"

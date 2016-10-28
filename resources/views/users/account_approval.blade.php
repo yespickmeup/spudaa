@@ -9,8 +9,8 @@ Account Approval
 
     <div class="col-md-12">
         <!--    Alert for Course-->
-       
-         <div class="row text-center " >
+
+        <div class="row text-center " >
             <span style="color: green;font-size: 24px;" ng-show="showAccountApprovedSuccess" ><span class="glyphicon glyphicon-ok"></span> Successfully Updated</span>
             <br>
         </div>
@@ -26,8 +26,8 @@ Account Approval
                     <th style="width: 160px;" st-sort="user.first_name">First Name</th>
                     <th style="width: 100px;" st-sort="user.middle_name">Middle Name</th>
                     <th st-sort="user.email">email</th>
-                    <th style="width: 60px;" st-sort="user.activated"></th>
-                    <th style="width: 60px;" st-sort="user.approved"></th>
+                    <th style="width: 60px;" st-sort="user.activated">Activated</th>
+                    <th style="width: 60px;" st-sort="user.approved">Approved</th>
                 </tr>
 
             </thead>
@@ -39,16 +39,20 @@ Account Approval
                     <td><%user.email%></td>
 
                     <td> 
-                        <div ng-if="user.activated === '1'"> <span class="label label-info">Activated</span></div>
-                        <div ng-if="user.activated === '0'"> <span class="label label-warning" >Pending</span></div>
+                        <div ng-if="user.activated === '1'"> 
+                            <span class="label label-info">Activated</span>
+                        </div>
+                        <div ng-if="user.activated === '0'"> 
+                            <a href="" ng-click="activateAccount(user)"><span class="label label-warning" >Pending</span></a>
+                        </div>
                     </td>
                     <td>
-
+                       
                         <div ng-if="user.approved === '0' && user.activated === '0'">
-                            <span class="label label-warning" >Pending</span>
+                           <span class="label label-warning" >Pending</span>
                         </div>
                         <div ng-if="(user.approved === '0' && user.activated === '1')">
-                            <a href="" ng-click="approveAccount(user)"><u><span class="label label-primary">Approve</span></u></a>
+                            <a href="" ng-click="approveAccount(user)"><span class="label label-primary">Approve</span></a>
                         </div>
 
                         <div ng-if="user.approved === '1' && user.activated === '1'">
@@ -75,7 +79,29 @@ Account Approval
         <div class="modal-header">
         <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
         aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Confirm!</h4>
+        <h4 class="modal-title">Confirm Approve!</h4>
+        </div>
+
+        <div class="modal-footer">
+        <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
+        No
+        </button>
+        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">
+        Yes
+        </button>
+        </div>
+        </div>
+        </div>
+        </div>
+    </script>
+     <script type="text/ng-template" id="modalActivate.html">
+        <div class="modal ">
+        <div class="modal-dialog modal-sm type-danger">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+        aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Confirm Activate!</h4>
         </div>
 
         <div class="modal-footer">

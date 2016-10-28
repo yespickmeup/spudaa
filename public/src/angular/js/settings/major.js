@@ -8,7 +8,7 @@ settingsApp.controller('majorController', ['$scope', '$http', 'majorService', 'M
 
         $scope.majors = [];
         $scope.inputMajor = '';
-        $scope.itemsByPage = 5;
+        $scope.itemsByPage = 10;
 
         $scope.showAddMajorSuccess = false;
         $scope.showUpdateMajorSuccess = false;

@@ -188,6 +188,10 @@ Route::post('/api/approve_account', [
     'as' => 'account.approve',
     'uses' => 'UserController@accountApproval'
 ]);
+Route::post('/api/activate_account', [
+    'as' => 'account.activate',
+    'uses' => 'UserController@accountActivate'
+]);
 //End of Account Approval
 //Start of User Management
 Route::get('/user_management', [
