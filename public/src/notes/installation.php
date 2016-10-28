@@ -35,3 +35,6 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //Once your domain has propagated, you may also use http://spudaa.org/cpanel
 //Username: spudaaor
 //Password: P3vzrH902l    
+//    php artisan cache:clear
+//    php artisan config:cache
+//    sudo service nginx restart
