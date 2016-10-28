@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller="homeController">
         <!-- navigation -->
-
+        Debug
         <div class="navbar-wrapper">
             <div class="container">
                 <nav class="navbar navbar-inverse navbar-static-top cl-effect-1">
@@ -247,7 +247,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <!-- /Gallery section -->
         <!-- Team -->
         <section class="our-team" id="team">
-            <h3 class="text-center slideanim">Best Of The Best, Board of Directors</h3>
+            <h3 class="text-center slideanim">Board of Directors</h3>
             <p class="text-center slideanim"></p>
             <div class="container">
                 <section class="main">
