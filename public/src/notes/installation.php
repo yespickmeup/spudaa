@@ -8,7 +8,7 @@
 
 http://laratrust.readthedocs.io/en/stable/installation.html
 //    162.243.44.240 - synapse246
-//    https://github.com/yespickmeup/spudaa.git
+//    git clone https://github.com/yespickmeup/spudaa.git
 //    git clone
 //    git pull https://github.com/yespickmeup/spudaa.git
 //    git push https://github.com/yespickmeup/spudaa.git
