@@ -38,3 +38,4 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //    php artisan cache:clear
 //    php artisan config:cache
 //    sudo service nginx restart
+//    git reset --hard <7c93db7465432cdc77543f6aa2bc2b41d9e028c2> git clean -f
