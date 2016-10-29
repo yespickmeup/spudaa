@@ -12,25 +12,26 @@
 /* global baseURL, myToken, photo */
 
 
-settingsApp.controller('facultyController', ['$scope', '$http','ModalService', function ($scope, $htt,ModalService) {
+settingsApp.controller('facultyController', ['$scope', '$http', 'ModalService', function ($scope, $htt, ModalService) {
 
+        $scope.director = {
+            name: '',
+            designation: '',
+            details: ''
+        };
+
+        $scope.title = 'title';
         $scope.newMember = function () {
             ModalService.showModal({
                 templateUrl: 'modalMember.html',
                 controller: "ModalBoardlController",
-                
                 inputs: {
-                    title: 'my title'
-
+                    title: 'asdad',
+                    director: $scope.director
                 }
             }).then(function (modal) {
                 modal.element.modal();
                 modal.close.then(function (result) {
-
-                    if (result === 'Yes') {
-
-
-                    }
                 });
             });
         };
@@ -38,8 +39,15 @@ settingsApp.controller('facultyController', ['$scope', '$http','ModalService', f
     }]);
 
 
-settingsApp.controller('ModalBoardlController', function ($scope, close) {
+settingsApp.controller('ModalBoardlController', function ($scope, close, title, director) {
+    $scope.title = title;
+    $scope.director = director;
     $scope.close = function (result) {
-        close(result, 500); // close, but give 500ms for bootstrap to animate
+        if (result === 'Yes') {
+           
+
+            close(result, 500);
+        }
+//      
     };
 });
