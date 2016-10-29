@@ -246,14 +246,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </section>	
         <!-- /Gallery section -->
         <!-- Team -->
-        <section class="our-team" id="team">
+        <section class="our-team" id="team" >
             <h3 class="text-center slideanim">Board of Directors</h3>
             <p class="text-center slideanim"></p>
             <div class="container">
                 <section class="main">
                     <ul class="ch-grid">
-
-                        <li class="t1">
+                        <div class="container">
+                               <li class="t1" >
                             <div class="ch-item slideanim">
                                 <div class="ch-info" >
                                     <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/JV.png');background-size: 200px 230px;background-repeat: no-repeat;">
@@ -271,6 +271,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h4 class="slideanim" style="font-size: 21px;">Dr. Jose Victor V. Imbo</h4>
                             <p class="team-info slideanim">President</p>
                         </li>
+                        </div>
+                     
+                        
+                          
                         <li class="t2">
                             <div class="ch-item slideanim">
                                 <div class="ch-info" >
@@ -286,7 +290,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim" style="font-size: 21px;">Mr. Albert Bael</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Albert Bael</h4>
                             <p class="team-info slideanim">Vice President</p>
                         </li>
 
@@ -323,7 +327,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim" style="font-size: 21px;">Mrs. Janice  Gaston</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Janice Teves Gaston</h4>
                             <p class="team-info slideanim">Assistant Secretary</p>
                         </li>
                         <li class="">
@@ -341,7 +345,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim" style="font-size: 21px;">Mrs. Veronica Chuang</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Veronica Chuang</h4>
                             <p class="team-info slideanim">Treasurer</p>
                         </li>
                          <li class="">
@@ -359,7 +363,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim" style="font-size: 21px;">Mr. Randolf Bandiola</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Randolf Bandiola</h4>
                             <p class="team-info slideanim">PRO</p>
                         </li>
                          <li class="">
@@ -377,7 +381,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim" style="font-size: 21px;">Mrs. Rowena Viliran</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Rowena Viliran</h4>
                             <p class="team-info slideanim">Auditor</p>
                         </li>
                           <li class="">
@@ -395,7 +399,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim" style="font-size: 21px;">Mr. Kenneth Duran</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Kenneth Paul Duran</h4>
                             <p class="team-info slideanim">Sgt. At Arms</p>
                         </li>
                          <li class="">
@@ -413,7 +417,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim" style="font-size: 21px;">Mr. Carmelo Elli</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Carmelo Elli</h4>
                             <p class="team-info slideanim">Sgt. At Arms</p>
                         </li>
                     </ul>
