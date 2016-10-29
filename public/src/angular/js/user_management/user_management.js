@@ -129,9 +129,9 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
                                 'role_id': $scope.my_roles.selectedOption.id,
                                 'old_role': my_user.role_id
                             };
-                            console.log('user_id: '+my_user.id);
-                            console.log('role_id: '+$scope.my_roles.selectedOption.id);
-                            console.log('old_role: '+my_user.role_id);
+//                            console.log('user_id: '+my_user.id);
+//                            console.log('role_id: '+$scope.my_roles.selectedOption.id);
+//                            console.log('old_role: '+my_user.role_id);
                             $http.post('/api/change_role', $data)
                                     .success(function (data, status, headers, config) {
                                         var message = data['message'];

@@ -69,7 +69,7 @@ Board of Directors
         <h4 class="modal-title">Add new director!</h4>
         </div>
         <div class="modal-body">
-
+         
 
         <div class="img-box " style="margin-left:100px;">
         <img src="{{ URL::to('src/images/users/user2-160x160.jpg') }}" style="width:200px;height: 200px;" class="img-thumbnail">
@@ -81,21 +81,19 @@ Board of Directors
                 
         </div>
         <br>
+       
         <label for="name">Name</label>
-        <input type="text" id="name" class="form-control">
+        <input type="text" id="name" class="form-control" ng-model="director.name" >
         <label for="designation">Designation</label>
-        <input type="text" id="designation" class="form-control">
+        <input type="text" id="designation" class="form-control" ng-model="director.designation">
         <label for="details">Details</label>
-        <textarea rows="6" id="details" class="form-control">   </textarea>         
-
-
-
+        <textarea rows="6" id="details" class="form-control" ng-model="director.details">   </textarea>         
         </div>
         <div class="modal-footer">
         <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
         Cancel
         </button>
-        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">
+        <button type="button" ng-click="close('Yes',title)" class="btn btn-primary" data-dismiss="modal">
         Save
         </button>
         </div>
