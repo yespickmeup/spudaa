@@ -271,10 +271,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h4 class="slideanim" style="font-size: 21px;">Dr. Jose Victor V. Imbo</h4>
                             <p class="team-info slideanim">President</p>
                         </li>
-                        </div>
-                     
-                        
-                          
+                        </div>                  
                         <li class="t2">
                             <div class="ch-item slideanim">
                                 <div class="ch-info" >

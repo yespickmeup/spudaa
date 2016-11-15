@@ -5,6 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//  git init
+//   git config --global user.email "you@example.com"
+//   git config --global user.name "Your Name"
 
 http://laratrust.readthedocs.io/en/stable/installation.html
 //    162.243.44.240 - synapse246
@@ -39,3 +42,8 @@ http://laratrust.readthedocs.io/en/stable/installation.html
 //    php artisan config:cache
 //    sudo service nginx restart
 //    git reset --hard <7c93db7465432cdc77543f6aa2bc2b41d9e028c2> git clean -f
+    
+//    git reset --mixed origin/master
+//git add .
+//git commit -m "This is a new commit for what I originally planned to be amended"
+//git push origin master
