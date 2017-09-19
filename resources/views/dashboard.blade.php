@@ -34,9 +34,6 @@
                 <a href="../../index2.html" class="logo">
                     <span class="logo-mini"><b>A</b>LT</span>
                     <span class="logo-lg"><b>Alumni</b>Association</span>
-                    
-                    
-               
                 </a>
                 <nav class="navbar navbar-static-top">
                     <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -61,7 +58,6 @@
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
                                         <img class="img-circle" 
-
                                              ng-src="<%user.imageSource%> "
                                              onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                              style="width: 90px;height: 90px;"
@@ -146,14 +142,12 @@
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>News</span></a></li>
                         <li><a href="../../documentation/index.html"><i class="fa fa-bell"></i> <span>Programs & Events</span></a></li>
                         @endif
-
                     </ul>
                 </section>
             </aside>
             <div class="content-wrapper">
                 <br> <br> 
                 <input type="hidden" value="{{Auth::user()->id}}" id="my_id" name="my_id">
-
                 <section class="content-header ">
                     <h1>
                         @yield('title')
@@ -169,40 +163,27 @@
                 </section>
             </div>
             <footer class="main-footer text-center">
-               
                <p class="love">Made with <i class="fa fa-heart-o" aria-hidden="false" style="color: red;"></i> by Synapse Software Technologies.</p>
             </footer>
-            
         </div>
         <script>
                     var myToken = '{{Session::token()}}';
                     var baseURL = '{{url('/')}}';
                     var photo = '{{URL::asset('src/images/users/')}}';
-
         </script>
-
-
-
         <script src="{{ URL::to('src/plugins/iCheck/icheck.min.js') }}"></script>
         <script src="{{ URL::to('src/AdminLTE/js/app.min.js') }}"></script>
-
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
         <script src="{{ URL::to('src/angular/js/angular-spinner.js') }}"></script>
-
         <script src="{{ URL::to('src/AdminLTE/js/smart-table.debug.js') }}"></script>
         <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
-
-
         <script src="{{ URL::to('src/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
         <script src="{{ URL::to('src/plugins/fastclick/fastclick.js') }}"></script> 
         <script src="{{ URL::to('src/AdminLTE/js/demo.js') }}"></script>
-
         <script src="{{ URL::to('src/plugins/select2/select2.full.min.js') }}"></script>
         <script src="{{ URL::to('src/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
         <script src="{{ URL::to('src/plugins/file_upload/ng-file-upload.js') }}"></script>
         <script src="{{ URL::to('src/plugins/file_upload/ng-file-upload-shim.js') }}"></script>
-
-
         <script src="{{ URL::to('src/angular/js/settings/level.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/settings/year.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/settings/courses.js') }}"></script>
@@ -219,13 +200,7 @@
         <script src="{{ URL::to('src/angular/js/account/account-alumni-professional-service.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account-alumni-personal-service.js') }}"></script>
         <script src="{{ URL::to('src/angular/js/account/account-survey.js') }}"></script>
-
-
-
-
- 
         <script>
-
                     $(function () {
                         $('input').iCheck({
                             checkboxClass: 'icheckbox_square-blue',
@@ -236,9 +211,6 @@
                     $('#datepicker').datepicker({
                         autoclose: true
                     });
-
-
-
         </script>
         @yield('myScripts')
     </body>

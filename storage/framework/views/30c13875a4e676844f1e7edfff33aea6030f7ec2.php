@@ -25,7 +25,6 @@ User Management
                     <th st-sort="user.email">email</th>
                     <th style="width: 60px;" st-sort="user.role"></th>
                     <th style="width: 60px;" st-sort="user.active"></th>
-
                 </tr>
 
             </thead>
