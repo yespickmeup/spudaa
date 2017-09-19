@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddImageToUserAlumniMembersTable extends Migration {
+class AddImageToUsersTable extends Migration {
 
     /**
      * Run the migrations.
@@ -11,9 +11,9 @@ class AddImageToUserAlumniMembersTable extends Migration {
      * @return void
      */
     public function up() {
-//        Schema::table('user_alumni_members', function($table) {
-//            $table->string('image');
-//        });
+        Schema::table('users', function($table) {
+            $table->string('image');
+        });
     }
 
     /**
@@ -22,9 +22,9 @@ class AddImageToUserAlumniMembersTable extends Migration {
      * @return void
      */
     public function down() {
-//        Schema::table('user_alumni_members', function($table) {
-//            $table->dropColumn('image');
-//        });
+        Schema::table('users', function($table) {
+            $table->dropColumn('image');
+        });
     }
 
 }

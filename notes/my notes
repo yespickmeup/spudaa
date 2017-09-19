@@ -16,3 +16,11 @@ php artisan config:clear;
 php artisan optimize
 
 php artisan serve --port=8080 - change port
+
+php artisan make:migration migration_name - make migration
+php artisan migrate:rollback add_image_to_user_alumni_members_table --path=database/migrations/2017_09_19_151939_add_image_to_user_alumni_members_table - rollback migration
+php artisan migrate:rollback --step=1
+php artisan migrate:rollback
+
+
+
