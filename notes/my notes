@@ -1,0 +1,18 @@
+
+# remote access to mysql
+GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'synapse246';
+flush privileges;
+
+composer update - update plugins/libraries
+
+https://delanomaloney.com/2013/07/10/how-to-set-up-virtual-hosts-using-xampp/ - change vhost name
+
+php artisan view:clear
+php artisan cache:clear
+composer dumpautoload
+php artisan config:cache;
+
+php artisan config:clear;
+php artisan optimize
+
+php artisan serve --port=8080 - change port
