@@ -43,6 +43,10 @@ Year Maintenance
                class="table  table-bordered table-hover">
             <thead>
                 <tr>
+                    <th colspan="12"><input st-search="" class="form-control" placeholder="search"
+                                            type="text"/></th>
+                </tr>
+                <tr>
                     <th st-sort="year.year">Year</th>
                     <th style="width:30px;"></th>
                     <th style="width:30px;"></th>

@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html ng-app="homeApp">
     <head>
         <title>Alumni Association | Home</title>
-         <link rel="shortcut icon" type="image/png" href="../src/images/system/spud-alumni-logo.png" />
+        <link rel="shortcut icon" type="image/png" href="../src/images/system/spud-alumni-logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="Academy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -38,7 +38,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" ng-controller="homeController">
         <!-- navigation -->
-        Debug
+
         <div class="navbar-wrapper">
             <div class="container">
                 <nav class="navbar navbar-inverse navbar-static-top cl-effect-1">
@@ -120,12 +120,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row col-md-offset-0">	
                     <div class="col-lg-6 about-info2 slideanim">
                         <div class="about-details">
-                            
+
                         </div>	
                     </div>
                     <div class="col-lg-6 about-info2 slideanim">
                         <div class="about-details">
-                           
+
                         </div>	
 
                     </div>
@@ -228,14 +228,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <p class="text-center slideanim"></p>
             <div class="container">
                 <div class="col-md-12 ">
-                    <img src="../src/images/gallery/work1.jpg" data-darkbox="../src/images/gallery/work1.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                    <img src="../src/images/gallery/work2.jpg" data-darkbox="../src/images/gallery/work2.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                    <img src="../src/images/gallery/work3.jpg" data-darkbox="../src/images/gallery/work3.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                    <img src="../src/images/gallery/work4.jpg" data-darkbox="../src/images/gallery/work4.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                    <img src="../src/images/gallery/work5.jpg" data-darkbox="../src/images/gallery/work5.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                    <img src="../src/images/gallery/work6.jpg" data-darkbox="../src/images/gallery/work6.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                    <img src="../src/images/gallery/work7.jpg" data-darkbox="../src/images/gallery/work7.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
-                    <img src="../src/images/gallery/work8.jpg" data-darkbox="../src/images/gallery/work8.jpg" style="height: 250px;width: 250px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
+                    <img src="../src/images/gallery/work1.jpg" data-darkbox="../src/images/gallery/work1.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
+                    <img src="../src/images/gallery/work2.jpg" data-darkbox="../src/images/gallery/work2.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
+                    <img src="../src/images/gallery/work3.jpg" data-darkbox="../src/images/gallery/work3.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
+                    <img src="../src/images/gallery/work4.jpg" data-darkbox="../src/images/gallery/work4.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
+                    <img src="../src/images/gallery/work5.jpg" data-darkbox="../src/images/gallery/work5.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
+                    <img src="../src/images/gallery/work6.jpg" data-darkbox="../src/images/gallery/work6.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
+                    <img src="../src/images/gallery/work7.jpg" data-darkbox="../src/images/gallery/work7.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
+                    <img src="../src/images/gallery/work8.jpg" data-darkbox="../src/images/gallery/work8.jpg" style="height: 260px;width: 270px;" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-thumbnail ">
     <!--                <img src="../src/AdminLTE/img/home/work9.jpg" data-darkbox="../src/AdminLTE/img/home/work9-9.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                     <img src="../src/AdminLTE/img/home/work10.jpg" data-darkbox="../src/AdminLTE/img/home/work10-10.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
                     <img src="../src/AdminLTE/img/home/work11.jpg" data-darkbox="../src/AdminLTE/img/home/work11-11.jpg" data-darkbox-description="<b>Lorem Ipsum</b><br>Lorem ipsum dolor sit amet" class="img-responsive slideanim">
@@ -246,36 +246,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </section>	
         <!-- /Gallery section -->
         <!-- Team -->
-        <section class="our-team" id="team">
+        <section class="our-team" id="team" >
             <h3 class="text-center slideanim">Board of Directors</h3>
             <p class="text-center slideanim"></p>
             <div class="container">
                 <section class="main">
                     <ul class="ch-grid">
-
-                        <div class="ch-item slideanim">				
-                            <div class="ch-info">
-                                <div class="ch-info-front ch-img-1"></div>
-                                <div class="ch-info-back1">
-                                    <ul class="social-icons">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    </ul>
-                                </div>	
-                            </div>
-                        </div>
-                        <h4 class="slideanim">Johnny Cage</h4>
-                        <p class="team-info slideanim">Founder</p>
-
-                        <li class="t1">
+                        <div class="container">
+                               <li class="t1" >
                             <div class="ch-item slideanim">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-1"></div>
-                                    <div class="ch-info-back1">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/JV.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/JV.png');background-size: 200px 230px;background-repeat: no-repeat;">
                                         <ul class="social-icons">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -283,16 +268,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim">Britney Spears</h4>
-                            <p class="team-info slideanim">Director</p>
+                            <h4 class="slideanim" style="font-size: 21px;">Dr. Jose Victor V. Imbo</h4>
+                            <p class="team-info slideanim">President</p>
                         </li>
+                        </div>
+                     
+                        
+                          
                         <li class="t2">
                             <div class="ch-item slideanim">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-2"></div>
-                                    <div class="ch-info-back2">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/albert bae.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/albert bae.png');background-size: 200px 230px;background-repeat: no-repeat;">
                                         <ul class="social-icons">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -300,17 +290,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim">Britney Spears</h4>
-                            <p class="team-info slideanim">Director</p>
+                            <h4 class="slideanim" style="font-size: 21px;">Albert Bael</h4>
+                            <p class="team-info slideanim">Vice President</p>
                         </li>
 
                         <li class="t3">
                             <div class="ch-item slideanim">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-3"></div>
-                                    <div class="ch-info-back3">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/juditha.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/juditha.png');background-size: 200px 230px;background-repeat: no-repeat;">
                                         <ul class="social-icons">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -318,16 +309,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim">Princess Diana</h4>
-                            <p class="team-info slideanim">Manager</p>
+                            <h4 class="slideanim" style="font-size: 21px;">Dr.Juditha Mapuue</h4>
+                            <p class="team-info slideanim">Secretary</p>
                         </li>
                         <li class="t4">
                             <div class="ch-item slideanim">
-                                <div class="ch-info">
-                                    <div class="ch-info-front ch-img-4"></div>
-                                    <div class="ch-info-back4">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/janice.png');background-size: 240px 240px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/janice.png');background-size: 240px 240px;background-repeat: no-repeat;">
                                         <ul class="social-icons">
-                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -335,8 +327,98 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </div>
                                 </div>
                             </div>
-                            <h4 class="slideanim">Lady Gaga</h4>
+                            <h4 class="slideanim" style="font-size: 21px;">Janice Teves Gaston</h4>
+                            <p class="team-info slideanim">Assistant Secretary</p>
+                        </li>
+                        <li class="">
+                            <div class="ch-item slideanim">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/veronica.png');background-size: 180px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/veronica.png');background-size: 180px 230px;background-repeat: no-repeat;">
+                                        <ul class="social-icons">
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="slideanim" style="font-size: 21px;">Veronica Chuang</h4>
                             <p class="team-info slideanim">Treasurer</p>
+                        </li>
+                         <li class="">
+                            <div class="ch-item slideanim">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/randy.png');background-size: 230px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/randy.png');background-size: 230px 230px;background-repeat: no-repeat;">
+                                        <ul class="social-icons">
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="slideanim" style="font-size: 21px;">Randolf Bandiola</h4>
+                            <p class="team-info slideanim">PRO</p>
+                        </li>
+                         <li class="">
+                            <div class="ch-item slideanim">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/rowena.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/rowena.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                        <ul class="social-icons">
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="slideanim" style="font-size: 21px;">Rowena Viliran</h4>
+                            <p class="team-info slideanim">Auditor</p>
+                        </li>
+                          <li class="">
+                            <div class="ch-item slideanim">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/kenneth.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/kenneth.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                        <ul class="social-icons">
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="slideanim" style="font-size: 21px;">Kenneth Paul Duran</h4>
+                            <p class="team-info slideanim">Sgt. At Arms</p>
+                        </li>
+                         <li class="">
+                            <div class="ch-item slideanim">
+                                <div class="ch-info" >
+                                    <div class="ch-info-front" style="background-image: url('../src/images/board-of-members/elli.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                    </div>
+                                    <div class="ch-info-back1" style="background-image: url('../src/images/board-of-members/elli.png');background-size: 200px 230px;background-repeat: no-repeat;">
+                                        <ul class="social-icons">
+                                            <li><a href="#" style="background-image: url()"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4 class="slideanim" style="font-size: 21px;">Carmelo Elli</h4>
+                            <p class="team-info slideanim">Sgt. At Arms</p>
                         </li>
                     </ul>
                 </section>      
@@ -395,7 +477,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <textarea class="form-control slideanim" id="comments" name="comments" placeholder="Comment" rows="5" ng-model="email.comment"></textarea><br>
                             <div class="row">
                                 <div class="col-sm-12 form-group">
-                                    <a href="" ng-click="sendEmail()" class="btn btn-outline1 btn-lg" >Send</a>
+                                    <a href="" ng-click="sendEmail22()" class="btn btn-outline1 btn-lg" >Send</a>
                                 </div>
                             </div>
                         </form>			
@@ -410,7 +492,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row">
                     <div class="col-md-6">
                         <div class="links">
-                            <a href="index.html">Home</a>
+                            <a href="#">Home</a>
                             <a href="#about">About</a>
                             <a href="#news">News and Events</a>
                             <a href="#service">Services</a>
@@ -420,7 +502,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <div class="col-md-6">
                         <div class="copyright">
-                            <p>&copy; 2016 Academy. All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts </a></p>
+                            <p class="love">Made with <i class="fa fa-heart-o" aria-hidden="false" style="color: red;"></i> by Synapse Software Technologies</p>
                         </div>
                     </div>
                 </div>
