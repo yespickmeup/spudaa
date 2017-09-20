@@ -4,13 +4,13 @@
 
 /* global baseURL, myToken, photo, CKEDITOR */
 
-var settingsApp = angular.module('settingsApp', ['angularSpinner', 'smart-table', 'angularModalService', 'ngFileUpload'], function ($interpolateProvider) {
+var settingsApp = angular.module('settingsApp', ['angularSpinner', 'smart-table', 'angularModalService', 'ngFileUpload'], function($interpolateProvider) {
     $interpolateProvider.startSymbol('<%');
     $interpolateProvider.endSymbol('%>');
 });
 
 
-settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService', function ($scope, $http, ModalService) {
+settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService','userManagementService', function($scope, $http, ModalService,userManagementService) {
         $scope.my_id = angular.element('#my_id').val();
         $scope.defaultImage = photo + '/' + 'user1-128x128.jpg';
         $scope.printName = '';
@@ -21,43 +21,53 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
         $scope.imageSourceBanner3 = '../src/AdminLTE/img/home/banner3.jpg';
         $scope.htmlEditor = '...';
 
-        $scope.user = {
-            alumni_no: '',
-            student_no: '',
-            first_name: '',
-            middle_name: '',
-            last_name: '',
-            suffix_name: '',
-            civil_status: '',
-            gender: '',
-            date_of_birth: '',
-            blood_type: '',
-            email: '',
-            password: '',
-            confirm_password: '',
-            country: '',
-            province: ' ',
-            city: '',
-            zip_code: '',
-            home_address: '',
-            present_address: '',
-            landline_no: '',
-            cellphone_no: '',
-            level: '',
-            year: '',
-            course: '',
-            major: '',
-            father: '',
-            father_is_paulinian: '',
-            father_occupation: '',
-            father_office_address: '',
-            mother: '',
-            mother_is_paulinian: '',
-            mother_occupation: '',
-            mother_office_address: '',
-            imageSource: photo + '/' + $scope.my_id + '.jpg'
-        };
+       
 
+
+       
+
+        userManagementService.getUser($scope.my_id).then(function (resp) {
+            var user = JSON.stringify(resp.data['user']);
+            user = JSON.parse(user);
+            $scope.user = {
+                    alumni_no: '',
+                    student_no: '',
+                    first_name: '',
+                    middle_name: '',
+                    last_name: '',
+                    suffix_name: '',
+                    civil_status: '',
+                    gender: '',
+                    date_of_birth: '',
+                    blood_type: '',
+                    email: '',
+                    password: '',
+                    confirm_password: '',
+                    country: '',
+                    province: ' ',
+                    city: '',
+                    zip_code: '',
+                    home_address: '',
+                    present_address: '',
+                    landline_no: '',
+                    cellphone_no: '',
+                    level: '',
+                    year: '',
+                    course: '',
+                    major: '',
+                    father: '',
+                    father_is_paulinian: '',
+                    father_occupation: '',
+                    father_office_address: '',
+                    mother: '',
+                    mother_is_paulinian: '',
+                    mother_occupation: '',
+                    mother_office_address: '',
+                    imageSource: photo + '/' +user.image
+            };
+
+        });
+        
         $scope.preference = {
             id: 0,
             school_name: '',
@@ -79,21 +89,21 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
 /* Start of Service */
 
 
-settingsApp.service('levelService', function ($http) {
-    this.getLevels = function () {
+settingsApp.service('levelService', function($http) {
+    this.getLevels = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/levels'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
 //                    console.log('getlevels() error');
                 });
     };
 
-    this.addLevel = function (level) {
+    this.addLevel = function(level) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/level_add',
@@ -102,15 +112,15 @@ settingsApp.service('levelService', function ($http) {
                 level: level
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
 //                    console.log('add_level() success ');
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
 //                    console.log('add_level() error');
                 });
     };
 
-    this.updateLevel = function (id, level) {
+    this.updateLevel = function(id, level) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/level_update',
@@ -120,14 +130,14 @@ settingsApp.service('levelService', function ($http) {
                 level: level
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
 //                    console.log('update_level() success ');
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
 //                    console.log('update_level() error');
                 });
     };
-    this.deleteLevel = function (id) {
+    this.deleteLevel = function(id) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/level_delete',
@@ -136,31 +146,31 @@ settingsApp.service('levelService', function ($http) {
                 id: id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
 //                    console.log('delete_level() success ');
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
 //                    console.log('delete_level() error');
                 });
     };
 
 });
 
-settingsApp.service('yearService', function ($http) {
-    this.getYears = function () {
+settingsApp.service('yearService', function($http) {
+    this.getYears = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/years'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getYears() success ');*/
                 })
-                .error(function (data, status, headers, config) {
-                    console.log('getYears() error');
+                .error(function(data, status, headers, config) {
+                   /* console.log('getYears() error');*/
                 });
     };
 
-    this.addYear = function (year) {
+    this.addYear = function(year) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/year_add',
@@ -169,15 +179,15 @@ settingsApp.service('yearService', function ($http) {
                 year: year
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('add_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('add_year() error');
                 });
     };
 
-    this.updateYear = function (id, year) {
+    this.updateYear = function(id, year) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/year_update',
@@ -187,14 +197,14 @@ settingsApp.service('yearService', function ($http) {
                 year: year
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_year() error');
                 });
     };
-    this.deleteYear = function (id) {
+    this.deleteYear = function(id) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/year_delete',
@@ -203,10 +213,10 @@ settingsApp.service('yearService', function ($http) {
                 id: id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('delete_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('delete_year() error');
                 });
     };
@@ -215,21 +225,21 @@ settingsApp.service('yearService', function ($http) {
 
 
 
-settingsApp.service('majorService', function ($http) {
-    this.getMajors = function () {
+settingsApp.service('majorService', function($http) {
+    this.getMajors = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/majors'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
 
-    this.addMajor = function (major, level_id, year_id, course_id) {
+    this.addMajor = function(major, level_id, year_id, course_id) {
 
         return $http({
             method: 'POST',
@@ -242,15 +252,15 @@ settingsApp.service('majorService', function ($http) {
                 course_id: course_id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*  console.log('add_major() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('add_major() error');
                 });
     };
 
-    this.updateMajor = function (id, major) {
+    this.updateMajor = function(id, major) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/major_update',
@@ -260,14 +270,14 @@ settingsApp.service('majorService', function ($http) {
                 major: major
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
-    this.deleteMajor = function (id) {
+    this.deleteMajor = function(id) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/major_delete',
@@ -276,166 +286,166 @@ settingsApp.service('majorService', function ($http) {
                 id: id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('delete_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('delete_major() error');
                 });
     };
 
 });
 
-settingsApp.service('accountApprovalService', function ($http) {
+settingsApp.service('accountApprovalService', function($http) {
 
-    this.getUsers = function () {
+    this.getUsers = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/users'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
-    this.getUsersAll = function () {
+    this.getUsersAll = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/users_all'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
-    this.getRoles = function () {
+    this.getRoles = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/roles'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
 
 });
 
-settingsApp.service('userManagementService', function ($http) {
+settingsApp.service('userManagementService', function($http) {
 
-    this.getUser = function (user_id) {
+    this.getUser = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/user/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
 
-    this.getUsers = function () {
+    this.getUsers = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/users'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
-    this.getUsersAll = function () {
+    this.getUsersAll = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/users_all'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
-    this.getRoles = function () {
+    this.getRoles = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/roles'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
 
-    this.changeRole = function () {
+    this.changeRole = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/roles'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('getMajors() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
 });
 
-settingsApp.service('courseService', function ($http) {
+settingsApp.service('courseService', function($http) {
 
 
-    this.getLevels = function () {
+    this.getLevels = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/levels'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
 
 
-    this.getYears = function () {
+    this.getYears = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/years'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
-                    console.log('getYears() error');
+                .error(function(data, status, headers, config) {
+                    /*console.log('getYears() error');*/
                 });
     };
-    this.getCourses = function () {
+    this.getCourses = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/courses'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getCourses() error');
                 });
     };
 
-    this.addCourse = function (course) {
+    this.addCourse = function(course) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/course_add',
@@ -444,14 +454,14 @@ settingsApp.service('courseService', function ($http) {
                 course: course
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getCourses() error');
                 });
     };
-    this.updateCourse = function (id, course) {
+    this.updateCourse = function(id, course) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/course_update',
@@ -461,15 +471,15 @@ settingsApp.service('courseService', function ($http) {
                 course: course
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getCourses() error');
                 });
     };
-    
-    this.deleteCourse = function (id) {
+
+    this.deleteCourse = function(id) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/course_delete',
@@ -478,59 +488,59 @@ settingsApp.service('courseService', function ($http) {
                 id: id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getCourses() error');
                 });
     };
-    this.getMajors = function () {
+    this.getMajors = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/majors'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
 
-    this.getUserExists = function () {
+    this.getUserExists = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/user/exists/' + $scope.user.email
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
-                    console.log('getlevels() error');
+                .error(function(data, status, headers, config) {
+                    console.log('getlevels() error'+data);
                 });
     };
 
 
 });
-settingsApp.service('familyMembersService', function ($http) {
+settingsApp.service('familyMembersService', function($http) {
 
 
-    this.getMembers = function (user_id) {
+    this.getMembers = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/family_members/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
 
 
-    this.addFamily = function (member) {
+    this.addFamily = function(member) {
 
         return $http({
             method: 'POST',
@@ -540,15 +550,15 @@ settingsApp.service('familyMembersService', function ($http) {
                 member: member
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*  console.log('add_major() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('add_major() error');
                 });
     };
 
-    this.updateFamily = function (member) {
+    this.updateFamily = function(member) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/update_family_member',
@@ -557,14 +567,14 @@ settingsApp.service('familyMembersService', function ($http) {
                 member: member
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
-    this.deleteFamily = function (id) {
+    this.deleteFamily = function(id) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/delete_family_member',
@@ -573,10 +583,10 @@ settingsApp.service('familyMembersService', function ($http) {
                 id: id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('delete_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('delete_major() error');
                 });
     };
@@ -584,20 +594,20 @@ settingsApp.service('familyMembersService', function ($http) {
 
 });
 
-settingsApp.service('professionalService', function ($http) {
-    this.getProfessionalServices = function (user_id) {
+settingsApp.service('professionalService', function($http) {
+    this.getProfessionalServices = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/professional_services/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
-    this.addProService = function (service) {
+    this.addProService = function(service) {
 
         return $http({
             method: 'POST',
@@ -607,15 +617,15 @@ settingsApp.service('professionalService', function ($http) {
                 service: service
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*  console.log('add_major() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('add_major() error');
                 });
     };
 
-    this.updateProService = function (service) {
+    this.updateProService = function(service) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/update_professional_service',
@@ -624,14 +634,14 @@ settingsApp.service('professionalService', function ($http) {
                 service: service
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
-    this.deleteProService = function (id) {
+    this.deleteProService = function(id) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/delete_professional_service',
@@ -640,10 +650,10 @@ settingsApp.service('professionalService', function ($http) {
                 id: id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('delete_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('delete_major() error');
                 });
     };
@@ -651,20 +661,20 @@ settingsApp.service('professionalService', function ($http) {
 
 });
 
-settingsApp.service('personalService', function ($http) {
-    this.getPersonalServices = function (user_id) {
+settingsApp.service('personalService', function($http) {
+    this.getPersonalServices = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/personal_services/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
-    this.addPerService = function (service) {
+    this.addPerService = function(service) {
 
         return $http({
             method: 'POST',
@@ -674,15 +684,15 @@ settingsApp.service('personalService', function ($http) {
                 service: service
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*  console.log('add_major() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('add_major() error');
                 });
     };
 
-    this.updatePerService = function (service) {
+    this.updatePerService = function(service) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/update_personal_service',
@@ -691,14 +701,14 @@ settingsApp.service('personalService', function ($http) {
                 service: service
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
-    this.deletePerService = function (id) {
+    this.deletePerService = function(id) {
         return $http({
             method: 'POST',
             url: baseURL + '/api/delete_personal_service',
@@ -707,10 +717,10 @@ settingsApp.service('personalService', function ($http) {
                 id: id
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('delete_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('delete_major() error');
                 });
     };
@@ -718,57 +728,57 @@ settingsApp.service('personalService', function ($http) {
 
 });
 
-settingsApp.service('accountSurveyService', function ($http) {
-    this.getEmploymentSurvey = function (user_id) {
+settingsApp.service('accountSurveyService', function($http) {
+    this.getEmploymentSurvey = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/employment_surveys/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
 
-    this.getOutcomeExperiences = function (user_id) {
+    this.getOutcomeExperiences = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/outcome_experiences/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
-    this.getOutcomeStandards = function (user_id) {
+    this.getOutcomeStandards = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/outcome_standards/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
-    this.getSatiscationSurveys = function (user_id) {
+    this.getSatiscationSurveys = function(user_id) {
         return $http({
             method: 'GET',
             url: baseURL + '/api/satisfication_surveys/' + user_id
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
-    this.updateEmploymentSurvey = function (survey) {
+    this.updateEmploymentSurvey = function(survey) {
 //         console.log(survey);
         return $http({
             method: 'POST',
@@ -778,14 +788,14 @@ settingsApp.service('accountSurveyService', function ($http) {
                 survey: survey
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
-    this.updateEducationalOutcomes = function (education_outcome_experiences, education_outcome_standards, user_id) {
+    this.updateEducationalOutcomes = function(education_outcome_experiences, education_outcome_standards, user_id) {
 //         console.log(survey);
         return $http({
             method: 'POST',
@@ -797,14 +807,14 @@ settingsApp.service('accountSurveyService', function ($http) {
                 education_outcome_standards: education_outcome_standards
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
-    this.updateSatisfaction = function (satisfaction_survey, user_id) {
+    this.updateSatisfaction = function(satisfaction_survey, user_id) {
 
         return $http({
             method: 'POST',
@@ -816,29 +826,29 @@ settingsApp.service('accountSurveyService', function ($http) {
 
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
 });
 
-settingsApp.service('preferenceService', function ($http) {
-    this.getPreference = function () {
+settingsApp.service('preferenceService', function($http) {
+    this.getPreference = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/preferences'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
-    this.updatePreference = function (preference) {
+    this.updatePreference = function(preference) {
 
         return $http({
             method: 'POST',
@@ -848,10 +858,10 @@ settingsApp.service('preferenceService', function ($http) {
                 preference: preference
             }
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /* console.log('update_year() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('update_major() error');
                 });
     };
@@ -860,32 +870,32 @@ settingsApp.service('preferenceService', function ($http) {
 
 });
 
-settingsApp.directive('ckEditor', function () {
+settingsApp.directive('ckEditor', function() {
     return {
         require: '?ngModel',
-        link: function ($scope, elm, attr, ngModel) {
+        link: function($scope, elm, attr, ngModel) {
 
             var ck = CKEDITOR.replace(elm[0]);
 
-            ck.on('instanceReady', function () {
+            ck.on('instanceReady', function() {
                 ck.setData(ngModel.$viewValue);
             });
 
-            ck.on('pasteState', function () {
-                $scope.$apply(function () {
+            ck.on('pasteState', function() {
+                $scope.$apply(function() {
                     ngModel.$setViewValue(ck.getData());
                 });
             });
 
-            ngModel.$render = function (value) {
+            ngModel.$render = function(value) {
                 ck.setData(ngModel.$modelValue);
             };
         }
     };
 });
 
-settingsApp.filter('trustAsHtml', function ($sce) {
-    return function (html) {
+settingsApp.filter('trustAsHtml', function($sce) {
+    return function(html) {
         return $sce.trustAsHtml(html);
     };
 });

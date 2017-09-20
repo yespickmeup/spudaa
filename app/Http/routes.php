@@ -232,6 +232,11 @@ Route::post('/api/account/update', [
     'as' => 'account.update',
     'uses' => 'UserController@accountUpdate'
 ]);
+Route::post('/api/account/updateImage', [
+    'as' => 'account.image.update',
+    'uses' => 'UserController@accountImageUpdate'
+]);
+
 Route::post('/fileUpload2', [
     'as' => 'fileUpload2',
     'uses' => 'UploadController@fileUpload2'

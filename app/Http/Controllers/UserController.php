@@ -32,7 +32,7 @@ class UserController extends Controller {
                 ->where('role_user.role_id', '=', '3')
                 ->orderBy('users.approved', 'asc')
                 ->select(
-                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active'
+                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active', 'users.image'
                         , 'role_user.role_id'
                         , 'roles.name as role'
                 )
@@ -48,7 +48,7 @@ class UserController extends Controller {
                 ->join('roles', 'role_user.role_id', '=', 'roles.id')
                 ->orderBy('users.last_name', 'asc')
                 ->select(
-                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active'
+                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active', 'users.image'
                         , 'role_user.role_id'
                         , 'roles.name as role'
                 )
@@ -102,14 +102,14 @@ class UserController extends Controller {
 //        $role = Role::find($role_id);
 //        $role->delete();
 //        $role->users()->sync([]);
-//        
+//
 //        $role = RoleUser::where('user_id', '=', $user_id)->first();
 //        $role->role_id = $role_id;
 //        $role->save();
 
         $role = DB::update('update role_user set role_id = :new_role_id where user_id = :user_id ', ['new_role_id' => $role_id, 'user_id' => $user_id]);
 //        DB::table('role_user')->where('user_id', '=', $user_id)->where('role_id', '=', $old_role)->get()->delete();
-//        
+//
         if ($role) {
             return response()->json(['message' => 'success']);
         }
@@ -178,16 +178,22 @@ class UserController extends Controller {
         $user->mother_office_address = $userInput['mother_office_address'];
 
 
-
-
-
+       
+        
         if ($user->save()) {
+
+            if($userInput['image'] == ''){
+                $user->image = 'user2-160x160.jpg';
+            }else{
+                $user->image = $user->id.'.'.$userInput['image'];
+            }
+            $user->save();
 
             $role = new Role();
             $role->id = 3;
             $user->roles()->attach($role->id);
 
-            $this->activationService->sendActivationMail($user);
+            /*$this->activationService->sendActivationMail($user);*/
 
             $UserEmploymentSurvey = new UserEmploymentSurvey();
             $UserEmploymentSurvey->user_id = $user->id;
@@ -254,7 +260,7 @@ class UserController extends Controller {
             $UserEducationOutcomeStandard->communication_impact = 0;
             $UserEducationOutcomeStandard->status = 1;
             $UserEducationOutcomeStandard->save();
-//            
+//
 
 
             foreach ($alumni_family_members as $member) {
@@ -424,6 +430,7 @@ class UserController extends Controller {
                         'alumni_family_members' => $alumni_family_members,
                         'alumni_professional_services' => $alumni_professional_services,
                         'alumni_personal_services' => $alumni_personal_services,
+                        'img' => $userInput['image'],
                             ], 200);
         }
         return response()->json([
@@ -435,6 +442,7 @@ class UserController extends Controller {
                     'alumni_family_members' => $alumni_family_members,
                     'alumni_professional_services' => $alumni_professional_services,
                     'alumni_personal_services' => $alumni_personal_services,
+                    'img' => $userInput['image'],
                     'message' => 'successfully added!'
                         ], 200);
     }
@@ -481,6 +489,20 @@ class UserController extends Controller {
         return response()->json(['all' => $data, 'user' => $user]);
     }
 
+   public function accountImageUpdate(Request $request) {
+        $data = $request->json()->all();
+        $userInput = $request->get('user');
+        $id = $request->get('id');
+        $user = User::find($id);
+
+        $user->image = $userInput['image'];
+ 
+
+        if (!$user->save()) {
+            return response()->json(['error' => 'record not updated!']);
+        }
+        return response()->json(['all' => $data, 'user' => $user]);
+    }
     public function getCheckEmailIfExists($email) {
         $user = User::where('email', '=', $email)->first();
         return response()->json(['user' => $user]);

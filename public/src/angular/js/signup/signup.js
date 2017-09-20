@@ -19,7 +19,7 @@ var signupApp = angular.module('signupApp', ['angularSpinner', 'smart-table', 'n
 signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'usSpinnerService', '$rootScope', '$timeout', '$filter', '$window', 'Upload', function ($scope, $http, signupService, usSpinnerService, $rootScope, $timeout, $filter, $window, Upload) {
 
 
-
+       
 //        Tab
         $scope.tab1 = 'active';
         $scope.tab2 = '';
@@ -144,6 +144,7 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
             mother_office_address: '',
             imageSource: photo + '/' + $scope.my_id + '.jpg'
         };
+
         $scope.suggestion = '';
         $scope.country = {};
         $scope.province = {};
@@ -169,6 +170,7 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
         $scope.fileNameChaged = function (element) {
 
             $scope.photoFile = element.files[0];
+            
             var reader = new FileReader();
             reader.onload = function (e) {
                 $scope.$apply(function () {
@@ -205,6 +207,13 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                 $scope.user.father_is_paulinian = father_is_paulinian;
                 $scope.user.mother_is_paulinian = mother_is_paulinian;
 
+                var extention = '';
+                if($scope.photoFile != null){
+                   extention = $scope.photoFile.name.split('.').pop(); 
+                   $scope.user.image = extention;
+                }
+                console.log('$scope.user.image: '+$scope.user.image);
+
                 var _date = $filter('date')(new Date($scope.user.date_of_birth),
                         'yyyy-MM-dd');
 
@@ -222,6 +231,7 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                 };
 
 
+                 
 
                 $http.post('/api/user/signup', $data)
                         .success(function (data, status, headers, config) {
@@ -237,8 +247,9 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                             var alumni_personal_services = data['alumni_personal_services'];
                             var alumni_professional_services = data['alumni_professional_services'];
                             var satisfaction_survey = data['satisfaction_survey'];
-                            console.log('successfully save!');
-//                            console.log('user: ' + JSON.stringify(user));
+                            console.log('Successfully saved!');
+                            /*console.log('user: ' + JSON.stringify(user));
+                            console.log('img: ' + data['img']);*/
 //                            console.log('employmentSurvey: ' + JSON.stringify(employmentSurvey));
 //                            console.log('educationOutcomeExperiences: ' + JSON.stringify(educationOutcomeExperiences));
 //                            console.log('educationOutcomeStandards: ' + JSON.stringify(educationOutcomeStandards));
@@ -261,6 +272,7 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                         });
 
                 $scope.uploadImage = function (filename) {
+
 
                     if ($scope.photoFile) {
 

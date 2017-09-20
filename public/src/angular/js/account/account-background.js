@@ -1,11 +1,11 @@
 
 /* global myToken, Upload */
 
-settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'ModalService', 'courseService', 'userManagementService', '$filter', 'Upload', '$timeout', function ($scope, $http, ModalService, courseService, userManagementService, $filter, Upload, $timeout) {
+settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'ModalService', 'courseService', 'userManagementService', '$filter', 'Upload', '$timeout', function($scope, $http, ModalService, courseService, userManagementService, $filter, Upload, $timeout) {
 
 
         $scope.showUpdateAccountSuccess = false;
-        $http.get('../src/json/countries.json').success(function (data) {
+        $http.get('../src/json/countries.json').success(function(data) {
             $scope.country = {
                 availableOptions: data,
                 selectedOption: {"name": "Philippines", "code": "PH"}
@@ -13,7 +13,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 
         });
 
-        $scope.countryOnChange = function (country) {
+        $scope.countryOnChange = function(country) {
             if (country.name !== 'Philippines') {
                 $scope.province = {
                     availableOptions: [],
@@ -28,7 +28,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
         };
 
         $scope.cacheProvinces = [];
-        $http.get('../src/json/provinces.json').success(function (data) {
+        $http.get('../src/json/provinces.json').success(function(data) {
             $scope.cacheProvinces = data;
             $scope.province = {
                 availableOptions: data,
@@ -37,13 +37,13 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
         });
 
 
-        $scope.provinceOnChange = function (province) {
+        $scope.provinceOnChange = function(province) {
 
         };
         $scope.cacheCities = [];
-        $http.get('../src/json/cities.json').success(function (data) {
+        $http.get('../src/json/cities.json').success(function(data) {
             $scope.cacheCities = data;
-            $.each(data, function (idx, obj) {
+            $.each(data, function(idx, obj) {
                 if (obj.city) {
                     obj.name = obj.name + ' City';
                 }
@@ -59,9 +59,9 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             selectedOption: {id: 0, level: ''}
         };
 
-        courseService.getLevels().then(function (resp) {
+        courseService.getLevels().then(function(resp) {
             var levels = JSON.stringify(resp.data['levels']);
-            $.each(JSON.parse(levels), function (idx, obj) {
+            $.each(JSON.parse(levels), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.level = obj.level;
@@ -72,9 +72,10 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             availableOptions: [],
             selectedOption: {id: 0, year: ''}
         };
-        courseService.getYears().then(function (resp) {
+        courseService.getYears().then(function(resp) {
             var years = JSON.stringify(resp.data['years']);
-            $.each(JSON.parse(years), function (idx, obj) {
+            /*console.log('years: ' + years);*/
+            $.each(JSON.parse(years), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.year = obj.year;
@@ -85,9 +86,9 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             availableOptions: [],
             selectedOption: {id: 0, course: ''}
         };
-        courseService.getCourses().then(function (resp) {
+        courseService.getCourses().then(function(resp) {
             var courses = JSON.stringify(resp.data['courses']);
-            $.each(JSON.parse(courses), function (idx, obj) {
+            $.each(JSON.parse(courses), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.course = obj.course;
@@ -98,9 +99,9 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             availableOptions: [],
             selectedOption: {id: 0, major: ''}
         };
-        courseService.getMajors().then(function (resp) {
+        courseService.getMajors().then(function(resp) {
             var majors = JSON.stringify(resp.data['majors']);
-            $.each(JSON.parse(majors), function (idx, obj) {
+            $.each(JSON.parse(majors), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.major = obj.major;
@@ -109,7 +110,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
         });
 
 
-        userManagementService.getUser($scope.my_id).then(function (resp) {
+        userManagementService.getUser($scope.my_id).then(function(resp) {
             var user = resp.data['user'];
             $scope.user.alumni_no = '0000000000' + user.id;
             $scope.user.student_no = user.student_no;
@@ -132,7 +133,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             $scope.user.mother = user.mother;
             $scope.user.mother_occupation = user.mother_occupation;
             $scope.user.mother_office_address = user.mother_office_address;
-
+            $scope.user.image = user.image;
 
 
             $scope.mother_is_paulinian = false;
@@ -157,12 +158,12 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
         });
 
         $scope.uploadComplete = false;
-        $scope.fileNameChaged = function (element) {
+        $scope.fileNameChaged = function(element) {
 
             $scope.photoFile = element.files[0];
             var reader = new FileReader();
-            reader.onload = function (e) {
-                $scope.$apply(function () {
+            reader.onload = function(e) {
+                $scope.$apply(function() {
                     $scope.$parent.user.imageSource = e.target.result;
 
                     uploadImage($scope.my_id);
@@ -171,6 +172,10 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             reader.readAsDataURL(element.files[0]);
         };
         function uploadImage(filename) {
+           
+            var extention = $scope.photoFile.name.split('.').pop();   
+            extention = $scope.my_id+ '.'+extention;
+            
             if ($scope.photoFile) {
                 $scope.photoFile.upload = Upload.upload({
                     url: '/fileUpload2',
@@ -180,20 +185,48 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                         filename: filename
                     }
                 });
-                $scope.photoFile.upload.then(function (response) {
-                  
+
+                $scope.photoFile.upload.then(function(response) {
+
                     $scope.uploadComplete = true;
-                    setTimeout(function () {
-                        $scope.$apply(function () {
+                    setTimeout(function() {
+                        $scope.$apply(function() {
                             $scope.photoFile.result = response.data;
-                             $scope.uploadComplete = false;
+                            $scope.uploadComplete = false;
                         });
                     }, 1000);
+                   
+                    $scope.user.id = $scope.my_id;
+                    $scope.user.image = extention;
+                    $data = {
+                        '_token': myToken,
+                        'user': $scope.user,
+                        id: $scope.my_id
+                    };
 
-                }, function (response) {
+                    $http.post('/api/account/updateImage', $data)
+                        .success(function(data, status, headers, config) {
+
+                            var all = data['all'];
+                            var user = data['user'];
+                            $scope.showUpdateAccountSuccess = true;
+                            setTimeout(function() {
+                                $scope.$apply(function() {
+                                    $scope.showUpdateAccountSuccess = false;
+                                });
+                            }, 2000);
+//
+//                        $scope.spinner.off();
+                    })
+                    .error(function(data, status, headers, config) {
+                        console.log('data: ' + data);
+                        console.log('status: ' + status);
+//                        $scope.spinner.off();
+                    });
+                }, function(response) {
                     if (response.status > 0)
                         $scope.errorMsg = response.status + ': ' + response.data;
-                }, function (evt) {
+                }, function(evt) {
                     $scope.photoFile.progress = Math.min(100, parseInt(100.0 *
                             evt.loaded / evt.total));
 //                    console.log($scope.photoFile.progress);
@@ -201,7 +234,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             }
         }
 
-        $scope.updateUser = function (userForm) {
+        $scope.updateUser = function(userForm) {
 
             var email = $('input[name="email"]').val();
             $scope.user.id = $scope.my_id;
@@ -225,21 +258,21 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                 id: $scope.my_id
             };
             $http.post('/api/account/update', $data)
-                    .success(function (data, status, headers, config) {
+                    .success(function(data, status, headers, config) {
 
                         var all = data['all'];
                         var user = data['user'];
 //                        console.log('user: ' + JSON.stringify(all));
                         $scope.showUpdateAccountSuccess = true;
-                        setTimeout(function () {
-                            $scope.$apply(function () {
+                        setTimeout(function() {
+                            $scope.$apply(function() {
                                 $scope.showUpdateAccountSuccess = false;
                             });
                         }, 2000);
 //
 //                        $scope.spinner.off();
                     })
-                    .error(function (data, status, headers, config) {
+                    .error(function(data, status, headers, config) {
                         console.log('data: ' + data);
                         console.log('status: ' + status);
 //                        $scope.spinner.off();
@@ -249,8 +282,8 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 
     }]);
 
-settingsApp.controller('ModalAccountApprovallController', function ($scope, close) {
-    $scope.close = function (result) {
+settingsApp.controller('ModalAccountApprovallController', function($scope, close) {
+    $scope.close = function(result) {
         close(result, 500); // close, but give 500ms for bootstrap to animate
     };
 });

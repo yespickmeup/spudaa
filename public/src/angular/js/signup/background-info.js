@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -10,13 +10,13 @@
 
 
 
-signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseService', function ($scope, $http, courseService) {
+signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseService', function($scope, $http, courseService) {
 
 
 
         $scope.$parent.startSpin();
 
-        $http.get('../src/json/countries.json').success(function (data) {
+        $http.get('../src/json/countries.json').success(function(data) {
             $scope.$parent.country = {
                 availableOptions: data,
                 selectedOption: {"name": "Philippines", "code": "PH"}
@@ -24,7 +24,7 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
             $scope.$parent.stopSpin();
         });
 
-        $scope.countryOnChange = function (country) {
+        $scope.countryOnChange = function(country) {
             if (country.name !== 'Philippines') {
                 $scope.province = {
                     availableOptions: [],
@@ -39,7 +39,7 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
         };
 
         $scope.cacheProvinces = [];
-        $http.get('../src/json/provinces.json').success(function (data) {
+        $http.get('../src/json/provinces.json').success(function(data) {
             $scope.cacheProvinces = data;
             $scope.$parent.province = {
                 availableOptions: data,
@@ -48,13 +48,13 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
         });
 
 
-        $scope.provinceOnChange = function (province) {
+        $scope.provinceOnChange = function(province) {
 
         };
         $scope.cacheCities = [];
-        $http.get('../src/json/cities.json').success(function (data) {
+        $http.get('../src/json/cities.json').success(function(data) {
             $scope.cacheCities = data;
-            $.each(data, function (idx, obj) {
+            $.each(data, function(idx, obj) {
                 if (obj.city) {
                     obj.name = obj.name + ' City';
                 }
@@ -69,9 +69,9 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
             availableOptions: [],
             selectedOption: {id: 0, level: ''}
         };
-        courseService.getLevels().then(function (resp) {
+        courseService.getLevels().then(function(resp) {
             var levels = JSON.stringify(resp.data['levels']);
-            $.each(JSON.parse(levels), function (idx, obj) {
+            $.each(JSON.parse(levels), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.level = obj.level;
@@ -82,9 +82,9 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
             availableOptions: [],
             selectedOption: {id: 0, year: ''}
         };
-        courseService.getYears().then(function (resp) {
+        courseService.getYears().then(function(resp) {
             var years = JSON.stringify(resp.data['years']);
-            $.each(JSON.parse(years), function (idx, obj) {
+            $.each(JSON.parse(years), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.year = obj.year;
@@ -95,9 +95,9 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
             availableOptions: [],
             selectedOption: {id: 0, course: ''}
         };
-        courseService.getCourses().then(function (resp) {
+        courseService.getCourses().then(function(resp) {
             var courses = JSON.stringify(resp.data['courses']);
-            $.each(JSON.parse(courses), function (idx, obj) {
+            $.each(JSON.parse(courses), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.course = obj.course;
@@ -108,9 +108,9 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
             availableOptions: [],
             selectedOption: {id: 0, major: ''}
         };
-        courseService.getMajors().then(function (resp) {
+        courseService.getMajors().then(function(resp) {
             var majors = JSON.stringify(resp.data['majors']);
-            $.each(JSON.parse(majors), function (idx, obj) {
+            $.each(JSON.parse(majors), function(idx, obj) {
                 var data = {};
                 data.id = obj.id;
                 data.major = obj.major;
@@ -121,19 +121,19 @@ signupApp.controller('backgroundInfoController', ['$scope', '$http', 'courseServ
 
     }]);
 
-var compareTo = function () {
+var compareTo = function() {
     return {
         require: "ngModel",
         scope: {
             otherModelValue: "=compareTo"
         },
-        link: function (scope, element, attributes, ngModel) {
+        link: function(scope, element, attributes, ngModel) {
 
-            ngModel.$validators.compareTo = function (modelValue) {
+            ngModel.$validators.compareTo = function(modelValue) {
                 return modelValue === scope.otherModelValue;
             };
 
-            scope.$watch("otherModelValue", function () {
+            scope.$watch("otherModelValue", function() {
                 ngModel.$validate();
             });
         }
@@ -142,22 +142,22 @@ var compareTo = function () {
 
 signupApp.directive("compareTo", compareTo);
 
-signupApp.directive('emailAvailable', function ($timeout, $q, $http) {
+signupApp.directive('emailAvailable', function($timeout, $q, $http) {
 
 
 
     return {
         restrict: 'AE',
         require: 'ngModel',
-        link: function (scope, elm, attr, model) {
-            model.$asyncValidators.emailExists = function () {
+        link: function(scope, elm, attr, model) {
+            model.$asyncValidators.emailExists = function() {
                 var defer = $q.defer();
                 var getData = function getData() {
                     $http({
                         method: 'GET',
                         url: baseURL + '/api/user/exists/' + elm.val()
                     })
-                            .success(function (data, status, headers, config) {
+                            .success(function(data, status, headers, config) {
                                 var user = data['user'];
                                 if (user === null) {
                                     model.$setValidity('emailExists', false);
@@ -167,7 +167,7 @@ signupApp.directive('emailAvailable', function ($timeout, $q, $http) {
                                 defer.resolve;
                                 defer.promise;
                             })
-                            .error(function (data, status, headers, config) {
+                            .error(function(data, status, headers, config) {
                                 console.log('getlevels() error');
                             });
 
@@ -183,73 +183,72 @@ signupApp.directive('emailAvailable', function ($timeout, $q, $http) {
 });
 
 
-signupApp.service('courseService', function ($http) {
+signupApp.service('courseService', function($http) {
 
 
-    this.getLevels = function () {
+    this.getLevels = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/levels'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
 
 
-    this.getYears = function () {
+    this.getYears = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/years'
         })
-                .success(function (data, status, headers, config) {
-                    /*console.log('getlevels() success ');*/
+                .success(function(data, status, headers, config) {
+//                    console.log('getlevels() success ');
                 })
-                .error(function (data, status, headers, config) {
-                    console.log('getYears() error');
+                .error(function(data, status, headers, config) {
+//                    console.log('getYears() error');
                 });
     };
-    this.getCourses = function () {
+    this.getCourses = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/courses'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getCourses() error');
                 });
     };
-    this.getMajors = function () {
+    this.getMajors = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/majors'
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getMajors() error');
                 });
     };
 
-    this.getUserExists = function () {
+    this.getUserExists = function() {
         return $http({
             method: 'GET',
             url: baseURL + '/api/user/exists/' + $scope.user.email
         })
-                .success(function (data, status, headers, config) {
+                .success(function(data, status, headers, config) {
                     /*console.log('getlevels() success ');*/
                 })
-                .error(function (data, status, headers, config) {
+                .error(function(data, status, headers, config) {
                     console.log('getlevels() error');
                 });
     };
 
 
 });
-    

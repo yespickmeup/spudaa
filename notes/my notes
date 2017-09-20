@@ -1,4 +1,6 @@
 
+
+cd c:/Users/Guinness/Documents/NetbeansProjects/Web/spudaa
 # remote access to mysql
 GRANT ALL PRIVILEGES ON *.* TO root@'%' IDENTIFIED BY 'synapse246';
 flush privileges;
@@ -21,6 +23,8 @@ php artisan make:migration migration_name - make migration
 php artisan migrate:rollback add_image_to_user_alumni_members_table --path=database/migrations/2017_09_19_151939_add_image_to_user_alumni_members_table - rollback migration
 php artisan migrate:rollback --step=1
 php artisan migrate:rollback
+
+composer install - generate class loader
 
 
 

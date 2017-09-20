@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="utf-8">
-       <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Alumni Association | Dashboard</title>
-         <link rel="shortcut icon" type="image/png" href="../src/images/system/spud-alumni-logo.png" />
+        <link rel="shortcut icon" type="image/png" href="../src/images/system/spud-alumni-logo.png" />
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
         <link rel="stylesheet" href="<?php echo e(URL::to('src/bootstrap/css/bootstrap.min.css')); ?>"/>
@@ -47,8 +47,7 @@
                             <li class="dropdown user user-menu" >
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!--<img src="<?php echo e(URL::to('src/images/users/user2-160x160.jpg')); ?>" class="img-circle" alt="User Image">-->
-                                    <img class="img-circle" 
-
+                                    <img class="img-circle"
                                          ng-src="<%user.imageSource%> "
                                          onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                          style="width: 17.5px;height: 17.5px;"
@@ -57,7 +56,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="user-header">
-                                        <img class="img-circle" 
+                                        <img class="img-circle"
                                              ng-src="<%user.imageSource%> "
                                              onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                              style="width: 90px;height: 90px;"
@@ -103,8 +102,7 @@
 
                     <div class="user-panel" >
                         <div class="pull-left image1" >
-                            <img class="img-circle" 
-
+                            <img class="img-circle"
                                  ng-src="<%user.imageSource%> "
                                  onerror="this.src='../src/images/users/user2-160x160.jpg'"
                                  style="width: 50px !important;height: 50px;"
@@ -147,7 +145,7 @@
                 </section>
             </aside>
             <div class="content-wrapper">
-                <br> <br> 
+                <br> <br>
                 <input type="hidden" value="<?php echo e(Auth::user()->id); ?>" id="my_id" name="my_id">
                 <section class="content-header ">
                     <h1>
@@ -164,13 +162,14 @@
                 </section>
             </div>
             <footer class="main-footer text-center">
-               <p class="love">Made with <i class="fa fa-heart-o" aria-hidden="false" style="color: red;"></i> by Synapse Software Technologies.</p>
+                <p class="love">Made with <i class="fa fa-heart-o" aria-hidden="false" style="color: red;"></i> by Synapse Software Technologies.</p>
             </footer>
         </div>
         <script>
-                    var myToken = '<?php echo e(Session::token()); ?>';
-                    var baseURL = '<?php echo e(url('/')); ?>';
-                    var photo = '<?php echo e(URL::asset('src/images/users/')); ?>';
+            var myToken = '<?php echo e(Session::token()); ?>';
+            var baseURL = '<?php echo e(url('/')); ?>';
+            var photo = '<?php echo e(URL::asset('src/images/users/')); ?>';
+            
         </script>
         <script src="<?php echo e(URL::to('src/plugins/iCheck/icheck.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/app.min.js')); ?>"></script>
@@ -179,7 +178,7 @@
         <script src="<?php echo e(URL::to('src/AdminLTE/js/smart-table.debug.js')); ?>"></script>
         <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
         <script src="<?php echo e(URL::to('src/plugins/slimScroll/jquery.slimscroll.min.js')); ?>"></script>
-        <script src="<?php echo e(URL::to('src/plugins/fastclick/fastclick.js')); ?>"></script> 
+        <script src="<?php echo e(URL::to('src/plugins/fastclick/fastclick.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/AdminLTE/js/demo.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/plugins/select2/select2.full.min.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/plugins/datepicker/bootstrap-datepicker.js')); ?>"></script>
@@ -202,16 +201,16 @@
         <script src="<?php echo e(URL::to('src/angular/js/account/account-alumni-personal-service.js')); ?>"></script>
         <script src="<?php echo e(URL::to('src/angular/js/account/account-survey.js')); ?>"></script>
         <script>
-                    $(function () {
-                        $('input').iCheck({
-                            checkboxClass: 'icheckbox_square-blue',
-                            radioClass: 'iradio_square-blue',
-                            increaseArea: '20%' // optional
-                        });
-                    });
-                    $('#datepicker').datepicker({
-                        autoclose: true
-                    });
+            $(function () {
+            $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+            });
+            });
+            $('#datepicker').datepicker({
+            autoclose: true
+            });
         </script>
         <?php echo $__env->yieldContent('myScripts'); ?>
     </body>
