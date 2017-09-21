@@ -184,35 +184,35 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
         $scope.uploadComplete = false;
         $scope.fileNameChaged = function(element) {
 
-            $scope.photoFile = element.files[0];
+            $scope.photoFile1 = element.files[0];
             var reader = new FileReader();
             reader.onload = function(e) {
                 $scope.$apply(function() {
                     $scope.$parent.user.imageSource = e.target.result;
 
-                    uploadImage($scope.my_id);
+                    uploadImage($scope.my_id,$scope.photoFile1);
                 });
             };
             reader.readAsDataURL(element.files[0]);
         };
-        function uploadImage(filename) {
-
+        function uploadImage(filename,photoFile1) {
+            $scope.photoFile2 = photoFile1;
             $scope.startSpin();
-            var extention = $scope.photoFile.name.split('.').pop();   
+            var extention = $scope.photoFile2.name.split('.').pop();   
             extention = $scope.my_id+ '.'+extention;
             
-            if ($scope.photoFile) {
-                $scope.photoFile.upload = Upload.upload({
+            if ($scope.photoFile2) {
+                $scope.photoFile2.upload = Upload.upload({
                     url: '/fileUpload2',
                     data: {
                         _token: myToken,
-                        file: $scope.photoFile,
+                        file: $scope.photoFile2,
                         filename: filename
                     }
                 });
 
 
-                $scope.photoFile.upload.then(function(response) {
+                $scope.photoFile2.upload.then(function(response) {
 
                     $scope.uploadComplete = true;
                     setTimeout(function() {
@@ -224,8 +224,9 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 
                                     var all = data['all'];
                                     var user = data['user'];
-                                    /*console.log('user: '+user);*/
+                                    console.log('Photo Updated!');
                                     $scope.showUpdateAccountSuccess = true;
+                                    $scope.photoFile = photoFile1;
                                     $scope.photoFile.result = response.data;
                                     alert('Successfully Updated!');
                                     $scope.stopSpin();
@@ -244,7 +245,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
         //                        $scope.spinner.off();
                             }); 
                         });
-                    }, 1000);
+                    }, 500);
                    
                     $scope.user.id = $scope.my_id;
                     $scope.user.image = extention;
@@ -259,9 +260,9 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                     if (response.status > 0)
                         $scope.errorMsg = response.status + ': ' + response.data;
                 }, function(evt) {
-                    $scope.photoFile.progress = Math.min(100, parseInt(100.0 *
+                    $scope.photoFile1.progress = Math.min(100, parseInt(100.0 *
                             evt.loaded / evt.total));
-//                    console.log($scope.photoFile.progress);
+                   console.log($scope.photoFile1.progress);
                 });
             }
         }
