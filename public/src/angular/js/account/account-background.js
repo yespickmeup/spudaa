@@ -193,6 +193,26 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                         $scope.$apply(function() {
                             $scope.photoFile.result = response.data;
                             $scope.uploadComplete = false;
+                            $http.post('/api/account/updateImage', $data)
+                                .success(function(data, status, headers, config) {
+
+                                    var all = data['all'];
+                                    var user = data['user'];
+                                    $scope.showUpdateAccountSuccess = true;
+                                    setTimeout(function() {
+                                        $scope.$apply(function() {
+                                            $scope.showUpdateAccountSuccess = false;
+                                            alert('Successfully Updated!');
+                                        });
+                                    }, 500);
+        //
+        //                        $scope.spinner.off();
+                            })
+                            .error(function(data, status, headers, config) {
+                                console.log('data: ' + data);
+                                console.log('status: ' + status);
+        //                        $scope.spinner.off();
+                            }); 
                         });
                     }, 1000);
                    
@@ -204,25 +224,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                         id: $scope.my_id
                     };
 
-                    $http.post('/api/account/updateImage', $data)
-                        .success(function(data, status, headers, config) {
 
-                            var all = data['all'];
-                            var user = data['user'];
-                            $scope.showUpdateAccountSuccess = true;
-                            setTimeout(function() {
-                                $scope.$apply(function() {
-                                    $scope.showUpdateAccountSuccess = false;
-                                });
-                            }, 2000);
-//
-//                        $scope.spinner.off();
-                    })
-                    .error(function(data, status, headers, config) {
-                        console.log('data: ' + data);
-                        console.log('status: ' + status);
-//                        $scope.spinner.off();
-                    });
                 }, function(response) {
                     if (response.status > 0)
                         $scope.errorMsg = response.status + ': ' + response.data;

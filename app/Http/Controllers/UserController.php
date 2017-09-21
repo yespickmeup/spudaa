@@ -496,7 +496,6 @@ class UserController extends Controller {
         $user = User::find($id);
 
         $user->image = $userInput['image'];
- 
 
         if (!$user->save()) {
             return response()->json(['error' => 'record not updated!']);
