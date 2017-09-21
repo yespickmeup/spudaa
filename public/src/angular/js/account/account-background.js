@@ -1,9 +1,33 @@
 
 /* global myToken, Upload */
 
-settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'ModalService', 'courseService', 'userManagementService', '$filter', 'Upload', '$timeout', function($scope, $http, ModalService, courseService, userManagementService, $filter, Upload, $timeout) {
+settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'ModalService', 'courseService', 'userManagementService', '$filter', 'Upload', '$timeout','usSpinnerService','$rootScope', function($scope, $http, ModalService, courseService, userManagementService, $filter, Upload, $timeout,usSpinnerService,$rootScope) {
 
+        $scope.startcounter = 0;
+        $scope.startSpin = function () {
 
+            if (!$scope.spinneractive) {
+                usSpinnerService.spin('spinner-1');
+                $scope.startcounter++;
+            }
+        };
+
+        $scope.stopSpin = function () {
+
+            if ($scope.spinneractive) {
+                usSpinnerService.stop('spinner-1');
+            }
+        };
+        $scope.spinneractive = false;
+
+        $rootScope.$on('us-spinner:spin', function (event, key) {
+            $scope.spinneractive = true;
+        });
+
+        $rootScope.$on('us-spinner:stop', function (event, key) {
+            $scope.spinneractive = false;
+        });
+         
         $scope.showUpdateAccountSuccess = false;
         $http.get('../src/json/countries.json').success(function(data) {
             $scope.country = {
@@ -172,7 +196,8 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
             reader.readAsDataURL(element.files[0]);
         };
         function uploadImage(filename) {
-           
+
+            $scope.startSpin();
             var extention = $scope.photoFile.name.split('.').pop();   
             extention = $scope.my_id+ '.'+extention;
             
@@ -186,6 +211,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                     }
                 });
 
+
                 $scope.photoFile.upload.then(function(response) {
 
                     $scope.uploadComplete = true;
@@ -198,17 +224,18 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 
                                     var all = data['all'];
                                     var user = data['user'];
-                                    console.log('user: '+user);
+                                    /*console.log('user: '+user);*/
                                     $scope.showUpdateAccountSuccess = true;
                                     alert('Successfully Updated!');
+                                    $scope.stopSpin();
                                     setTimeout(function() {
                                         $scope.$apply(function() {
                                             $scope.showUpdateAccountSuccess = false;
                                             
                                         });
                                     }, 500);
-        //
-        //                        $scope.spinner.off();
+
+/*                                    $scope.spinner.off();*/
                             })
                             .error(function(data, status, headers, config) {
                                 console.log('data: ' + data);
