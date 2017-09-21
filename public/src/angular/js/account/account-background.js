@@ -27,7 +27,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
         $rootScope.$on('us-spinner:stop', function (event, key) {
             $scope.spinneractive = false;
         });
-         
+
         $scope.showUpdateAccountSuccess = false;
         $http.get('../src/json/countries.json').success(function(data) {
             $scope.country = {
@@ -217,7 +217,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                     $scope.uploadComplete = true;
                     setTimeout(function() {
                         $scope.$apply(function() {
-                            $scope.photoFile.result = response.data;
+
                             $scope.uploadComplete = false;
                             $http.post('/api/account/updateImage', $data)
                                 .success(function(data, status, headers, config) {
@@ -226,6 +226,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                                     var user = data['user'];
                                     /*console.log('user: '+user);*/
                                     $scope.showUpdateAccountSuccess = true;
+                                    $scope.photoFile.result = response.data;
                                     alert('Successfully Updated!');
                                     $scope.stopSpin();
                                     setTimeout(function() {
