@@ -86,7 +86,7 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                 $scope.startcounter++;
             }
         };
-
+        
         $scope.stopSpin = function () {
 
             if ($scope.spinneractive) {

@@ -3,6 +3,7 @@
 
 settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'ModalService', 'courseService', 'userManagementService', '$filter', 'Upload', '$timeout','usSpinnerService','$rootScope', function($scope, $http, ModalService, courseService, userManagementService, $filter, Upload, $timeout,usSpinnerService,$rootScope) {
 
+
         $scope.startcounter = 0;
         $scope.startSpin = function () {
 
@@ -224,12 +225,12 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 
                                     var all = data['all'];
                                     var user = data['user'];
-                                    console.log('Photo Updated!');
+/*                                    console.log('Photo Updated!');*/
                                     $scope.showUpdateAccountSuccess = true;
                                     $scope.photoFile = photoFile1;
                                     $scope.photoFile.result = response.data;
-                                    alert('Successfully Updated!');
-                                    $scope.stopSpin();
+                                    /*alert('Successfully Updated!');*/
+
                                     setTimeout(function() {
                                         $scope.$apply(function() {
                                             $scope.showUpdateAccountSuccess = false;
@@ -262,7 +263,10 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                 }, function(evt) {
                     $scope.photoFile1.progress = Math.min(100, parseInt(100.0 *
                             evt.loaded / evt.total));
-                   console.log($scope.photoFile1.progress);
+                    if($scope.photoFile1.progress == 100){
+                       $scope.stopSpin();
+                    }
+                  /* console.log($scope.photoFile1.progress);*/
                 });
             }
         }

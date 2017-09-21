@@ -14,6 +14,7 @@
     </div>
   
     <div class="box-footer">
+
         <div class="row">
             <div class="col-sm-4 border-right">
                 <div class="description-block">
@@ -22,6 +23,7 @@
                 </div>
             </div>
             <div class="col-sm-2 col-sm-offset-1">
+                <span us-spinner="{radius:15, width:5, length: 10}" spinner-key="spinner-1" ></span>
                 <div class="description-block">
                     <input type="file" name="image" id="image" accept="image/jpeg/png"
                                class="btn btn-default form-control image"
