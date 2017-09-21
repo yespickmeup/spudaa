@@ -20,7 +20,7 @@ use App\RoleUser;
 class UserController extends Controller {
 
     public function getUsers() {
-        $users = User::All();
+        $users = User::orderBy('last_name', 'asc')->get();
         return response()->json(['users' => $users]);
     }
 
@@ -36,7 +36,7 @@ class UserController extends Controller {
                         , 'role_user.role_id'
                         , 'roles.name as role'
                 )
-                ->get();
+                ->orderBy('last_name', 'asc')->get();
 
         return response()->json(['users' => $users]);
     }

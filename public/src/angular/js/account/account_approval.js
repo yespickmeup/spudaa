@@ -12,7 +12,6 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
 
 
         $scope.users = [];
-
         $scope.itemsUsers = 20;
         $scope.account_name = '';
         $scope.showAccountApprovedSuccess = false;
@@ -32,26 +31,42 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
                 data.role_id = obj.role_id;
                 data.role = obj.role;
                 data.status = obj.status;
+                data.student_no = obj.student_no;
+                data.civil_status =obj.civil_status;
+                data.gender = obj.gender;
+                data.date_of_birth =obj.date_of_birth;
+                data.home_address = obj.home_address;
+                data.level = obj.level;
+                data.year = obj.year;
+                data.course = obj.course;
+                var ext = obj.image;
+                if(ext==''){
+                    ext = 'user2-160x160.jpg';
+                }
+
+                data.image =photo+'/'+ext;
+
+                /*console.log('data.image: '+data.image);*/
+               /* console.log('data.name: '+data.name+ ' = '+'activated: '+data.status);*/
                 $scope.users.push(data);
 
             });
         });
 
         $scope.approveAccount = function (my_user) {
-
+           /*  console.log('my_user.image: '+my_user.image);*/
             $data = {
                 '_token': myToken,
                 'user': $scope.user,
                 'user_id': my_user.id
-
             };
 
             ModalService.showModal({
-                templateUrl: 'modalApprove.html',
-                controller: "ModalAccountApprovallController",
+                templateUrl: 'modalApprove2.html',
+                controller: "ModalAccountApprovallController2",
                 inputs: {
-                    title: 'my title'
-
+                    title: 'my title',
+                    user : my_user
                 }
             }).then(function (modal) {
                 modal.element.modal();
@@ -66,7 +81,7 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
                                     my_user.activated = '' + 1;
                                     $scope.account_name = my_user.last_name + ', ' + my_user.first_name + ' ' + my_user.middle_name;
                                     $scope.showAccountApprovedSuccess = true;
-//                        console.log('user: ' + JSON.stringify(user));
+                                   /* console.log('user: ' + JSON.stringify(user));*/
                                     setTimeout(function () {
                                         $scope.$apply(function () {
 
@@ -76,7 +91,6 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
 
                                 })
                                 .error(function (data, status, headers, config) {
-
                                 })
                                 ;
                     }
@@ -86,7 +100,7 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
         };
 
         $scope.activateAccount = function (my_user) {
-            console.log('asdad');
+           
             $data = {
                 '_token': myToken,
                 'user': $scope.user,
@@ -96,10 +110,10 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
 
             ModalService.showModal({
                 templateUrl: 'modalActivate.html',
-                controller: "ModalAccountApprovallController",
+                controller: "ModalAccountApprovallController2",
                 inputs: {
-                    title: 'my title'
-
+                    title: 'my title',
+                    user : my_user
                 }
             }).then(function (modal) {
                 modal.element.modal();
@@ -133,12 +147,12 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
 
         };
 
-
-
-
     }]);
 
-settingsApp.controller('ModalAccountApprovallController', function ($scope, close) {
+settingsApp.controller('ModalAccountApprovallController2', function ($scope,close, title,user) {
+    $scope.title = title;
+    $scope.user = user;
+
     $scope.close = function (result) {
         close(result, 500); // close, but give 500ms for bootstrap to animate
     };

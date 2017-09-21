@@ -899,3 +899,4 @@ settingsApp.filter('trustAsHtml', function($sce) {
         return $sce.trustAsHtml(html);
     };
 });
+

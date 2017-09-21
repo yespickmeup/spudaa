@@ -35,7 +35,7 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
                 data.role_id = obj.role_id;
                 data.role = obj.role;
                 data.active = obj.active;
-                console.log('image: ' + obj.image);
+                /*console.log('image: ' + obj.image);*/
                 $scope.users.push(data);
 
 
@@ -115,7 +115,6 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
                     title: 'my title',
                     roles: $scope.roles,
                     my_roles: $scope.my_roles
-
                 }
             }).then(function(modal) {
                 modal.element.modal();
@@ -158,8 +157,6 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
 
 
         };
-
-
 
 
     }]);

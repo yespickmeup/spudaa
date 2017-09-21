@@ -67,33 +67,33 @@ User Management
     </div>
     <script type="text/ng-template" id="userManagement.html">
         <div class="modal ">
-        <div class="modal-dialog modal-sm type-danger">
-        <div class="modal-content">
-        <div class="modal-header">
-        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
-        aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Select Role:</h4>
-        </div>
-        <div class="col-md-12">
-        <select class="form-control" placeholder="Roles" 
-        ng-model="my_roles.selectedOption" 
-        ng-options="option.name for option in my_roles.availableOptions | orderBy:'name' track by option.name  "
-        ng-change="roleOnChange(my_roles.selectedOption)"
-        >
-        </select>
-        </div>
-        <br>
-        <br>
-        <div class="modal-footer">
-        <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
-        No
-        </button>
-        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">
-        Yes
-        </button>
-        </div>
-        </div>
-        </div>
+            <div class="modal-dialog modal-sm type-danger">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+                    aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Select Role:</h4>
+                </div>
+                <div class="col-md-12">
+                    <select class="form-control" placeholder="Roles" 
+                    ng-model="my_roles.selectedOption" 
+                    ng-options="option.name for option in my_roles.availableOptions | orderBy:'name' track by option.name  "
+                    ng-change="roleOnChange(my_roles.selectedOption)"
+                    >
+                    </select>
+                </div>
+                <br>
+                <br>
+                <div class="modal-footer">
+                    <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
+                    No
+                    </button>
+                    <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">
+                    Yes
+                    </button>
+                </div>
+                </div>
+            </div>
         </div>
     </script>
     <script type="text/ng-template" id="changeRole.html">
