@@ -176,7 +176,7 @@ class UserController extends Controller {
         $user->mother_is_paulinian = $userInput['mother_is_paulinian'];
         $user->mother_occupation = $userInput['mother_occupation'];
         $user->mother_office_address = $userInput['mother_office_address'];
-
+        $user->activated = 1;
 
        
         

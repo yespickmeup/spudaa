@@ -58,7 +58,8 @@
                 <div class="title m-b-md">
                     Successfully Registered!<br>
                     <p style="font-size: 20px;">
-                        Check your email for the activation link &<br> kindly proceed to the admin office for account approval!
+                        kindly proceed to the admin office for account approval!
+                        <!-- Check your email for the activation link &<br> kindly proceed to the admin office for account approval! -->
                         
                     </p>
                    <a href="<?php echo e(route('signin')); ?>" class="btn btn-success btn-lg">OK</a>

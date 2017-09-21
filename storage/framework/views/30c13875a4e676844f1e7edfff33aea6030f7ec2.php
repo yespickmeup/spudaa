@@ -19,6 +19,7 @@ User Management
                     <th colspan="12"><input st-search="" class="form-control" placeholder="search" type="text"/></th>
                 </tr>
                 <tr>
+                    <th style="width: 100px;" st-sort="user.last_name">Photo</th>
                     <th style="width: 160px;" st-sort="user.last_name">Last Name</th>
                     <th style="width: 160px;" st-sort="user.first_name">First Name</th>
                     <th style="width: 100px;" st-sort="user.middle_name">Middle Name</th>
@@ -30,6 +31,9 @@ User Management
             </thead>
             <tbody>
                 <tr ng-repeat="user in displayedCollection">
+                    <td>
+                        <%user.image%>
+                    </td>
                     <td><%user.last_name%></td>
                     <td><%user.first_name%></td>
                     <td><%user.middle_name%></td>

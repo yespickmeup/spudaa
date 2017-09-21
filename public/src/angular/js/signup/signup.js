@@ -211,6 +211,8 @@ signupApp.controller('signupController', ['$scope', '$http', 'signupService', 'u
                 if($scope.photoFile != null){
                    extention = $scope.photoFile.name.split('.').pop(); 
                    $scope.user.image = extention;
+                }else{
+                     $scope.user.image='';
                 }
                 console.log('$scope.user.image: '+$scope.user.image);
 
