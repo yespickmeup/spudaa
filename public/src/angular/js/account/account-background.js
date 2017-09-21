@@ -241,8 +241,8 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 /*                                    $scope.spinner.off();*/
                             })
                             .error(function(data, status, headers, config) {
-                                console.log('data: ' + data);
-                                console.log('status: ' + status);
+//                               console.log('data: ' + data);
+             //                   console.log('status: ' + status);*/
         //                        $scope.spinner.off();
                             }); 
                         });
@@ -310,8 +310,8 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 //                        $scope.spinner.off();
                     })
                     .error(function(data, status, headers, config) {
-                        console.log('data: ' + data);
-                        console.log('status: ' + status);
+//                       console.log('data: ' + data);
+//                        console.log('status: ' + status);*/
 //                        $scope.spinner.off();
                     });
 
