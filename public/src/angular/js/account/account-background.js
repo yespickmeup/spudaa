@@ -198,11 +198,13 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
 
                                     var all = data['all'];
                                     var user = data['user'];
+                                    console.log('user: '+user);
                                     $scope.showUpdateAccountSuccess = true;
+                                    alert('Successfully Updated!');
                                     setTimeout(function() {
                                         $scope.$apply(function() {
                                             $scope.showUpdateAccountSuccess = false;
-                                            alert('Successfully Updated!');
+                                            
                                         });
                                     }, 500);
         //
