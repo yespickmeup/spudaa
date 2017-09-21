@@ -1,11 +1,8 @@
 /vendor
 /node_modules
 /public/storage
-<<<<<<< HEAD
 /public/src/images/users
-=======
 /public/src/images/user
->>>>>>> d3d2444978692dc74e90ac4f7312491a50981f9a
 Homestead.yaml
 Homestead.json
 .env
