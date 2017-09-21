@@ -19,6 +19,7 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
         accountApprovalService.getUsers().then(function (resp) {
             var majors = JSON.stringify(resp.data['users']);
             $.each(JSON.parse(majors), function (idx, obj) {
+/*                console.log('user: '+JSON.stringify(obj));*/
                 var data = {};
                 data.id = obj.id;
                 data.name = obj.name;
@@ -146,7 +147,29 @@ settingsApp.controller('accountApprovalController', ['$scope', '$http', 'account
             });
 
         };
+        $scope.infoAccount = function (my_user) {
 
+            $data = {
+                '_token': myToken,
+                'user': $scope.user,
+                'user_id': my_user.id
+
+            };
+
+            ModalService.showModal({
+                templateUrl: 'modalAccountInfo.html',
+                controller: "ModalAccountApprovallController2",
+                inputs: {
+                    title: 'my title',
+                    user : my_user
+                }
+            }).then(function (modal) {
+                modal.element.modal();
+                modal.close.then(function (result) {
+                });
+            });
+
+        };
     }]);
 
 settingsApp.controller('ModalAccountApprovallController2', function ($scope,close, title,user) {

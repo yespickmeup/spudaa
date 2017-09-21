@@ -32,7 +32,7 @@ class UserController extends Controller {
                 ->where('role_user.role_id', '=', '3')
                 ->orderBy('users.approved', 'asc')
                 ->select(
-                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active', 'users.image'
+                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active', 'users.image','users.student_no','users.civil_status','users.gender','users.date_of_birth','users.home_address','users.level','users.year','users.course','users.active'
                         , 'role_user.role_id'
                         , 'roles.name as role'
                 )
@@ -48,7 +48,7 @@ class UserController extends Controller {
                 ->join('roles', 'role_user.role_id', '=', 'roles.id')
                 ->orderBy('users.last_name', 'asc')
                 ->select(
-                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active', 'users.image'
+                        'users.id', 'users.name', 'users.email', 'users.activated', 'users.approved', 'users.first_name', 'users.middle_name', 'users.last_name', 'users.suffix_name', 'users.active', 'users.image','users.student_no','users.civil_status','users.gender','users.date_of_birth','users.home_address','users.level','users.year','users.course','users.active'
                         , 'role_user.role_id'
                         , 'roles.name as role'
                 )

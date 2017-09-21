@@ -32,7 +32,7 @@ Account Approval
             <tbody>
                 <tr ng-repeat="user in displayedCollection">
                     <td>
-                    <img class="img-circle" ng-src="<%user.image%>"  style="width: 50px;height: 50px;" >
+                    <img class="img-circle" ng-src="<%user.image%>"  style="width: 50px;height: 50px;" ng-click="infoAccount(user)">
                     </td>
                     <td><%user.last_name%></td>
                     <td><%user.first_name%></td>
@@ -122,6 +122,54 @@ Account Approval
     </script>
 
     <script type="text/ng-template" id="modalActivate.html">
+        <div class="modal ">
+            <div class="modal-dialog modal-sm type-danger">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                        <h5 class="modal-title">Confirm Activate!</h5>         
+                    </div>
+                    <div class="modal-body">
+                        <img class="img-circle" ng-src="<%user.image%>" onerror="this.src='../src/images/users/user2-160x160.jpg'" style="width: 100px;height: 100px;margin-left:75px;" >
+                        <br> <br>
+                        <label style="text-transform: capitalize;">Name:<%" "%><%user.first_name%><%" "%><%user.middle_name%><%" "%><%user.last_name%></label>
+                        <label >Email Address:<%" "%><%user.email%></label><br>
+                        <label >Student No.:<%" "%><%user.student_no%></label><br>
+                        <label >Civil Status:<%" "%><%user.civil_status%></label><br>
+                        <label >Gender:<%" "%><%user.gender%></label><br>
+                        <label >BirthDate:<%" "%><%user.date_of_birth%></label><br>
+                        <label >Home Address:<%" "%><%user.home_address%></label><br>
+                        <label >Level:<%" "%><%user.level%></label><br>
+                        <label >Year:<%" "%><%user.year%></label><br>
+                        <label >Course:<%" "%><%user.course%></label><br>
+    
+                        <div ng-if="user.activated == 1">
+                          <label>Activated? Yes</label> 
+                        </div>
+                        <div ng-if="user.activated == 0">
+                          <label>Activated?No</label> 
+                        </div>
+                        <div ng-if="user.approved == 1">
+                          <label>Approved? Yes</label> 
+                        </div>
+                        <div ng-if="user.approved == 0">
+                          <label>Approved?No</label> 
+                        </div>                     
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">
+                        No
+                        </button>
+                        <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">
+                        Yes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="modalAccountInfo.html">
         <div class="modal ">
             <div class="modal-dialog modal-sm type-danger">
                 <div class="modal-content">

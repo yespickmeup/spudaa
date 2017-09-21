@@ -9,6 +9,16 @@ var settingsApp = angular.module('settingsApp', ['angularSpinner', 'smart-table'
     $interpolateProvider.endSymbol('%>');
 });
 
+settingsApp.controller('ModalUserManagementController', function($scope, close, title, roles, my_roles,user) {
+    $scope.title = title;
+    $scope.roles = roles;
+    $scope.my_roles = my_roles;
+    $scope.user = user;
+    $scope.close = function(result) {
+        close(result, 500); // close, but give 500ms for bootstrap to animate
+    };
+});
+
 
 settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService','userManagementService', function($scope, $http, ModalService,userManagementService) {
         $scope.my_id = angular.element('#my_id').val();
@@ -20,11 +30,6 @@ settingsApp.controller('settingsController', ['$scope', '$http', 'ModalService',
         $scope.imageSourceBanner2 = '../src/AdminLTE/img/home/banner2.jpg';
         $scope.imageSourceBanner3 = '../src/AdminLTE/img/home/banner3.jpg';
         $scope.htmlEditor = '...';
-
-       
-
-
-       
 
         userManagementService.getUser($scope.my_id).then(function (resp) {
             var user = JSON.stringify(resp.data['user']);

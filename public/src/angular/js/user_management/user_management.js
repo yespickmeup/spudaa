@@ -11,6 +11,7 @@
 settingsApp.controller('userManagementController', ['$scope', '$http', 'userManagementService', 'ModalService', function($scope, $http, userManagementService, ModalService) {
 
 
+
         $scope.users = [];
         $scope.roles = [];
         $scope.country = {
@@ -35,7 +36,24 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
                 data.role_id = obj.role_id;
                 data.role = obj.role;
                 data.active = obj.active;
-                /*console.log('image: ' + obj.image);*/
+                data.status = obj.status;
+                data.student_no = obj.student_no;
+                data.civil_status =obj.civil_status;
+                data.gender = obj.gender;
+                data.date_of_birth =obj.date_of_birth;
+                data.home_address = obj.home_address;
+                data.level = obj.level;
+                data.year = obj.year;
+                data.course = obj.course;
+                data.active = obj.active;
+
+                var ext = obj.image;
+                if(ext==''){
+                    ext = 'user2-160x160.jpg';
+                }
+
+                data.image =photo+'/'+ext;
+               /* console.log('status: ' + obj.status);*/
                 $scope.users.push(data);
 
 
@@ -46,6 +64,10 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
             availableOptions: [],
             selectedOption: {"id": 3, "name": "user"}
         };
+
+
+
+
 
         userManagementService.getRoles().then(function(resp) {
             var roles = JSON.stringify(resp.data['roles']);
@@ -60,49 +82,7 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
         });
 
 
-        $active = 0;
-        $scope.changeActive = function(my_user) {
-
-            if (my_user.role_id === '1') {
-                return;
-            }
-            $active = (my_user.active === '1') ? 0 : 1;
-            $data = {
-                '_token': myToken,
-                'user': $scope.user,
-                'user_id': my_user.id,
-                'active': $active
-            };
-            ModalService.showModal({
-                templateUrl: 'changeRole.html',
-                controller: "ModalchangeRolelController",
-                inputs: {
-                    title: 'my title'
-                }
-            }).then(function(modal) {
-                modal.element.modal();
-                modal.close.then(function(result) {
-                    if (result === 'Yes') {
-                        $http.post('/api/active_account', $data)
-                                .success(function(data, status, headers, config) {
-                                    var user = data['user'];
-                                    my_user.active = '' + $active;
-
-                                    $scope.account_name = my_user.last_name + ', ' + my_user.first_name + ' ' + my_user.middle_name;
-                                    $scope.showUserManagementSuccess = true;
-                                    setTimeout(function() {
-                                        $scope.$apply(function() {
-                                            $scope.showUserManagementSuccess = false;
-                                        });
-                                    }, 1000);
-                                })
-                                .error(function(data, status, headers, config) {
-                                })
-                                ;
-                    }
-                });
-            });
-        };
+        /*Change Role*/
 
         $scope.changeRole = function(my_user) {
 
@@ -110,16 +90,16 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
 
             ModalService.showModal({
                 templateUrl: 'userManagement.html',
-                controller: "ModalUserManagementlController",
+                controller: "ModalUserManagementController",
                 inputs: {
                     title: 'my title',
                     roles: $scope.roles,
-                    my_roles: $scope.my_roles
+                    my_roles: $scope.my_roles,
+                    user: my_user
                 }
             }).then(function(modal) {
                 modal.element.modal();
                 modal.close.then(function(result) {
-
                     if (result === 'Yes') {
                         if (my_user.role_id !== $scope.my_roles.selectedOption.id) {
                             $data = {
@@ -128,51 +108,108 @@ settingsApp.controller('userManagementController', ['$scope', '$http', 'userMana
                                 'role_id': $scope.my_roles.selectedOption.id,
                                 'old_role': my_user.role_id
                             };
-//                            console.log('user_id: '+my_user.id);
-//                            console.log('role_id: '+$scope.my_roles.selectedOption.id);
-//                            console.log('old_role: '+my_user.role_id);
-                            $http.post('/api/change_role', $data)
-                                    .success(function(data, status, headers, config) {
+                            $http.post('/api/change_role', $data).success(function(data, status, headers, config) {
                                         var message = data['message'];
                                         my_user.role = $scope.my_roles.selectedOption.name;
-
-
                                         $scope.showUserManagementSuccess = true;
                                         setTimeout(function() {
                                             $scope.$apply(function() {
                                                 $scope.showUserManagementSuccess = false;
                                             });
                                         }, 1000);
-
-                                    })
-                                    .error(function(data, status, headers, config) {
-
-                                    })
-                                    ;
+                                    }).error(function(data, status, headers, config) {}) ;
                         }
-
                     }
                 });
             });
 
-
         };
 
+        /*End of Change Role*/
 
-    }]);
+        /*Account Info*/
+        $scope.infoAccount = function (my_user) {
 
-settingsApp.controller('ModalUserManagementlController', function($scope, close, title, roles, my_roles) {
-    $scope.title = title;
-    $scope.roles = roles;
-    $scope.my_roles = my_roles;
-    $scope.close = function(result) {
-        close(result, 500); // close, but give 500ms for bootstrap to animate
-    };
-});
-settingsApp.controller('ModalchangeRolelController', function($scope, close, title) {
-    $scope.title = title;
+            $data = {
+                '_token': myToken,
+                'user': $scope.user,
+                'user_id': my_user.id
 
-    $scope.close = function(result) {
-        close(result, 500); // close, but give 500ms for bootstrap to animate
-    };
-});
+            };
+
+            ModalService.showModal({
+                templateUrl: 'modalAccountInfo2.html',
+                controller: "ModalUserManagementController",
+                inputs: {
+                    title: 'my title',
+                    roles: $scope.roles,
+                    my_roles: $scope.my_roles,
+                    user: my_user
+                }
+            }).then(function (modal) {
+                modal.element.modal();
+                modal.close.then(function (result) {
+                });
+            });
+
+        };
+        /*End of Account Info*/
+
+
+
+        /*Change Active*/
+        $active = 0;
+        $scope.changeActive = function(my_user) {
+
+            if (my_user.role_id === '1') {
+                return;
+            }
+            $active = (my_user.active == 1) ? 0 : 1;
+
+
+            $data = {
+                '_token': myToken,
+                'user': $scope.user,
+                'user_id': my_user.id,
+                'active': $active,
+                 user: my_user
+            };
+
+            ModalService.showModal({
+                templateUrl: 'userManagement2.html',
+                controller: "ModalUserManagementController",
+                inputs: {
+                    title: 'my title',
+                    roles: $scope.roles,
+                    my_roles: $scope.my_roles,
+                    user: my_user
+                }
+            }).then(function(modal) {
+                modal.element.modal();
+                modal.close.then(function(result) {
+                    if (result === 'Yes') {
+                        $http.post('/api/active_account', $data).success(function(data, status, headers, config) {
+                                    var user = data['user'];
+                                    my_user.active = '' + $active;
+                                    $scope.account_name = my_user.last_name + ', ' + my_user.first_name + ' ' + my_user.middle_name;
+                                    $scope.showUserManagementSuccess = true;
+                                    my_user.active = $active;
+                                    setTimeout(function() {
+                                        $scope.$apply(function() {
+                                            $scope.showUserManagementSuccess = false;
+                                        });
+                                    }, 1000);
+                                }).error(function(data, status, headers, config) {}); 
+                    }
+                });
+            });
+        };
+        /*End of Change Active*/
+
+
+}]);
+
+
+
+
+
