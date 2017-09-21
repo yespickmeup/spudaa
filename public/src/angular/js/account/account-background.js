@@ -229,7 +229,7 @@ settingsApp.controller('accountBackgroundController', ['$scope', '$http', 'Modal
                                     $scope.showUpdateAccountSuccess = true;
                                     $scope.photoFile = photoFile1;
                                     $scope.photoFile.result = response.data;
-                                    /*alert('Successfully Updated!');*/
+                                    alert('Successfully Updated!');
 
                                     setTimeout(function() {
                                         $scope.$apply(function() {
